@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型两周突击线 Day 06 复盘课：从页面流、职责边界、API Contract、状态恢复到可运行 Mock 骨架。">
+  <title>Day 06｜Web 项目骨架复盘工作台｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260818-scrollspy-1">
+  <link rel="stylesheet" href="assets/day07-course.css?v=20260818-scrollspy-1">
+  <link rel="stylesheet" href="assets/day06-course.css?v=20260818-scrollspy-1">
+</head>
+<body class="day-later-course day07-course day06-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="index.html" aria-current="page">两周突击</a><a href="../B_十二周长期线/index.html">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero day06-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <p class="day06-eyebrow">Day 06 · 已完成课程复盘</p>
+          <h1>先把 Web 骨架跑稳，再让模型进入产品。</h1>
+          <p class="later-hero__lead">一个 URL 能打开，不代表产品状态正确；一个接口返回 200，也不代表业务合同成立。沿着同一个 AI 面试系统，你会重新串起 <strong>Page Flow → Responsibility → API Contract → State &amp; Recovery → Runnable Mock</strong>，把“会画架构图”变成“能判断哪里会坏、该由谁修”。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看完整判断链</a><a class="button button--quiet" href="#runnable-skeleton">复盘 Mock 骨架</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Day 06 复盘契约">
+          <div><dt>核心问题</dt><dd>怎样把产品规则装进安全、可恢复、可验证的 Web 骨架？</dd></div>
+          <div><dt>复盘方式</dt><dd>心智模型 · 误区边界 · 完整示范 · 开放式迁移</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>历史边界</dt><dd>复盘不会撤销 Day 06 掌握，也不会创建新 session 或评分</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" data-course-day-nav data-current-day="day-06" aria-label="课程日导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 Day 06 正式记录。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源，不反向修改历史掌握。</p></div><div class="later-cockpit__stamp"><span>Day 06 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式证据、当前主线与网页 / Codex 边界</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度"><li data-later-progress-stage="foundation"><span>Day 01–04</span><strong>产品基础与状态控制</strong><small data-later-stage-status="foundation">核对中…</small></li><li data-later-progress-stage="day05"><span>Day 05</span><strong>Rubric 与证据链</strong><small data-later-stage-status="day05">核对中…</small></li><li data-later-progress-stage="day06"><span>本页历史课程</span><strong>Day 06 · Web 项目骨架</strong><small data-later-stage-status="day06">核对中…</small></li><li data-later-progress-stage="current"><span>当前正式主线</span><strong>Day 07 · 模型 API 与报告</strong><small data-later-stage-status="current">核对中…</small></li></ol>
+          <div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>Day 06 证据</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>保留缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始 Day 06 复盘</a><a class="button button--quiet" href="day-07-model-api-final-report.html">返回 Day 07 主线</a></div></section></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>本次复盘进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">完整 Web 骨架判断链</a><a href="#page-flow" data-section-link="page-flow">路由为什么不是真相</a><a href="#responsibility" data-section-link="responsibility">Browser / Server / Model</a><a href="#api-contract" data-section-link="api-contract">API Contract</a><a href="#state-recovery" data-section-link="state-recovery">四层状态与恢复</a><a href="#runnable-skeleton" data-section-link="runnable-skeleton">可运行 Mock 骨架</a><a href="#transfer" data-section-link="transfer">综合 Web 骨架工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+          <p>这里记录的是本次页面复盘，不等于重新评测。Day 06 的历史掌握证据仍以正式状态源为准。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一条链：页面动作怎样变成可信的业务结果。</h2>
+            <p class="later-section__lead">把 Web 产品想成一家办事大厅：Page 是窗口，Browser 是用户手里的表格，Server Proxy 是核验与流转中心，API Contract 是双方共同签字的办事规则，Session 是业务档案。模型以后可以提供候选内容，但不能替代这套确定性骨架。</p>
+            <div class="learning-contract">
+              <article><strong>先问“事实在哪里”</strong><p>看到页面跳转、按钮禁用或 200 响应，先追问服务端保存的业务事实是否真的改变。</p></article>
+              <article><strong>再问“谁有权决定”</strong><p>Browser、Server、Model 和 Data 各自拥有不同输入、输出、秘密与写入权。</p></article>
+              <article><strong>最后问“失败后去哪”</strong><p>任何主链都要同时写出重复、超时、结构错误和刷新恢复后的合法下一步。</p></article>
+            </div>
+            <div class="system-journey day06-system-journey" aria-label="Web 骨架端到端心智模型"><article><strong>Page Action</strong><span>用户可见动作</span><p>提交设置、回答问题、刷新或重试。</p></article><i aria-hidden="true">→</i><article><strong>API Contract</strong><span>输入输出约定</span><p>定义字段、成功语义、错误码和恢复动作。</p></article><i aria-hidden="true">→</i><article><strong>Server Guard</strong><span>确定性裁决</span><p>核对 session、权限、request_id 和状态转换。</p></article><i aria-hidden="true">→</i><article><strong>State Projection</strong><span>页面诚实投影</span><p>服务端返回合法状态与路由，页面据此恢复。</p></article></div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>看完整链路</span><span>拆第一个误区</span><span>跟四步示范</span><span>换场景实操</span><span>留下理解笔记</span></div>
+            <div class="mistake-compare orientation-mistake"><article><strong>常见但危险的理解</strong><code>页面跳转成功 = 业务已经成功</code><p>它把可见界面、一次请求和持久业务事实混成了同一件事。</p></article><article><strong>可验证的判断链</strong><code>事实 → Contract → Guard → State → Page</code><p>先由服务端确认事实和合法状态，再让页面展示对应结果；失败时仍能从同一档案恢复。</p></article></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="page-flow" data-chapter-section data-learning-module="pageflow">
+            <header class="learning-module__head"><div><h2>页面 URL 对了，为什么仍不能直接展示结果？</h2><p class="later-section__lead">Page Flow 不是三张页面截图，而是“每个页面允许展示哪一种服务端事实”的协议。URL 只表达用户想去哪里，session 才回答他现在能去哪里。</p></div><strong data-module-status="pageflow">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>路由像办事大厅的门牌。你站到“领取结果”窗口，不代表档案已经审批完成；窗口仍要查档案，再决定给结果、带你回补材料，还是显示可恢复错误。</p></div><div><strong>它不等于什么</strong><p><code>/result/s-42</code> 不等于 <code>session.state=completed</code>。前进、后退、刷新和手输 URL 都不能反向改写业务状态。</p></div></div>
+            <div class="mistake-compare"><article><strong>错误方案</strong><code>if (location.includes("result")) renderReport()</code><p>只信任地址，任何人都可能绕过 Guard 看到过期、空白或不属于自己的结果。</p></article><article><strong>正确方案</strong><code>GET session → verify state → render or redirect</code><p>页面先读取服务端档案；只有状态、权限和资源身份都合法时才展示结果。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：直接打开结果页</strong><span>先定位第一个错误节点</span></div><p><b>现象：</b>用户把旧书签 <code>/result/s-42</code> 粘贴到新设备，但该 session 其实仍在 <code>interviewing</code>。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>URL 请求结果页；服务端 session 尚未完成。</span></li><li><strong>第一个错误节点</strong><span>如果按 URL 渲染报告，就让页面覆盖了业务事实。</span></li><li><strong>正确动作</strong><span>服务端返回当前状态与合法 <code>next_route=/interview/s-42</code>，页面解释并恢复到当前题。</span></li><li><strong>保持不变</strong><span>换成理赔、报销或签约，地址都只能投影服务端事实。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="pageflow"><fieldset><legend>理解检查：结果页能否相信自己的地址</legend><p>报销助手打开 <code>/result/r-19</code>，服务端却返回 <code>collecting_receipts</code>。第一步应该做什么？答错后可以看完整解析并重试。</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="render">先渲染空结果，再异步补数据</option><option value="verify_restore">服从服务端状态，解释原因并恢复到凭证收集页</option><option value="complete">把 session 改成 completed 以匹配 URL</option></select></label><label>我为什么这样判断（可选）<textarea name="pageflow_reason" rows="3" data-persist placeholder="例如：URL 只表示访问意图，不能创建业务事实。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="pageflow" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：售后工单的页面流</h3><p>一个工单有“补充材料、处理中、解决方案”三页。请写出每页的进入条件、服务端事实和状态不匹配时的恢复动作。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>按“用户想访问的路由 → 服务端当前状态 → Guard → 合法页面 → 给用户的解释”写。</p></details><form data-transfer-practice="pageflow"><label>我的页面流方案<textarea name="pageflow_transfer" rows="6" data-persist placeholder="当访问……服务端状态为……Guard 检查……合法页面是……状态不匹配时……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="pageflow" hidden><p>方案已记录。检查每个页面是否都由服务端事实决定。</p><button type="button" data-reveal-reference="pageflow" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="pageflow" hidden><p>补充材料页只投影 awaiting_material；处理中页只投影 processing；解决方案页要求 resolved。任何 URL 与状态不一致时都先返回服务端 current_state 和 next_route，保留 ticket_id，并把用户带回唯一合法页面，而不是修改工单状态迁就地址。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="pageflow"><h3>留下一个理解或疑问</h3><p>用一句话记录路由与业务状态的关系，或写下你仍不确定的刷新场景。</p><label>我的学习笔记<textarea name="pageflow_teachback" rows="3" data-persist placeholder="例如：我现在理解 URL 是……session 是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="pageflow" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="responsibility" data-chapter-section data-learning-module="responsibility">
+            <header class="learning-module__head"><div><h2>浏览器能调用接口，为什么不能保存 API Key 或决定状态？</h2><p class="later-section__lead">技术上“能做”不等于产品上“有权做”。Browser 是公开环境，Server Proxy 是可信控制面，Model 只提供概率性候选，Data 保存可恢复事实。</p></div><strong data-module-status="responsibility">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="四层职责边界"><article><h3>Browser</h3><strong>公开的交互层</strong><p>收集业务输入、显示加载与错误、保存当前标签页草稿。</p><small>不能拥有：Key、最终 session 写入权</small></article><article><h3>Server Proxy</h3><strong>可信的控制面</strong><p>读取环境变量，验证权限、Contract、Guard、幂等和超时。</p><small>必须返回：合法状态、路由与可操作错误</small></article><article><h3>Model</h3><strong>概率性候选层</strong><p>以后生成候选问题或分析，不决定权限、状态或正式发布。</p><small>Day 06：先用 Mock 替代</small></article><article><h3>Data &amp; Logs</h3><strong>可恢复事实层</strong><p>保存版本化 session 与最小审计字段，避免秘密和无界日志。</p><small>与前端临时 UI 状态分开</small></article></div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Browser 像大厅里的公开表格；Server 像有权限的柜台；Model 像受邀提供建议的顾问。公开表格不能保管保险柜钥匙，顾问也不能自己改档案。</p></div><div><strong>它不等于什么</strong><p>HTTPS 只保护传输，不会把 Browser 变成秘密环境；模型响应结构正确，也不会让 Model 获得写入权。</p></div></div>
+            <div class="mistake-compare"><article><strong>错误方案</strong><code>Browser stores Key → Model writes next_state</code><p>秘密和业务决策都离开了可信控制面。</p></article><article><strong>正确方案</strong><code>Browser → Server Guard → Mock / Model candidate → Validator → State</code><p>服务端守秘密、执行确定性规则，再返回可展示结果。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：前端环境变量里的 Key</strong><span>先止损，再重建边界</span></div><p><b>现象：</b>团队把 <code>MODEL_API_KEY</code> 写进前端构建变量，并说“用户看不到源代码”。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>前端资源会下载到设备，网络请求也可被检查。</span></li><li><strong>第一个错误节点</strong><span>秘密已经跨进公开的 Browser 边界。</span></li><li><strong>正确动作</strong><span>停止调用并轮换 Key；Browser 只发业务字段，Server 从环境变量读取 Key。</span></li><li><strong>保持不变</strong><span>任何供应商、任何客户端框架都不能改变秘密只留服务端的规则。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="responsibility"><fieldset><legend>理解检查：谁来决定合法下一步</legend><p>模型候选返回 <code>next_state=approved</code>，但服务端还缺权限校验。谁应该做最终决定？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="model">信任模型结构化字段并直接跳转</option><option value="browser">让 Browser 根据按钮来源决定</option><option value="server_guard">由 Server Proxy 校验权限和当前 session，再决定合法状态</option></select></label><label>我为什么这样判断（可选）<textarea name="responsibility_reason" rows="3" data-persist placeholder="例如：模型只能生成候选，最终写入权属于……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="responsibility" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：合同审查助手如何分权</h3><p>它需要上传合同、调用模型提取风险并保存人工确认。请写 Browser、Server、Model、Data 各自的输入、输出与禁止事项。</p><details class="learning-hint"><summary>需要提示时展开</summary><ul><li>先圈出秘密、权限和最终写入权。</li><li>再区分原合同、模型候选和人工确认。</li><li>最后写日志里明确不能保存什么。</li></ul></details><form data-transfer-practice="responsibility"><label>我的职责图<textarea name="responsibility_transfer" rows="6" data-persist placeholder="Browser 负责……Server 负责……Model 只……Data 保存……禁止……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="responsibility" hidden><p>职责图已记录。检查秘密、候选和最终写入权是否落在正确层。</p><button type="button" data-reveal-reference="responsibility" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="responsibility" hidden><p>Browser 上传业务文件并展示进度；Server 校验权限、文件、request_id 和 session，读取服务端 Key；Model 只返回风险候选；Data 保存原合同引用、候选版本与人工确认。日志只记必要 ID、耗时和错误码，不记录 Key 或无界合同全文。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="responsibility"><h3>留下一个理解或疑问</h3><p>记录一条“技术上能做但职责上不该做”的边界。</p><label>我的学习笔记<textarea name="responsibility_teachback" rows="3" data-persist placeholder="例如：Browser 能发送请求，但不应该……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="responsibility" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="api-contract" data-chapter-section data-learning-module="contract">
+            <header class="learning-module__head"><div><h2>接口返回 200，为什么仍可能破坏产品合同？</h2><p class="later-section__lead">API Contract 不只规定“请求能不能通”，还规定字段语义、允许状态、错误结构、幂等身份和恢复动作。HTTP 200 只是运输状态，不是业务正确证明。</p></div><strong data-module-status="contract">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Contract 像柜台的办事清单：交什么材料、成功后拿到什么、材料不全会收到哪个错误、能否原地补交，都要提前约定。</p></div><div><strong>它不等于什么</strong><p>它不是一份只列 URL 的接口目录，也不是“所有异常都返回 200 + message”。Schema 形状正确仍需业务语义校验。</p></div></div>
+            <div class="contract-anatomy" aria-label="API Contract 五个必要面"><article><span>Input</span><strong>允许字段与约束</strong><p>业务字段、资源身份、版本、request_id。</p></article><article><span>Success</span><strong>成功语义</strong><p>返回什么事实，是否真的发生写入。</p></article><article><span>Error</span><strong>稳定错误结构</strong><p>code、message、retryable、recovery_action。</p></article><article><span>State</span><strong>合法状态变化</strong><p>当前状态、Guard、next_state、next_route。</p></article><article><span>Idempotency</span><strong>重复请求语义</strong><p>同一 request_id 返回同一写入结果。</p></article></div>
+            <div class="mistake-compare"><article><strong>错误方案</strong><code>200 { "ok": true, "message": "failed" }</code><p>客户端无法区分成功事实、可重试故障和需要用户补资料的业务阻断。</p></article><article><strong>正确方案</strong><code>409 { code, retryable, recovery_action, current_state }</code><p>传输状态、业务错误和恢复动作保持一致且可编程。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：回答提交后题目没推进</strong><span>核对成功语义</span></div><p><b>现象：</b><code>POST /answers</code> 返回 200 和新题，但服务端没有保存原回答，也没有返回版本和 request_id。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>传输成功；持久写入与幂等证据缺失。</span></li><li><strong>第一个错误节点</strong><span>接口把“生成了下一题”误写成“回答提交成功”。</span></li><li><strong>正确动作</strong><span>先原子保存回答并绑定 request_id，再由 Guard 推进 session，返回版本化 session 与 next_route。</span></li><li><strong>保持不变</strong><span>所有写接口都要定义“成功到底写成了什么”，不能只看状态码。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="contract"><fieldset><legend>理解检查：200 + 错误消息算不算好合同</legend><p>上传接口对缺失文件返回 200，同时 body 写 <code>{message:"upload failed"}</code>。客户端下一步应该依赖什么？</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="message">解析自然语言 message 猜下一步</option><option value="success">把 200 当成功并进入结果页</option><option value="stable_error">要求稳定错误码、可重试标记、恢复动作与当前状态</option></select></label><label>我为什么这样判断（可选）<textarea name="contract_reason" rows="3" data-persist placeholder="例如：程序不能靠自然语言猜错误类型和恢复动作。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="contract" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：创建会议纪要任务</h3><p>设计 <code>POST /api/meeting-jobs</code> 的最小 Contract：请求、成功响应、重复提交、文件类型错误和转写超时。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>至少写 request_id、允许输入、job_id/state/version、两个稳定错误码，以及每个错误的 retryable 和 recovery_action。</p></details><form data-transfer-practice="contract"><label>我的 API Contract<textarea name="contract_transfer" rows="7" data-persist placeholder="request: …\nsuccess: …\nduplicate: …\ninvalid_file: …\ntimeout: …" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="contract" hidden><p>Contract 已记录。检查成功事实、错误类型和恢复动作是否都能被程序使用。</p><button type="button" data-reveal-reference="contract" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="contract" hidden><p>请求包含 request_id、file_ref、language；成功返回 job_id、state=queued、version、next_route。同一 request_id 重放同一 job。invalid_file 返回 422、retryable=false、recovery_action=replace_file；transcription_timeout 返回 503、retryable=true、recovery_action=retry_same_job，并保留当前 job_id。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="contract"><h3>留下一个理解或疑问</h3><p>记录 HTTP 成功、业务成功和可恢复失败之间的区别。</p><label>我的学习笔记<textarea name="contract_teachback" rows="3" data-persist placeholder="例如：200 只能说明……真正的业务成功还需要……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="contract" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="state-recovery" data-chapter-section data-learning-module="state">
+            <header class="learning-module__head"><div><h2>按钮禁用过了，为什么重复提交仍可能写两次？</h2><p class="later-section__lead">按钮禁用只管理当前页面的 Request State。刷新、双设备、网络重放和响应晚到都可能绕过它，所以 Session、Page、Request、Recovery 必须分层，服务端还要用 request_id 保证幂等。</p></div><strong data-module-status="state">0 / 2 步</strong></header>
+            <div class="state-layer-grid" aria-label="四层状态"><article><span>Session State</span><strong>业务事实</strong><p>服务端保存流程走到哪里、已经写入什么。</p></article><article><span>Page State</span><strong>可见投影</strong><p>页面和控件根据 session 显示，不反向造事实。</p></article><article><span>Request State</span><strong>单次请求</strong><p>idle、submitting、success、error 与晚到响应。</p></article><article><span>Recovery State</span><strong>失败出口</strong><p>保留什么、能否重试、从哪个事实恢复。</p></article></div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>禁用按钮像提醒眼前这个人“别再按”；request_id 像柜台受理号，保证同一件业务即使被重放，也只记一次账。</p></div><div><strong>它不等于什么</strong><p>loading 不是幂等，重新生成 UUID 也不是安全重试。恢复时必须保留原 session、原输入和同一个业务请求身份。</p></div></div>
+            <div class="mistake-compare"><article><strong>错误方案</strong><code>click → disable → retry with new UUID</code><p>页面重开或网络代理重放时仍会产生第二次写入。</p></article><article><strong>正确方案</strong><code>stable request_id → atomic write → replay same result</code><p>服务端把请求身份和写入结果绑定，同 ID 重试返回同一结果。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：提交超时后用户刷新</strong><span>先查事实，再决定重试</span></div><p><b>现象：</b>页面提交回答后超时，用户刷新；原请求可能已经写入，只是响应没回来。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>客户端不知道结果；服务端可能已写入。</span></li><li><strong>第一个错误节点</strong><span>若创建新 request_id 重新提交，就可能写两次。</span></li><li><strong>正确动作</strong><span>保留原 request_id 和草稿，先 GET session 或用同 ID 重试；服务端重放原结果。</span></li><li><strong>保持不变</strong><span>支付、工单、回答和审批写入都需要稳定身份与原子幂等。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="state"><fieldset><legend>理解检查：超时后怎样安全重试</legend><p>合同上传请求超时，Browser 不知道服务端是否已保存。下一步怎么做？</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="new_id">生成新 request_id 并再次上传</option><option value="same_id">保留原文件、session_id 和 request_id，核对或同 ID 重试</option><option value="clear">清空草稿，让用户重新开始</option></select></label><label>我为什么这样判断（可选）<textarea name="state_reason" rows="3" data-persist placeholder="例如：超时代表结果未知，不代表写入一定失败。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="state" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：理赔申请的恢复矩阵</h3><p>为“空输入、重复提交、超时、网络中断、Schema 失败”分别写事实保留、程序动作、用户反馈和合法下一步。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>不要把五种失败都写成“请重试”。先判断错误发生在输入、请求、写入还是响应，再决定是否保持同一 request_id。</p></details><form data-transfer-practice="state"><label>我的恢复矩阵<textarea name="state_transfer" rows="8" data-persist placeholder="空输入：……\n重复提交：……\n超时：……\n网络中断：……\nSchema 失败：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="state" hidden><p>恢复矩阵已记录。检查每条路径是否保留必要事实并给出唯一下一步。</p><button type="button" data-reveal-reference="state" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="state" hidden><p>空输入由前后端共同拦截且不创建写入；重复提交重放同 request_id 结果；超时和网络中断保留草稿、session_id、原 request_id 后核对；Schema 失败返回字段级 422，不推进 session。所有路径都展示明确 current_state 与 recovery_action。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="state"><h3>留下一个理解或疑问</h3><p>记录“页面防重复”和“服务端幂等”为什么是两层机制。</p><label>我的学习笔记<textarea name="state_teachback" rows="3" data-persist placeholder="例如：按钮禁用解决……request_id 解决……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="state" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="runnable-skeleton" data-chapter-section data-learning-module="mock">
+            <header class="learning-module__head"><div><h2>Mock 主链跑通，为什么仍不能说模型能力已经验证？</h2><p class="later-section__lead">Mock 的价值是先验证确定性骨架：页面流、Contract、Guard、幂等、错误和恢复。它故意替代概率性生成层，因此不能证明真实模型质量、延迟、成本或结构稳定性。</p></div><strong data-module-status="mock">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Mock 像消防演练里的烟雾机：它能验证报警、疏散和门禁是否工作，但不能证明真实火灾的温度和蔓延速度。</p></div><div><strong>它不等于什么</strong><p>三页能走通不等于模型已接入，固定 JSON 通过不等于 Provider 响应稳定，更不等于最终报告有真实证据。</p></div></div>
+            <div class="mock-skeleton" aria-label="最小可运行 Mock 骨架"><article><span>01</span><strong>Setup</strong><p>创建 session，返回唯一 id 与合法页面。</p></article><article><span>02</span><strong>Interview</strong><p>同 request_id 只保存一次，按 Guard 推进。</p></article><article><span>03</span><strong>Failure</strong><p>超时、网络和结构错误都有稳定恢复。</p></article><article><span>04</span><strong>Result</strong><p>只展示 completed session 的诚实 Mock 报告。</p></article></div>
+            <div class="mistake-compare"><article><strong>错误结论</strong><code>Mock demo passed → model ready</code><p>跳过了真实供应商认证、延迟、限流、Schema 漂移、Grounding 与降级验证。</p></article><article><strong>正确结论</strong><code>Deterministic skeleton passed → safe to integrate next layer</code><p>只证明产品骨架已具备接入真实生成层的可控边界。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：固定报告每次都成功</strong><span>写清验收范围</span></div><p><b>现象：</b>Mock 永远返回合法报告，团队宣称“模型接口已验收”。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>固定响应通过；没有真实 Provider 调用。</span></li><li><strong>第一个错误节点</strong><span>把骨架可运行证据扩大成模型能力证据。</span></li><li><strong>正确动作</strong><span>记录“页面、Contract、状态和恢复已验收”；把真实延迟、错误映射、结构校验和 Grounding 留给下一层。</span></li><li><strong>保持不变</strong><span>Mock 只能证明它覆盖的确定性范围，结论不能越过测试输入。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="mock"><fieldset><legend>理解检查：Mock 跑通后能发布什么结论</legend><p>Mock 服务已覆盖三页、幂等和超时恢复，但没有任何真实模型请求。哪个结论最诚实？</p><label>选择正确结论<select name="decision" required><option value="">请选择</option><option value="model_ready">模型质量与成本已经通过生产验证</option><option value="no_value">Mock 没有任何验收价值</option><option value="skeleton_ready">确定性 Web 骨架已可验收；真实模型层仍需单独接入和验证</option></select></label><label>我为什么这样判断（可选）<textarea name="mock_reason" rows="3" data-persist placeholder="例如：Mock 覆盖的是……尚未覆盖的是……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="mock" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：知识助手的 Mock 验收说明</h3><p>请为一个“提问 → 检索 → 回答”Mock 写验收范围、明确未验证项，以及未来接入真实模型时不可推翻的接口与状态边界。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>分三段写：“这次证明了”“这次没有证明”“真实接入时必须保持”。</p></details><form data-transfer-practice="mock"><label>我的 Mock 验收说明<textarea name="mock_transfer" rows="7" data-persist placeholder="已证明：……\n未证明：……\n真实接入时保持：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="mock" hidden><p>验收说明已记录。检查结论范围有没有超过测试证据。</p><button type="button" data-reveal-reference="mock" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="mock" hidden><p>已证明页面流、session 恢复、request_id 幂等、错误结构和空报告降级可运行；未证明真实检索召回、模型质量、延迟、成本与引用真实性；接入时保持现有 API Contract、服务端 Key、Guard、状态写入权和失败恢复，只替换受控候选生成层。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="mock"><h3>留下一个理解或疑问</h3><p>写清 Mock 最有价值的一项证据，以及它明确不能证明的一项能力。</p><label>我的学习笔记<textarea name="mock_teachback" rows="3" data-persist placeholder="例如：Mock 能证明……但不能证明……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="mock" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>综合 Web 骨架工作坊：修好一个 AI 合同签署助手。</h2>
+            <p class="later-section__lead">这不是闭卷考试。你可以回看五个模块和提示，目标是把分散规则连成一条可实现、可测试、失败后能恢复的产品链。</p>
+            <div class="challenge-brief"><p>当前方案：Browser 保存 Key；用户手输 <code>/signed/d-42</code> 就显示成功；上传接口始终返回 200；超时后生成新 request_id；Mock 固定返回“已签署”，团队据此准备上线真实模型。</p><strong>请从第一个风险点开始，重写 Page Flow、职责、Contract、状态恢复和 Mock 验收边界。</strong></div>
+            <details class="workshop-guide" open><summary>不知道从哪里开始时，按这五步走</summary><ol><li><strong>Page Flow</strong><span>地址与服务端签署状态不一致时，合法页面是什么？</span></li><li><strong>Responsibility</strong><span>Key、权限、候选与最终写入权分别属于谁？</span></li><li><strong>Contract</strong><span>成功、业务阻断和可重试故障分别返回什么？</span></li><li><strong>State &amp; Recovery</strong><span>超时后保留什么，如何避免重复写入？</span></li><li><strong>Mock Boundary</strong><span>当前证据能证明什么，真实接入还要验证什么？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的端到端骨架方案<textarea name="final_diagnosis" rows="12" data-persist placeholder="按五步写出：事实 → Contract → Guard → State → Page / Recovery，并注明 Mock 证据边界。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的方案是否覆盖</legend><label><input type="checkbox" name="final_check" value="pageflow"> Page Flow 服从服务端事实</label><label><input type="checkbox" name="final_check" value="responsibility"> Browser / Server / Model 职责边界</label><label><input type="checkbox" name="final_check" value="contract"> 成功、错误与恢复 Contract</label><label><input type="checkbox" name="final_check" value="state"> request_id 幂等与四层状态恢复</label><label><input type="checkbox" name="final_check" value="mock"> Mock 已验证 / 未验证范围</label></fieldset>
+              <button class="button" type="submit">保存工作坊方案</button><span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>工作坊方案已保存。</h3><p>网页只检查五个结构是否覆盖，不进行正式语义评分。现在可以对照示例，找出一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例架构</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>URL 只表达访问意图，signed 状态必须由服务端档案和权限 Guard 决定。</li><li>Browser 不保存 Key；Server 控制权限、Contract、幂等和状态；模型只提供受控候选。</li><li>成功返回版本化 session；业务阻断与可重试故障使用稳定 code、retryable、recovery_action。</li><li>超时保留文档、session_id 和原 request_id，先核对或同 ID 重试，服务端重放同一写入结果。</li><li>Mock 只证明确定性骨架；真实模型的延迟、结构、质量、成本和 Grounding 需要后续单独验证。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 Day 06 理解地图：把五层骨架连成一条判断链。</h2>
+            <p class="later-section__lead">它汇总你的学习笔记和工作坊方案，也允许保留疑问。这里不是标准答案，更不会覆盖正式掌握证据。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>事实是否在服务端</strong><span>我能否区分 URL、页面状态、请求状态和 session 事实？</span></div><div><strong>职责是否分开</strong><span>我是否知道秘密、候选、校验和最终写入分别属于谁？</span></div><div><strong>合同是否可编程</strong><span>成功、错误、幂等和恢复是否都有稳定语义？</span></div><div><strong>失败是否能恢复</strong><span>我是否写清保留什么、用哪个身份重试、最终去哪里？</span></div><div><strong>证据是否不过界</strong><span>我是否能诚实区分 Mock 已验证和未验证的范围？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>Day 06 已正式完成：本页只用于复盘。</h2><p class="later-section__lead" data-formal-handoff-summary>历史掌握证据保持不变。当前正式主线以状态源中的 Day 07 为准。</p>
+            <div class="handoff-grid"><div><span>本页复盘</span><strong>概念、误区、开放式迁移与理解地图</strong><small>只写当前标签页，不创建正式题目或评分。</small></div><div><span>当前主线</span><strong>Day 07 · 模型 API 与最终报告</strong><small>从最新正式状态继续，不重启 Day 06 会话。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="day-07-model-api-final-report.html" data-formal-handoff-primary>返回当前 Day 07 主线</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前正式学习接力</button><a class="button button--quiet" href="../../02_复盘总结/学习状态/03_测验记录/2026-08-14-两周突击线第6天-Web项目骨架.md">查看 Day 06 正式记录</a><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <noscript><div class="shell"><p class="source-note">Day 06 正式状态需要 JavaScript 读取只读快照；历史掌握仍以 <a href="../../02_复盘总结/学习状态/study-project.json">study-project.json</a> 为准。</p></div></noscript>
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Day 06 · Web Skeleton Review</span><span><a href="day-05-rubric-grounding-report.html">上一页：Day 05</a> · <a href="day-07-model-api-final-report.html">下一页：Day 07</a></span></div></footer>
+
+  <script type="application/json" data-later-config>
+  {
+    "page_id": "day06-web-project-skeleton",
+    "day_label": "Day 06",
+    "storage_key": "ai-pm-day06-course:v2",
+    "legacy_session_keys": ["ai-pm-day06-course-preview:v1"],
+    "legacy_keys": ["ai-pm-day06-course-preview:v1"],
+    "knowledge_anchor": "Page Flow → Responsibility → API Contract → State & Recovery → Runnable Mock",
+    "page_anchor": "day-06-web-project-skeleton.html#page-flow",
+    "module_order": ["pageflow", "responsibility", "contract", "state", "mock"],
+    "module_labels": {
+      "pageflow": "Page Flow 与服务端事实",
+      "responsibility": "Browser / Server / Model 职责",
+      "contract": "API Contract 与错误语义",
+      "state": "四层状态、幂等与恢复",
+      "mock": "可运行 Mock 与验收边界"
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script>
+  <script src="../../assets/study-state.js"></script>
+  <script src="../../assets/day-course-nav.js?v=20260818-scrollspy-1"></script>
+  <script src="../../assets/study-entry.js?v=20260818-scrollspy-1"></script>
+  <script src="assets/day06-course.js?v=20260818-scrollspy-1"></script>
+</body>
+</html>

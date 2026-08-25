@@ -1,0 +1,123 @@
+.concept-mechanism {
+  margin-top: 28px;
+  border: 1px solid var(--day04-line, var(--line));
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--day04-surface, var(--study-surface, #fff));
+}
+
+.concept-mechanism__steps {
+  display: grid;
+  grid-template-columns: repeat(var(--mechanism-columns, 4), minmax(0, 1fr));
+  gap: 1px;
+  background: var(--day04-line, var(--line));
+}
+
+.concept-mechanism__step {
+  min-width: 0;
+  padding: 16px;
+  color: var(--day04-copy, var(--ink-soft));
+  background: var(--day04-surface-soft, var(--study-surface-soft, #f5f7f7));
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.concept-mechanism__step:hover {
+  background: var(--day04-teal-soft, var(--mint));
+}
+
+.concept-mechanism__step:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid rgba(49, 78, 178, 0.28);
+  outline-offset: -3px;
+}
+
+.concept-mechanism__step.is-active {
+  color: #fff;
+  background: var(--day04-teal-strong, var(--study-dark));
+}
+
+.concept-mechanism__step span,
+.concept-mechanism__step strong {
+  display: block;
+}
+
+.concept-mechanism__step span {
+  color: var(--day04-cobalt, var(--cobalt-dark));
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.concept-mechanism__step.is-active span {
+  color: #b9eee5;
+}
+
+.concept-mechanism__step strong {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.concept-mechanism__detail {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+  gap: 28px;
+  padding: 22px;
+}
+
+.concept-mechanism__detail h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.concept-mechanism__detail p {
+  margin: 8px 0 0;
+  color: var(--day04-copy, var(--ink-soft));
+  line-height: 1.6;
+}
+
+.concept-mechanism__detail dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0;
+}
+
+.concept-mechanism__detail dl div {
+  padding-left: 12px;
+  border-left: 2px solid var(--day04-line-strong, var(--line-strong));
+}
+
+.concept-mechanism__detail dt {
+  color: var(--day04-muted, var(--muted));
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.concept-mechanism__detail dd {
+  margin: 5px 0 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .concept-mechanism__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .concept-mechanism__detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .concept-mechanism__steps,
+  .concept-mechanism__detail dl {
+    grid-template-columns: 1fr;
+  }
+}

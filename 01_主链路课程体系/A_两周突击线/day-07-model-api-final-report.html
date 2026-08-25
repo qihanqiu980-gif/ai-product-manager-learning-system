@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型两周突击线 Day 07：通过概念讲解、白话类比、错误方案、示例和动手实操，理解模型 API、Provider Adapter、失败恢复与 Grounded Final Report。">
+  <title>Day 07｜模型 API 与最终报告控制面｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260815-preview-1">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="assets/day07-course.css?v=20260815-scrollspy-3">
+</head>
+<body class="day-later-course day07-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="index.html" aria-current="page">两周突击</a><a href="../B_十二周长期线/index.html">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <h1>先看懂模型调用链，再动手把它接进产品。</h1>
+          <p class="later-hero__lead">今天不要求背术语，也不靠反复测试记忆来证明“学会了”。你会沿着同一个 AI 面试系统案例，先弄清 <strong>Browser、Server Proxy、Provider Adapter</strong> 各自是什么，再通过错误方案、运行示例和可查资料的实操理解五个控制机制。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看整条调用链</a><a class="button button--quiet" href="#concept-line">从 Browser / Server 开始</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Day 07 章节契约">
+          <div><dt>核心问题</dt><dd>怎样让概率性模型进入真实产品，同时由确定性程序守住安全、状态和证据边界？</dd></div>
+          <div><dt>学习方式</dt><dd>概念图景 · 白话解释 · 错误辨析 · 示例 · 实操</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实调用</dt><dd>本机无服务端 API Key；练习和 mock 不产生付费请求</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" data-course-day-nav data-current-day="day-07" aria-label="课程日导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对正式主线。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div><div class="later-cockpit__stamp"><span>Day 07 正式权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式状态、历史进度与网页 / Codex 接力说明</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度"><li data-later-progress-stage="foundation"><span>Day 01–04</span><strong>问题、选型、Prompt、Schema 与状态机</strong><small data-later-stage-status="foundation">核对中…</small></li><li data-later-progress-stage="day05"><span>Day 05</span><strong>Rubric 与证据链</strong><small data-later-stage-status="day05">核对中…</small></li><li data-later-progress-stage="day06"><span>Day 06</span><strong>独立 Web 项目骨架</strong><small data-later-stage-status="day06">核对中…</small></li><li data-later-progress-stage="current"><span>当前正式课程</span><strong>Day 07 · 模型 API 与报告</strong><small data-later-stage-status="current">核对中…</small></li></ol>
+          <div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>已通过范围</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>保留缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始概念学习</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><span data-formal-entry-status aria-live="polite"></span></div></section></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>课程学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">先看整条链路</a><a href="#concept-line" data-section-link="concept-line">Browser / Server / Adapter</a><a href="#mechanism" data-section-link="mechanism">候选与校验</a><a href="#responsibility" data-section-link="responsibility">重试与降级</a><a href="#flow-lab" data-section-link="flow-lab">Guard 与状态</a><a href="#e2e-lab" data-section-link="e2e-lab">报告与证据</a><a href="#transfer" data-section-link="transfer">端到端工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+          <p>这里记录的是课程活动，不等于正式评分或真正掌握。遇到不懂的地方可以随时回看解释和示例。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一张图：一次模型调用到底经过谁。</h2>
+            <p class="later-section__lead">把它想成一次“用户办业务”：浏览器是前台窗口，你自己的服务端是业务中台，Provider Adapter 是连接不同模型供应商的统一翻译层。先看懂各层职责，再进入术语和规则。</p>
+            <div class="learning-contract">
+              <article><strong>先讲概念，再出现术语</strong><p>每个英文名词都先回答“它是谁、在哪里、负责什么、不能做什么”。</p></article>
+              <article><strong>用错误方案建立边界</strong><p>不只给正确答案，还会说明常见方案为什么看起来合理、实际错在哪一层。</p></article>
+              <article><strong>带着资料做实操</strong><p>可以回看讲解、打开提示、修改答案。目标是形成正确心智模型，而不是测瞬时记忆。</p></article>
+            </div>
+            <div class="system-journey" aria-label="一次模型调用的基本链路"><article><strong>Browser</strong><span>用户眼前的网页</span><p>收集回答、展示状态。它是公开环境，不能保存模型密钥。</p></article><i aria-hidden="true">→</i><article><strong>Server Proxy</strong><span>你自己的服务端</span><p>核对会话、权限和业务字段，决定是否允许调用模型。</p></article><i aria-hidden="true">→</i><article><strong>Provider Adapter</strong><span>供应商翻译层</span><p>读取服务端密钥，把统一请求转换成不同模型 API 格式。</p></article><i aria-hidden="true">→</i><article><strong>Validator + Guard</strong><span>确定性裁决层</span><p>检查结构、证据和状态，决定候选能否成为产品动作。</p></article></div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>看懂图景</span><span>拆解误区</span><span>跟随示例</span><span>动手验证</span><span>记录疑问</span></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="concept-line" data-chapter-section data-learning-module="adapter">
+            <span id="key-lab" class="anchor-target" aria-hidden="true"></span>
+            <header class="learning-module__head"><div><h2>Browser、Server Proxy、Provider Adapter 到底分别是什么？</h2><p class="later-section__lead">先别急着记 Provider Adapter。先从你正在使用的网页开始，一层层看请求往哪里走、每层能看到什么、为什么模型密钥必须停在服务端。</p></div><strong data-module-status="adapter">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="三个核心概念的白话解释">
+              <article><h3>Browser</h3><strong>就是用户电脑或手机里的浏览器页面</strong><p>它负责收集输入、发送业务请求、展示结果。页面代码会下载到用户设备，所以任何写进前端的 Key 都可能被看到。</p><small>能看见：用户输入、页面状态、服务端返回结果</small><small>不能拥有：模型 API Key、最终业务写入权</small></article>
+              <article><h3>Server Proxy</h3><strong>就是你自己的后端接待台</strong><p>浏览器先把业务请求交给它。它核对登录、session、权限和字段，再决定是否调用模型，并把结果整理后返回页面。</p><small>能看见：会话、权限、允许的业务字段</small><small>负责：守密钥、记日志白名单、执行 Guard</small></article>
+              <article><h3>Provider Adapter</h3><strong>就是服务端里的“模型供应商翻译器”</strong><p>业务代码只说“分析这段回答”，Adapter 再把它翻译成 OpenAI、Claude 或其他供应商各自需要的请求格式。</p><small>能看见：统一模型请求、供应商响应、环境变量中的 Key</small><small>负责：认证、格式转换、错误归一化、mock / live 切换</small></article>
+            </div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>不要让每个页面自己认识不同模型 API。统一由服务端适配层处理供应商差异，业务流程只接收一种经过整理的候选格式。</p></div><div><strong>它不等于什么</strong><p>它不是一段更复杂的 Prompt，也不是让模型获得业务写入权。它首先是一道服务端信任边界。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来省事，但错误</strong><code>Browser → 模型供应商</code><p>前端直接带 Key 调模型。即使使用 HTTPS，用户仍能在页面代码、网络面板或调试工具里读到 Key。</p></article><article><strong>正确的产品链路</strong><code>Browser → Server Proxy → Provider Adapter → 模型供应商</code><p>Browser 只发送业务字段；自己的服务端持有秘密并先做权限、状态和输入检查。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：AI 面试系统</strong><span>先看判断过程</span></div><p><b>错误方案：</b>研发把 <code>MODEL_API_KEY</code> 放进前端构建变量，让浏览器直接调用模型。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>前端资源会被下载，构建变量不能保护秘密。</span></li><li><strong>第一个错误节点</strong><span>密钥进入 Browser，信任边界已经被穿透。</span></li><li><strong>正确动作</strong><span>停止调用并轮换密钥；浏览器改为调用 Server Proxy。</span></li><li><strong>保持不变</strong><span>换成客服或销售助手，密钥仍只能由服务端读取。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="adapter">
+              <fieldset><legend>理解检查：HTTPS 能不能保护前端里的 Key？</legend><p>AI 客服页面准备上线，工程师提议把 Key 放进请求体，并承诺“HTTPS 会保护它”。第一步应该做什么？答错也会直接看到完整解释，可以修改后再试。</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="prompt">继续调用，只在 Prompt 中提醒模型不要泄露</option><option value="stop_rotate">停止调用、轮换密钥，并把模型调用移到服务端</option><option value="log">先记录完整请求，确认是否真的泄露</option></select></label><label>我为什么这样判断（可选）<textarea name="adapter_reason" rows="3" data-persist placeholder="例如：HTTPS 保护的是传输过程，但 Browser 本身仍能读取请求内容。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset>
+              <div class="learning-feedback" data-guided-feedback="adapter" hidden aria-live="polite"></div>
+            </form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：会议纪要助手如何调用模型</h3><p>会议纪要助手需要同时支持 mock 和 live 模式。你可以回看上面的三层解释，设计它们各自能看到什么，以及缺少 Key 时产品如何继续可用。</p><details class="learning-hint"><summary>需要提示时展开</summary><ul><li>先列出 Browser 发送的业务字段，不要包含秘密。</li><li>再写 Server Proxy 要核对的 session、权限和日志白名单。</li><li>最后说明 Adapter 在 mock / live 下分别做什么。</li></ul></details><form data-transfer-practice="adapter"><label>我的调用链方案<textarea name="adapter_transfer" rows="6" data-persist placeholder="Browser 发送……Server Proxy 核对……Provider Adapter 在 live 时……缺少 Key 时……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="adapter" hidden><p>方案已记录。现在可以对照示例，找出一处可以补得更具体的职责边界。</p><button type="button" data-reveal-reference="adapter" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="adapter" hidden><p>Browser 只发送会议业务字段；Server Proxy 持有会话、日志白名单和调用权限；Provider Adapter 只在 live 模式读取环境变量。缺少 Key 时切换到可校验的 mock 或安全降级，不把秘密转移到前端。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="adapter"><h3>留下一个理解或疑问</h3><p>不用把课程重新讲一遍。写下一句你刚刚真正弄明白的内容，或一个还没想通的问题，方便后面继续学习。</p><label>我的学习笔记<textarea name="adapter_teachback" rows="3" data-persist placeholder="例如：我现在理解 Server Proxy 和 Provider Adapter 的区别是…… / 我仍不明白……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="adapter" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="mechanism" data-chapter-section data-learning-module="candidate">
+            <span id="structure-lab" class="anchor-target" aria-hidden="true"></span>
+            <header class="learning-module__head"><div><h2>模型为什么只能给“候选”，不能直接批准业务动作？</h2><p class="later-section__lead">严格 JSON 只证明机器能够读懂这份输出，不证明其中的价格、引用、权限或状态是真的。这个模块要建立“模型提建议，程序做裁决”的边界。</p></div><strong data-module-status="candidate">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>模型像提交方案的实习生；Validator 像审核人。实习生可以写候选分数和追问，但审核人必须逐项检查后才决定是否采用。</p></div><div><strong>它不等于什么</strong><p><code>strict: true</code> 不等于业务正确。Schema 也不能验证引用是否真的来自当前回答，更不能替代权限和状态 Guard。</p></div></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：模型返回 next_state</strong><span>识别越权字段</span></div><p><b>候选输出：</b>结构完全合法，同时包含 <code>next_state: "completed"</code>，但当前还剩两道基础题。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>JSON 可解析；业务题目尚未完成。</span></li><li><strong>第一个错误节点</strong><span>模型候选试图决定 session 状态。</span></li><li><strong>正确动作</strong><span>忽略越权字段，校验允许字段，由程序读取题目队列并决定下一步。</span></li><li><strong>保持不变</strong><span>所有产品中，模型输出都只能是候选，不能拥有最终写入权。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="candidate"><fieldset><legend>理解检查：JSON 合法之后还缺什么</legend><p>模型返回合法结构：分数为 3，引用文本却没有出现在用户原回答中，同时建议直接完成 session。答完会显示每一步校验为什么存在。</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="accept">结构合法，直接采用分数和完成状态</option><option value="validate_reject">拒绝分数与状态建议，保留原回答并进入确定性校验或降级</option><option value="human_all">把全部判断交给人工，不再做程序校验</option></select></label><label>我为什么这样判断（可选）<textarea name="candidate_reason" rows="3" data-persist placeholder="可以分别想一想：引用哪里越界，状态又由谁决定。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="candidate" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：销售话术助手的校验链</h3><p>模型生成一段候选报价话术，并给出 <code>approved=true</code>。请区分哪些内容可以作为候选，哪些事实必须由程序或业务系统核对。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>把字段分成三篮：模型可生成的内容、程序可校验的格式、业务系统才知道的事实与权限。</p></details><form data-transfer-practice="candidate"><label>我的校验链<textarea name="candidate_transfer" rows="6" data-persist placeholder="候选可保留……Schema 检查……业务系统核对……最终由程序……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="candidate" hidden><p>方案已记录。先核对自己是否把“候选内容”和“业务批准”分开。</p><button type="button" data-reveal-reference="candidate" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="candidate" hidden><p>可以保留候选话术、摘要和风险提示；价格、折扣权限、客户事实与 approved 状态必须来自业务系统和确定性规则。候选通过类型、范围和事实校验后，程序才决定展示、重写或阻断。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="candidate"><h3>留下一个理解或疑问</h3><p>不用重新背定义。记录“结构正确”和“业务正确”之间你现在能分清的一点，或仍然模糊的地方。</p><label>我的学习笔记<textarea name="candidate_teachback" rows="3" data-persist placeholder="例如：Schema 能检查……但不能判断……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="candidate" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="responsibility" data-chapter-section data-learning-module="retry">
+            <span id="retry-lab" class="anchor-target" aria-hidden="true"></span>
+            <header class="learning-module__head"><div><h2>模型调用失败时，为什么不能一直重试到成功？</h2><p class="later-section__lead">超时、429、网络、空输出和 Schema 失败看起来都像“再试一次”就行，但真实产品还要控制重复扣费、重复写入、等待时间和用户原始数据。</p></div><strong data-module-status="retry">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>重试像重新刷一次门禁，不是一直撞门。系统必须知道已经试了几次、是否可能重复写入、什么时候停止并走备用路线。</p></div><div><strong>它不等于什么</strong><p>安全降级不等于假装成功，也不等于清空用户输入。它要保留事实、披露限制，并阻止无证据分数或追问。</p></div></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：连续 429</strong><span>先保住原业务请求</span></div><p><b>现象：</b>第一次调用返回 429，一次修复性重试仍失败。用户回答已经在服务端收到。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>Provider 不可用，不代表用户回答无效。</span></li><li><strong>第一个错误节点</strong><span>继续无限重试会放大成本、延迟和重复副作用。</span></li><li><strong>正确动作</strong><span>停止调用，保留 answer 与 request_id；写入 score=null 的降级对象。</span></li><li><strong>保持不变</strong><span>换任何业务，都要固定重试上限并设计可恢复的降级状态。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="retry"><fieldset><legend>理解检查：达到重试上限后怎么办</legend><p>面试回答已提交，模型连续超时并达到一次重试上限。页面还可以继续完成剩余基础题。</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="retry_forever">后台持续重试，直到得到完整评分</option><option value="discard">删除本轮回答，要求用户重新回答</option><option value="degrade">保留回答与 request_id，停止模型调用，以 score=null 的降级对象继续有限流程</option></select></label><label>我为什么这样判断（可选）<textarea name="retry_reason" rows="3" data-persist placeholder="可以从成本、重复副作用、原回答和结果诚实性来想。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="retry" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：OCR 超时后的恢复链</h3><p>用户已经上传报销凭证，OCR 模型持续超时。请设计一条不会重复扣费、不会丢文件、也不会伪造识别结果的恢复链。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>依次回答五件事：保留什么、用什么稳定身份重试、最多几次、失败后页面显示什么、用户怎样从原 session 恢复。</p></details><form data-transfer-practice="retry"><label>我的恢复链<textarea name="retry_transfer" rows="6" data-persist placeholder="保留原文件和……使用稳定 request_id……达到上限后……页面显示……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="retry" hidden><p>方案已记录。检查恢复链是否同时处理了成本、幂等、原始输入和结果诚实性。</p><button type="button" data-reveal-reference="retry" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="retry" hidden><p>保留原文件、session_id 与稳定 request_id；只做固定次数重试；达到上限后停止 OCR 调用，状态标记为待人工确认或部分可用，不生成虚假字段，并允许用户稍后从同一 session 恢复。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="retry"><h3>留下一个理解或疑问</h3><p>记录你对“重试”和“降级”的新理解，或一个仍然拿不准的停止条件。</p><label>我的学习笔记<textarea name="retry_teachback" rows="3" data-persist placeholder="例如：降级不是失败后随便返回默认值，而是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="retry" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="flow-lab" data-chapter-section data-learning-module="flow">
+            <header class="learning-module__head"><div><h2>Guard 是什么？为什么模型说“下一步”不代表产品就能执行？</h2><p class="later-section__lead">Guard 可以理解为动作发生前的门卫规则：它核对当前题、权限、次数、request_id 和 session 状态，条件不满足就阻止动作。</p></div><strong data-module-status="flow">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>模型像提出“我还想问一句”的面试官，Guard 像流程主持人：它要确认时间、题目和次数都允许，才把问题交给用户。</p></div><div><strong>它不等于什么</strong><p><code>follow_up.needed=true</code> 不是动作命令。追问候选仍要服从状态机，模型也不能自行宣布 session 完成。</p></div></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：追问额度已用完</strong><span>候选不自动变成页面动作</span></div><p><b>现象：</b>模型提出一个有价值的追问，但当前题已经使用过唯一追问额度。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>候选追问相关；follow_ups_used 已等于 max_follow_ups。</span></li><li><strong>第一个错误节点</strong><span>若直接展示，会违反确定性停止条件。</span></li><li><strong>正确动作</strong><span>阻断追问，由程序选择下一基础题或完成流程。</span></li><li><strong>保持不变</strong><span>所有动态生成动作都必须经过业务额度、权限和状态 Guard。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="flow"><fieldset><legend>理解检查：旧题的追问还能不能展示</legend><p>模型建议追问，但请求携带的是旧 question_id；当前 session 已经进入下一道基础题。</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="show">追问内容有价值，直接展示</option><option value="block_stale">Session Guard 阻断旧题追问，保持当前题和状态不变</option><option value="restart">创建新 session，从第一题重新开始</option></select></label><label>我为什么这样判断（可选）<textarea name="flow_reason" rows="3" data-persist placeholder="可以想一想：内容有价值和动作仍然有效，是不是一回事。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="flow" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：理赔资料助手的状态推进</h3><p>模型建议直接进入“赔付决定”，但服务端 session 仍缺少身份材料。请设计候选建议、Guard、页面路由和 session 状态之间的关系。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写服务端的真实状态，再写模型建议；随后写 Guard 检查、阻断结果，以及页面最终应该展示什么。</p></details><form data-transfer-practice="flow"><label>我的状态链<textarea name="flow_transfer" rows="6" data-persist placeholder="服务端 session 是……模型候选是……Guard 检查……页面继续显示……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="flow" hidden><p>方案已记录。检查是否把服务端 session 放在页面和模型建议的上游。</p><button type="button" data-reveal-reference="flow" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="flow" hidden><p>模型只能生成“进入赔付决定”的候选；Server Proxy 依据缺失材料和当前 session 执行 Guard，阻断该动作。session 保持 collecting_documents，页面继续投影补充材料状态，不能靠地址或候选字段反向改写业务事实。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="flow"><h3>留下一个理解或疑问</h3><p>记录 Guard、Action 和 Next State 之间你刚刚弄清的一层关系。</p><label>我的学习笔记<textarea name="flow_teachback" rows="3" data-persist placeholder="例如：模型可以建议 action，但只有 Guard 通过后……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="flow" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="e2e-lab" data-chapter-section data-learning-module="report">
+            <header class="learning-module__head"><div><h2>Grounded Report 是什么？为什么“总结得合理”仍然不够？</h2><p class="later-section__lead">Grounded 的意思是“有可回放的依据”。每个非空分数和 claim 都要能回到 question_id、answer_id 和逐字 quote；没有证据时必须明确保留空值和限制。</p></div><strong data-module-status="report">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>最终报告像一份可复核的评审记录：读者不仅看到结论，还能点回原问题、原回答和支撑结论的那句话。</p></div><div><strong>它不等于什么</strong><p>语义相近的改写、模型自信度和流畅摘要都不能替代逐字证据。“没有观察到”也不能写成“用户没有能力”。</p></div></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：摘要多说了一个结论</strong><span>让报告停在证据边界</span></div><p><b>原回答：</b>“我会先核对服务端 session，再决定是否重试。”模型摘要却写成“用户完整掌握幂等与恢复”。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>原话支持服务端事实优先，不完整支持“掌握幂等”。</span></li><li><strong>第一个错误节点</strong><span>claim 超出了逐字 quote 的范围。</span></li><li><strong>正确动作</strong><span>缩小 claim 或令对应 score=null；报告标记 partial 并写入 limitation。</span></li><li><strong>保持不变</strong><span>换任何评审场景，结论范围都不能超过可回放证据。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="report"><fieldset><legend>理解检查：没有逐字引用时如何发布</legend><p>模型给出高质量摘要和 3 分，但 evidence_quote 只是对用户回答的合理改写，不是逐字子串。</p><label>选择正确处理<select name="decision" required><option value="">请选择</option><option value="publish">摘要语义一致，可以发布 3 分</option><option value="null_partial">不发布该分数；保留可验证部分，score=null 并披露 evidence_status</option><option value="delete_answer">删除原回答，要求用户重新作答</option></select></label><label>我为什么这样判断（可选）<textarea name="report_reason" rows="3" data-persist placeholder="可以想一想：语义相近为什么仍可能扩大原意。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="report" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：知识助手的证据链</h3><p>知识助手引用了一段政策原文，却在答案里增加了原文没有的适用对象。请设计 claim、quote、citation 和 limitation 的处理方式。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先圈出原文直接支持的范围，再标出模型新增的范围；对不能核实的部分选择删除、缩小或明确写 limitation。</p></details><form data-transfer-practice="report"><label>我的证据链<textarea name="report_transfer" rows="6" data-persist placeholder="可发布的 claim 是……绑定的 quote/citation 是……新增范围需要……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="report" hidden><p>方案已记录。核对 claim 是否严格小于等于 quote 能支持的范围。</p><button type="button" data-reveal-reference="report" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="report" hidden><p>保留政策原文能够直接支撑的 claim，并绑定 source、chunk、citation 和逐字 quote；删除或改写新增适用对象。如果当前无法核实该范围，答案明确写 limitation，而不是用模型推断补齐。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="report"><h3>留下一个理解或疑问</h3><p>记录你对 claim、quote 和 limitation 的新理解，或一个仍然不确定的证据边界。</p><label>我的学习笔记<textarea name="report_teachback" rows="3" data-persist placeholder="例如：citation 只能告诉我来源位置，真正支撑 claim 的还需要……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="report" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>端到端工作坊：带着前面的资料，修好一个 AI 招聘产品。</h2>
+            <p class="later-section__lead">这不是记忆测试。你可以回看任意模块、打开提示并修改方案。目标是把五个零散概念连接成一条真正能工作的产品链路。</p>
+            <div class="challenge-brief"><p>团队提出：浏览器保存模型 Key；模型返回 <code>approved</code> 后直接推进候选人状态；Schema 失败就无限重试；最终报告引用模型摘要，不保存原简历片段。</p><strong>请把这套错误架构改成：秘密留在服务端、候选经过校验、失败可恢复、状态由 Guard 控制、报告可回放证据。</strong></div>
+            <details class="workshop-guide" open><summary>工作坊路线：不知道从哪里开始时按这五步走</summary><ol><li><strong>入口</strong><span>Browser 只发送哪些业务字段？Key 放在哪里？</span></li><li><strong>候选</strong><span>模型可以生成什么？哪些事实与批准状态不能生成？</span></li><li><strong>失败</strong><span>哪些错误可重试？上限是什么？失败后保留什么？</span></li><li><strong>状态</strong><span>谁执行 Guard？候选怎样变成合法 Action？</span></li><li><strong>证据</strong><span>报告如何从 claim 回到原简历片段与逐字 quote？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的端到端方案<textarea name="final_diagnosis" rows="12" data-persist placeholder="可以按工作坊路线逐步写：Browser / Server / Adapter → Validator → Retry / Degrade → Guard / State → Grounded Report。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的方案是否覆盖</legend><label><input type="checkbox" name="final_check" value="fact"> 已指出现有架构的第一个风险点</label><label><input type="checkbox" name="final_check" value="adapter"> 服务端密钥与 Provider Adapter</label><label><input type="checkbox" name="final_check" value="validation"> 候选校验与最终写入权</label><label><input type="checkbox" name="final_check" value="recovery"> 有限重试、降级和状态恢复</label><label><input type="checkbox" name="final_check" value="evidence"> 报告证据链与可回放依据</label></fieldset>
+              <button class="button" type="submit">保存工作坊方案</button>
+              <span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>工作坊方案已保存。</h3><p>网页只检查是否覆盖关键环节，不代替正式语义评分。现在可以对照示例架构，挑一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例架构</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>第一错误节点是秘密进入 Browser，必须停止并轮换。</li><li>模型输出只作为候选，approved 和状态由业务系统与 Guard 决定。</li><li>Schema 或调用失败只能有限重试，之后保留输入并安全降级。</li><li>页面投影服务端 session，不能由模型字段直接跳转。</li><li>报告必须保留可回放的原始片段与逐字引用；证据不足时保持 null 和 limitation。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 Day 07 理解地图：把笔记、疑问和工作坊方案放在一起。</h2>
+            <p class="later-section__lead">这里汇总的是你的学习痕迹，不是标准答案。你可以边看课程边补充，让它逐渐变成一份真正属于自己的项目决策说明。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>概念有没有落地</strong><span>我能否用具体产品链路说明这个机制在哪里工作？</span></div><div><strong>误区有没有拆开</strong><span>我是否知道错误方案为什么看似合理、实际错在哪一层？</span></div><div><strong>职责有没有分开</strong><span>我是否分清谁生成候选、谁校验、谁决定和谁展示？</span></div><div><strong>失败有没有出口</strong><span>我是否写出保留什么、何时停止，以及用户下一步看到什么？</span></div><div><strong>还有什么不懂</strong><span>我是否留下了具体疑问，方便下一轮课程继续解释和验证？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>正式学习接力：网页课程完成后，仍需另行启动正式评测。</h2><p class="later-section__lead" data-formal-handoff-summary>概念解释、错误辨析、场景方案、端到端工作坊和理解地图都属于网页学习。完成页面内四项能力活动后，再回到 Codex 明确发送“启动 Day 07 正式评测”。</p>
+            <div class="handoff-grid"><div><span>网页</span><strong>概念讲解、错误辨析与带提示实操</strong><small>支持理解和吸收，不生成正式分数。</small></div><div><span>Codex</span><strong>正式单题与证据回写</strong><small>课程学习之后再验证，不用页面进度冒充掌握。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>继续课程学习</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Day 07 · Model API Control Plane</span><span><a href="day-06-web-project-skeleton.html">上一页：Day 06</a> · <a href="index.html">返回两周突击线</a></span></div></footer>
+  <script type="application/json" data-later-config>
+  {
+    "page_id": "day07-model-api-final-report",
+    "day_label": "Day 07",
+    "storage_key": "ai-pm-day07-course:v2",
+    "legacy_session_keys": ["ai-pm-day07-course:v1"],
+    "legacy_keys": ["ai-pm-day07-course-preview:v1"],
+    "knowledge_anchor": "Provider Adapter → Structured Candidate → Guarded Flow → Grounded Final Report",
+    "page_anchor": "day-07-model-api-final-report.html#concept-line",
+    "module_order": ["adapter", "candidate", "retry", "flow", "report"],
+    "module_labels": {
+      "adapter": "Provider Adapter 与密钥边界",
+      "candidate": "模型候选与确定性校验",
+      "retry": "有限重试与安全降级",
+      "flow": "Guard、动态追问与状态推进",
+      "report": "Grounded Final Report 与证据链"
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script><script src="../../assets/study-state.js"></script><script src="../../assets/day-course-nav.js?v=20260815-direct-preview-1"></script><script src="../../assets/study-entry.js?v=20260815-entry-dismiss-1"></script><script src="../../assets/concept-mechanism.js"></script><script src="assets/day07-course.js?v=20260815-scrollspy-3"></script>
+</body>
+</html>

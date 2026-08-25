@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型十二周长期线 Week 06：用白话理解 Eval Set、Golden Set、人工评测、LLM-as-a-Judge、基线和评测报告。">
+  <title>Week 06｜Eval Set 与 LLM-as-a-Judge｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260823-week06">
+</head>
+<body class="day-later-course week06-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html">主链路</a>
+        <a href="../A_两周突击线/index.html">两周突击</a>
+        <a href="index.html" aria-current="page">十二周长期</a>
+        <a href="../../02_复盘总结/index.html">复盘总结</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <h1>先建一套可复测样本，再判断模型是不是真的变好。</h1>
+          <p class="later-hero__lead">Week 06 把“评测一下效果”拆成可执行产品链：评测集覆盖哪些真实任务，金标答案由谁确认，先和什么基线比，人工评审怎样保持一致，LLM-as-a-Judge 能帮什么、不能替谁裁决，最后报告怎样支持上线或回滚。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看评测链路</a><a class="button button--quiet" href="#evalset">从 Eval Set 开始</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Week 06 章节契约">
+          <div><dt>核心问题</dt><dd>AI 产品上线前，怎样用评测集判断它真的变好了，而不是只在几个 demo 上看起来更好？</dd></div>
+          <div><dt>学习方式</dt><dd>心智模型 · 白话解释 · 错误辨析 · 示例 · 开放式评测方案</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页不运行真实模型评测、不写评测结果或掌握证据；只保存当前标签页草稿</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" aria-label="十二周长期线课程导航">
+        <a href="index.html"><span class="day-switcher__day">总览</span><span class="day-switcher__copy"><strong>十二周长期线</strong><small>路线总览</small></span></a>
+        <a href="week-04-adaptive-interview-state.html"><span class="day-switcher__day">W4</span><span class="day-switcher__copy"><strong>自适应面试与状态机</strong><small>前置课程页</small></span></a>
+        <a href="week-05-evidence-rubric-scoring.html"><span class="day-switcher__day">W5</span><span class="day-switcher__copy"><strong>证据驱动评分与 Rubric</strong><small>上一课程页</small></span></a>
+        <a href="week-06-eval-set-judge.html" aria-current="page"><span class="day-switcher__day">W6</span><span class="day-switcher__copy"><strong>Eval Set 与 Judge</strong><small>当前课程页</small></span></a>
+        <a href="week-07-badcase-regression.html"><span class="day-switcher__day">W7</span><span class="day-switcher__copy"><strong>Badcase 修复与回归</strong><small>下一课程页</small></span></a>
+      </nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head">
+          <div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W6 评测设计边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div>
+          <div class="later-cockpit__stamp"><span>W6 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div>
+        </header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式状态、课程承接与网页 / Codex 边界</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度">
+            <li data-later-progress-stage="foundation"><span>承接资产</span><strong>两周突击线与长期线基础</strong><small data-later-stage-status="foundation">核对中…</small></li>
+            <li data-later-progress-stage="week01"><span>前置输入</span><strong>Week 04 自适应流程</strong><small data-later-stage-status="week01">核对中…</small></li>
+            <li data-later-progress-stage="week02"><span>前置评分</span><strong>Week 05 Rubric 与证据报告</strong><small data-later-stage-status="week02">核对中…</small></li>
+            <li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">核对中…</small></li>
+          </ol>
+          <div class="later-cockpit__decision">
+            <section><h3>当前学习定位</h3><dl><div><dt>已承接</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>本周缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section>
+            <section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始 W6 评测链</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W6 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>课程学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录">
+            <a href="#orientation" data-section-link="orientation">先看评测链路</a>
+            <a href="#evalset" data-section-link="evalset">Eval Set 怎样选</a>
+            <a href="#golden" data-section-link="golden">Golden Set 怎样定</a>
+            <a href="#baseline" data-section-link="baseline">基线怎样比较</a>
+            <a href="#human" data-section-link="human">人工评审怎样一致</a>
+            <a href="#judge" data-section-link="judge">LLM-as-a-Judge 边界</a>
+            <a href="#report" data-section-link="report">报告怎样支持决策</a>
+            <a href="#transfer" data-section-link="transfer">综合工作坊</a>
+            <a href="#summary" data-section-link="summary">我的理解地图</a>
+            <a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a>
+          </nav>
+          <p>这里记录的是 W6 页面活动，不等于正式评测结果或长期线掌握状态。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一张图：评测不是临时问模型几道题。</h2>
+            <p class="later-section__lead">产品评测可以先理解为“用固定样本、固定标准和固定记录方式，比较不同版本”。它不是找几个顺眼案例看输出，而是先规定真实任务、正确答案、评审规则和上线门槛。</p>
+            <div class="learning-contract">
+              <article><strong>先讲判断动作，再讲术语</strong><p>每个英文词都先回答“谁选样本，谁确认答案，谁评审，谁决定上线”。</p></article>
+              <article><strong>用错误评测划边界</strong><p>不把 demo 成功当效果提升，而是找到第一个会让结论失真的环节。</p></article>
+              <article><strong>带着场景写评测方案</strong><p>可以回看提示和示例，目标是写出可复测、可比较、可汇报的评测设计。</p></article>
+            </div>
+            <div class="system-journey" aria-label="Week 06 评测链路">
+              <article><strong>Eval Set</strong><span>测哪些题</span><p>负责覆盖真实任务、边界样本、失败样本和高频用户需求。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Golden Set</strong><span>什么算对</span><p>负责保存人工确认的标准答案、引用依据和评分标准。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Review</strong><span>谁来评</span><p>负责人工一致性、Judge 辅助筛查和争议仲裁。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Report</strong><span>是否上线</span><p>负责版本对比、失败分层、风险说明和回归决定。</p></article>
+            </div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>选样本</span><span>定金标</span><span>跑基线</span><span>控一致</span><span>写决策</span></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="evalset" data-chapter-section data-learning-module="evalset">
+            <header class="learning-module__head"><div><h2>Eval Set 是不是随便挑几条典型例子？</h2><p class="later-section__lead">Eval Set 可以先理解为“固定考卷”。它要覆盖真实用户任务、常见边界和已知坏例子，而不是只放团队最容易演示成功的样本。</p></div><strong data-module-status="evalset">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="Eval Set 的三个角色">
+              <article><h3>Task</h3><strong>就是用户要完成的事</strong><p>例如查政策、改文案、判断资料是否齐全。</p><small>能决定：样本来自哪类真实任务</small><small>不能决定：模型是否答对</small></article>
+              <article><h3>Slice</h3><strong>就是分层抽样</strong><p>把高频、低频、边界、失败、风险样本分开看。</p><small>能帮助：发现哪类任务退化</small><small>不能替代：金标答案</small></article>
+              <article><h3>Holdout</h3><strong>就是不能被调参看穿的保留题</strong><p>避免团队反复根据同一批题调 prompt 后虚假变好。</p><small>能阻止：过拟合样本</small><small>不能证明：全量用户场景都安全</small></article>
+            </div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>评测集像固定考卷：题目要代表真实工作，还要保留难题和旧失败题，方便下个版本复测。</p></div><div><strong>它不等于什么</strong><p>20 条手挑的漂亮 demo 不是 Eval Set，因为它无法暴露长尾、边界和退化。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来省时，但错误</strong><code>挑 20 条容易成功的例子 → 看平均分</code><p>样本偏向成功，报告会高估真实效果。</p></article><article><strong>正确的产品链路</strong><code>真实任务 → 样本分层 → 边界/失败样本 → 固定版本</code><p>先定义覆盖面，再让版本接受同一批样本检验。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：政策问答助手</strong><span>先补样本覆盖</span></div><p><b>现象：</b>团队只用 20 条热门政策问答评测，新版本全对。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>热门题能说明高频场景，但没有覆盖过期政策、相似政策和无答案问题。</span></li><li><strong>第一个错误节点</strong><span>把 demo 样本当成完整评测集。</span></li><li><strong>正确动作</strong><span>按任务和风险分层，加入边界题、坏例题和无答案题。</span></li><li><strong>保持不变</strong><span>评测集必须代表产品要承诺的任务范围。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="evalset"><fieldset><legend>理解检查：第一步该补什么</legend><p>团队准备用 20 条最常见且容易答对的用户问题证明版本提升。第一步应该怎么改？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="easy_demo">保留 20 条容易题，只要平均分高就上线</option><option value="coverage_slices">先按真实任务、边界、失败和风险样本补齐覆盖</option><option value="judge_more">直接让 Judge 给这些题打更细的分</option></select></label><label>我为什么这样判断（可选）<textarea name="evalset_reason" rows="3" data-persist placeholder="例如：评测集要先覆盖真实任务，而不是只看 demo 成功。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="evalset" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计一份评测集</h3><p>请为“简历 JD 匹配助手”设计 Eval Set 分层，至少包含高频任务、边界样本、失败样本和风险样本。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以从岗位不匹配、经历缺证据、JD 含糊、候选人跨行业、敏感个人信息五类想。</p></details><form data-transfer-practice="evalset"><label>我的 Eval Set 草稿<textarea name="evalset_transfer" rows="6" data-persist placeholder="高频样本……边界样本……失败样本……风险样本……保留集规则……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="evalset" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="evalset" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="evalset" hidden><p>样本分层可包括：常见 JD 匹配、缺少证据的简历、岗位描述含糊、跨行业候选人、年龄/性别等敏感字段干扰、历史错判 badcase。每类保留固定样本量，并标记来源、任务类型、风险等级和是否进入 holdout。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="evalset"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="evalset_teachback" rows="3" data-persist placeholder="例如：我现在理解 Eval Set 的价值是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="evalset" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="golden" data-chapter-section data-learning-module="golden">
+            <header class="learning-module__head"><div><h2>Golden Set 是不是让当前模型生成一批标准答案？</h2><p class="later-section__lead">Golden Set 可以先理解为“人工确认过的标准答案和评分依据”。它不能由同一个待测模型自己生成再自己通过，否则评测会变成自我证明。</p></div><strong data-module-status="golden">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>金标像考卷答案和判分依据：需要人或可信资料确认，写清什么必须出现、什么不能编、哪些答案也可接受。</p></div><div><strong>它不等于什么</strong><p>模型写得很流畅的参考答案不是金标，除非经过人工核对、引用来源和版本锁定。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来自动化，但错误</strong><code>待测模型 → 生成答案 → 再按该答案评分</code><p>模型偏好会被写进标准答案，评测失去独立性。</p></article><article><strong>正确的产品链路</strong><code>可信资料/专家 → 金标答案 → 可接受变体 → 评分规则</code><p>先让标准答案独立于待测模型。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：招聘匹配解释</strong><span>先锁定金标来源</span></div><p><b>现象：</b>当前模型生成“候选人适合高级产品经理”，团队把这段话当标准答案。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>答案没有人工确认，也没有绑定 JD 和简历原文。</span></li><li><strong>第一个错误节点</strong><span>待测模型正在定义自己要通过的标准。</span></li><li><strong>正确动作</strong><span>由评审根据 JD 必要条件和简历证据写金标，并列出可接受表达。</span></li><li><strong>保持不变</strong><span>金标要独立、可追溯、可版本管理。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="golden"><fieldset><legend>理解检查：谁来写金标</legend><p>团队想让待测模型先生成标准答案，再用 Judge 判断新输出是否接近。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="model_gold">让待测模型生成金标，速度最快</option><option value="human_gold">用人工确认的资料、答案和评分依据建立金标</option><option value="skip_gold">不建金标，只看用户主观反馈</option></select></label><label>我为什么这样判断（可选）<textarea name="golden_reason" rows="3" data-persist placeholder="例如：金标要独立于待测模型，并能回到资料来源。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="golden" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写金标字段</h3><p>请为“政策问答助手”的 Golden Set 设计字段，覆盖标准答案、引用来源、可接受变体和禁用内容。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>不要只写 answer，还要写 source、must_include、acceptable_variants、must_not_include、reviewer 和版本。</p></details><form data-transfer-practice="golden"><label>我的 Golden Set 字段<textarea name="golden_transfer" rows="6" data-persist placeholder="question……gold_answer……source_quote……must_include……must_not_include……reviewer……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="golden" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="golden" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="golden" hidden><p>字段可包括 sample_id、question、task_slice、gold_answer、source_doc、source_quote、must_include、acceptable_variants、must_not_include、risk_notes、reviewer、review_date、gold_version。金标变更必须记录原因，不能让待测模型静默改答案。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="golden"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="golden_teachback" rows="3" data-persist placeholder="例如：我现在理解 Golden Set 不是……而是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="golden" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="baseline" data-chapter-section data-learning-module="baseline">
+            <header class="learning-module__head"><div><h2>新模型分数高，是不是就说明产品变好了？</h2><p class="later-section__lead">Baseline 可以先理解为“当前版本或简单方案的参照线”。没有基线，就不知道提升来自新模型、样本偏差、提示变化，还是评测口径变松。</p></div><strong data-module-status="baseline">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>基线像体检前的旧指标：新版本必须和同一批样本、同一套标准下的旧版本比较。</p></div><div><strong>它不等于什么</strong><p>只看新模型一次平均分不是基线比较；换了样本或评分规则也不能直接说提升。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来进步，但错误</strong><code>新模型 86 分 → 旧模型未知 → 宣布提升</code><p>没有参照，无法证明比当前系统更好。</p></article><article><strong>正确的产品链路</strong><code>旧版本/规则方案 → 同一评测集 → 同一金标 → 差异分析</code><p>先让旧版本跑出基线，再比较新版本。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：文案改写助手</strong><span>先跑旧版本</span></div><p><b>现象：</b>新模型在 100 条样本上平均 4.2 分，团队准备上线。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>新模型分数存在，但旧版本、规则模板和人工参考都没跑。</span></li><li><strong>第一个错误节点</strong><span>把绝对分数当成版本提升。</span></li><li><strong>正确动作</strong><span>用同一评测集跑当前线上版本和新版本，按任务分层比较。</span></li><li><strong>保持不变</strong><span>上线判断要看相对提升、退化样本和风险门槛。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="baseline"><fieldset><legend>理解检查：缺基线时先做什么</legend><p>新模型在评测集上平均 86 分，但旧版本没有跑过这批样本。第一步应该怎么做？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="ship_score">86 分已经不错，先上线</option><option value="run_same_baseline">用同一评测集和金标跑当前线上版本作为基线</option><option value="change_prompt">继续改 prompt，直到新模型更高分</option></select></label><label>我为什么这样判断（可选）<textarea name="baseline_reason" rows="3" data-persist placeholder="例如：没有同口径基线，无法证明版本提升。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="baseline" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：定义基线比较</h3><p>请为“客服知识库回答助手”设计新旧版本比较口径，包括旧版本、规则方案、样本、指标和退化处理。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>至少写出 compare_to、same_eval_set、same_gold、metric_by_slice、regression_gate。</p></details><form data-transfer-practice="baseline"><label>我的基线比较方案<textarea name="baseline_transfer" rows="6" data-persist placeholder="baseline 是……同一批样本……同一金标……指标……退化门槛……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="baseline" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="baseline" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="baseline" hidden><p>基线应包含当前线上模型、简单规则/模板方案和必要的人工参考。新旧版本使用同一 Eval Set、同一 Golden Set、同一评分规则，报告整体分、关键分层分、成本、延迟和退化样本；高风险 slice 退化即不得全量上线。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="baseline"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="baseline_teachback" rows="3" data-persist placeholder="例如：我现在理解 baseline 是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="baseline" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="human" data-chapter-section data-learning-module="human">
+            <header class="learning-module__head"><div><h2>人工评测是不是找一个同事看一遍就够？</h2><p class="later-section__lead">人工评测的关键不是“有人看过”，而是评审规则清楚、多人结果能对齐、争议能仲裁。否则评测报告只是某个人的主观感受。</p></div><strong data-module-status="human">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>人工评测像阅卷：要有判分规则、样例校准、双人复核和争议处理，才能稳定判断模型输出。</p></div><div><strong>它不等于什么</strong><p>“PM 看着还不错”不是人工评测，因为没有一致性，也无法解释分歧。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来有人把关，但错误</strong><code>一个评审自由打分 → 平均分</code><p>不同评审理解不一致，分数不可比较。</p></article><article><strong>正确的产品链路</strong><code>标注规则 → 校准样例 → 双人评审 → 一致性检查 → 仲裁</code><p>先让人按同一把尺子评，再汇总结果。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：医疗问答安全性</strong><span>先校准评审</span></div><p><b>现象：</b>同一条回答，A 评审判可用，B 评审判高风险。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>两个评审结果冲突，说明规则或样例校准不足。</span></li><li><strong>第一个错误节点</strong><span>直接取平均会掩盖安全争议。</span></li><li><strong>正确动作</strong><span>回到标注规则，明确高风险定义，安排仲裁并更新示例。</span></li><li><strong>保持不变</strong><span>高风险任务必须保留人工一致性和争议记录。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="human"><fieldset><legend>理解检查：评审不一致怎么办</legend><p>两个评审对同一输出给出相反结论。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="average_scores">直接取平均分，避免争论</option><option value="calibrate_adjudicate">回到标注规则做校准，记录分歧并仲裁</option><option value="drop_sample">删除这条样本，让报告更稳定</option></select></label><label>我为什么这样判断（可选）<textarea name="human_reason" rows="3" data-persist placeholder="例如：分歧是规则或边界不清的信号，不能直接抹平。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="human" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计人工评审流程</h3><p>请为“法律合同摘要助手”设计人工评审流程，包含校准、双人复核、一致性指标和仲裁。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>法律场景要特别关注遗漏、虚构条款、风险提示和来源引用。</p></details><form data-transfer-practice="human"><label>我的人工评审流程<textarea name="human_transfer" rows="6" data-persist placeholder="标注规则……校准样例……双人复核……一致性检查……仲裁……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="human" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="human" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="human" hidden><p>流程可包括：先用 20 条样例校准规则；正式样本双人盲评；记录通过/失败原因、风险类型和引用缺口；低一致性 slice 暂停结论；争议样本由资深评审仲裁并回写规则示例。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="human"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="human_teachback" rows="3" data-persist placeholder="例如：我现在理解人工评测不是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="human" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="judge" data-chapter-section data-learning-module="judge">
+            <header class="learning-module__head"><div><h2>LLM-as-a-Judge 能不能直接替代人工评审？</h2><p class="later-section__lead">LLM-as-a-Judge 可以先理解为“让另一个模型按规则做候选评审”。它适合扩大筛查、生成理由和发现可疑样本，但不能替代金标、人工仲裁和高风险上线判断。</p></div><strong data-module-status="judge">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Judge 像助教批改：速度快、能给理由，但仍要被抽检、校准和版本管理。</p></div><div><strong>它不等于什么</strong><p>换一个模型打分不等于真相。Judge prompt、模型版本、温度和评分规则一变，结果就可能变。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来自动闭环，但错误</strong><code>待测模型输出 → Judge 打分 → 自动上线</code><p>两个模型可能共享偏差，且没有金标和人工边界。</p></article><article><strong>正确的产品链路</strong><code>金标/Rubric → Judge 候选评分 → 人工抽检/仲裁 → 版本锁定</code><p>Judge 是评审工具，不是最终事实源。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：Judge 偏爱长答案</strong><span>先做校准</span></div><p><b>现象：</b>Judge 总给长答案更高分，即使短答案更准确。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>Judge 评分和金标不一致，偏向表达长度。</span></li><li><strong>第一个错误节点</strong><span>把 Judge 分数当最终裁决。</span></li><li><strong>正确动作</strong><span>用金标样本校准 Judge prompt，记录版本，并对高风险分歧人工复核。</span></li><li><strong>保持不变</strong><span>Judge 结果必须被金标和人工抽检约束。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="judge"><fieldset><legend>理解检查：Judge 分数能不能直接上线</legend><p>Judge 给新模型显著高分，但人工抽检发现它偏爱更长答案。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="trust_judge">相信 Judge，直接上线</option><option value="calibrate_judge">用金标校准 Judge，锁定版本，并把分歧样本交给人工复核</option><option value="remove_human">取消人工抽检，避免影响自动化效率</option></select></label><label>我为什么这样判断（可选）<textarea name="judge_reason" rows="3" data-persist placeholder="例如：Judge 是候选评审工具，需要金标和人工抽检约束。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="judge" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写 Judge 使用边界</h3><p>请为“知识库问答助手”的 Judge 评审写使用边界：哪些可自动筛查，哪些必须人工复核。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以按低风险格式问题、事实引用、高风险合规、金标冲突和 Judge 低置信来分。</p></details><form data-transfer-practice="judge"><label>我的 Judge 边界<textarea name="judge_transfer" rows="6" data-persist placeholder="Judge 可用于……必须人工复核……版本记录……抽检比例……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="judge" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="judge" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="judge" hidden><p>Judge 可用于批量初筛、理由生成和低风险格式校验；涉及事实冲突、高风险合规、金标不一致、Judge 低置信或版本变化时必须人工复核。记录 judge_model、prompt_version、temperature、rubric_version 和抽检结果。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="judge"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="judge_teachback" rows="3" data-persist placeholder="例如：我现在理解 LLM-as-a-Judge 的边界是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="judge" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="report" data-chapter-section data-learning-module="report">
+            <header class="learning-module__head"><div><h2>评测报告为什么不能只写平均分提升？</h2><p class="later-section__lead">评测报告要让产品、研发和业务知道：哪个版本在哪些任务上变好，哪些地方退化，样本和标准是否可信，是否满足上线门槛。平均分只是入口，不是决策。</p></div><strong data-module-status="report">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>报告像上线前的体检单：不仅写总分，还要写分层结果、badcase、成本延迟、风险和建议动作。</p></div><div><strong>它不等于什么</strong><p>“平均分 +8%”不能单独支持上线，因为高风险任务可能退化，Judge 版本也可能变了。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来增长，但错误</strong><code>平均分上涨 → 全量上线</code><p>隐藏分层退化和高风险失败，会让产品决策失真。</p></article><article><strong>正确的产品链路</strong><code>总体指标 → 分层指标 → badcase → 风险门槛 → 上线/灰度/回滚</code><p>报告必须回答下一步动作。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：总分涨但风险退化</strong><span>先看分层</span></div><p><b>现象：</b>客服助手平均正确率从 78% 到 84%，但退款争议类从 70% 降到 52%。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>总体提升存在，但高风险 slice 明显退化。</span></li><li><strong>第一个错误节点</strong><span>只看平均分会忽略关键业务风险。</span></li><li><strong>正确动作</strong><span>报告标记不得全量上线，安排退款争议类修复和回归。</span></li><li><strong>保持不变</strong><span>评测报告要支持决策，不只展示好看的数字。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="report"><fieldset><legend>理解检查：总分提升但高风险退化</legend><p>新版本平均分提升，但高风险退款争议类明显下降。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="ship_average">平均分提升，继续全量上线</option><option value="block_regression">阻止全量上线，报告分层退化并安排修复回归</option><option value="hide_slice">隐藏退化分层，只给团队看总分</option></select></label><label>我为什么这样判断（可选）<textarea name="report_reason" rows="3" data-persist placeholder="例如：高风险 slice 退化会否决全量上线。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="report" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计评测报告字段</h3><p>请设计一个评测报告结构：至少包括版本、样本、金标、基线、分层指标、badcase、Judge 边界、上线建议。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>报告字段要能支持“上线、灰度、继续修复、回滚”四种动作。</p></details><form data-transfer-practice="report"><label>我的评测报告字段<textarea name="report_transfer" rows="6" data-persist placeholder="version……eval_set……golden_set……baseline……slice_metrics……badcases……decision……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="report" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="report" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="report" hidden><p>字段包括 eval_run_id、candidate_version、baseline_version、eval_set_version、golden_set_version、rubric_version、judge_version、overall_metrics、slice_metrics、regressions、top_badcases、cost_latency、human_agreement、risk_gate、decision、rollback_plan 和 next_regression_date。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="report"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="report_teachback" rows="3" data-persist placeholder="例如：我现在理解评测报告必须让人能决定……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="report" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>综合工作坊：修好一个“看起来变好”的 AI 评测方案。</h2>
+            <p class="later-section__lead">这不是记忆测试。你可以回看任意模块、打开提示并修改方案。目标是把 Eval Set、Golden Set、Baseline、人工一致性、LLM-as-a-Judge 和评测报告连成一套上线前可复测方案。</p>
+            <div class="challenge-brief"><p>错误方案：团队用 20 条手挑容易样本评测新模型；标准答案由同一个模型生成；没有跑旧版本基线；Judge prompt 经常改但不记录版本；报告只写平均分提升，隐藏退款争议类失败。</p><strong>请改成：先补样本覆盖和金标，跑同口径基线，建立人工一致性，限定 Judge 边界，最后用分层报告决定上线、灰度或回滚。</strong></div>
+            <details class="workshop-guide" open><summary>工作坊路线：不知道从哪里开始时按这五步走</summary><ol><li><strong>样本</strong><span>Eval Set 怎样覆盖真实任务、边界和坏例？</span></li><li><strong>金标</strong><span>Golden Set 谁确认，答案和评分依据如何版本化？</span></li><li><strong>对比</strong><span>旧版本、规则方案和新版本如何同口径比较？</span></li><li><strong>评审</strong><span>人工一致性和 Judge 边界怎样控制？</span></li><li><strong>决策</strong><span>报告怎样呈现分层退化、风险门槛和下一步？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的 W6 评测设计方案<textarea name="final_diagnosis" rows="12" data-persist placeholder="可以按路线写：Eval Set → Golden Set → Baseline → Human Review / Judge → Report / Regression Decision。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的方案是否覆盖</legend><label><input type="checkbox" name="final_check" value="evalset"> 已写出样本分层和保留集</label><label><input type="checkbox" name="final_check" value="golden"> 已说明金标来源、字段和版本</label><label><input type="checkbox" name="final_check" value="baseline"> 已跑同口径基线和版本比较</label><label><input type="checkbox" name="final_check" value="review"> 已设计人工一致性与 Judge 边界</label><label><input type="checkbox" name="final_check" value="decision"> 已写出分层报告、退化门槛和上线决策</label></fieldset>
+              <button class="button" type="submit">保存 W6 评测方案</button>
+              <span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>W6 评测方案已保存。</h3><p>网页只检查结构覆盖，不代替正式语义评分。现在可以对照示例，挑一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例方案</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>Eval Set 覆盖高频、边界、失败、高风险和 holdout 样本，记录版本。</li><li>Golden Set 由人工和可信资料确认，保存标准答案、引用、可接受变体和禁用内容。</li><li>新旧版本使用同一评测集、同一金标和同一评分规则，报告 baseline 差异。</li><li>人工评审先校准再双人复核；Judge 只做候选评分和批量筛查，分歧样本人工仲裁。</li><li>报告展示总体与分层指标、badcase、成本延迟、退化门槛和上线/灰度/回滚建议。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 W6 理解地图：把笔记、疑问和评测方案放在一起。</h2>
+            <p class="later-section__lead">这里汇总的是你的学习痕迹，不是标准答案或正式掌握结论。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>样本是否覆盖真实任务</strong><span>我是否能说明 Eval Set 的分层和保留集？</span></div><div><strong>金标是否独立可信</strong><span>我是否知道标准答案不能由待测模型自证？</span></div><div><strong>比较是否同口径</strong><span>我是否能让新旧版本跑同一批样本和标准？</span></div><div><strong>评审是否有边界</strong><span>我是否区分人工仲裁和 Judge 辅助？</span></div><div><strong>报告是否能决策</strong><span>我是否写出退化门槛、badcase 和上线建议？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>W6 接力：页面完成后，再决定是否启动正式评测。</h2>
+            <p class="later-section__lead" data-formal-handoff-summary>网页里的样本设计、金标字段、Judge 边界、笔记和理解地图只是草稿证据。正式长期线是否记录 Week 06，需要 Codex 重新读取并写入唯一正式状态源。</p>
+            <div class="handoff-grid"><div><span>网页</span><strong>评测设计机制、误区辨析和开放式评测方案</strong><small>只保存在当前标签页，不生成正式评测结果。</small></div><div><span>Codex</span><strong>正式状态源、课程开启和证据回写</strong><small>是否纳入长期线由明确动作和 JSON 写入决定。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>继续 W6 评测方案</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W6 接力</button><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Week 06 · Eval Set and Judge</span><span><a href="week-05-evidence-rubric-scoring.html">上一页：Week 05</a> · <a href="week-07-badcase-regression.html">下一页：Week 07</a> · <a href="index.html">返回十二周长期线</a></span></div></footer>
+  <script type="application/json" data-later-config>
+  {
+    "week_id": "week-06",
+    "day_label": "Week 06",
+    "storage_key": "ai-pm-week06-course:v1",
+    "legacy_session_keys": [],
+    "knowledge_anchor": "Eval Set → Golden Set → Baseline → Human Review → LLM-as-a-Judge → Evaluation Report",
+    "page_anchor": "week-06-eval-set-judge.html#evalset",
+    "module_order": ["evalset", "golden", "baseline", "human", "judge", "report"],
+    "module_labels": {
+      "evalset": "Eval Set 样本覆盖与保留集",
+      "golden": "Golden Set 金标答案与版本",
+      "baseline": "基线比较与退化判断",
+      "human": "人工评测一致性与仲裁",
+      "judge": "LLM-as-a-Judge 辅助边界",
+      "report": "评测报告与上线决策"
+    },
+    "guided_definitions": {
+      "evalset": {
+        "correct": "coverage_slices",
+        "passTitle": "评测集要先覆盖真实任务和风险分层。",
+        "failTitle": "你仍把 demo 样本当成了评测集。",
+        "known": "团队准备用 20 条容易答对的问题证明版本提升。",
+        "error": "手挑容易样本会高估效果，无法暴露边界和退化。",
+        "why": "没有样本覆盖，后面的金标、Judge 和报告都只是在偏样本上计算。",
+        "chain": "真实任务 → 样本分层 → 边界/失败样本 → 固定版本。",
+        "invariant": "评测集必须代表产品要承诺的任务范围。"
+      },
+      "golden": {
+        "correct": "human_gold",
+        "passTitle": "金标答案必须独立、可追溯、可版本管理。",
+        "failTitle": "你仍让待测模型定义自己的标准答案。",
+        "known": "团队想让待测模型生成标准答案，再用 Judge 判断新输出。",
+        "error": "待测模型会把自身偏好写进标准答案，评测变成自我证明。",
+        "why": "Golden Set 是评测事实源，需要人工或可信资料确认。",
+        "chain": "可信资料/专家 → 金标答案 → 可接受变体 → 评分规则。",
+        "invariant": "金标要独立于待测模型，并能回到资料来源。"
+      },
+      "baseline": {
+        "correct": "run_same_baseline",
+        "passTitle": "先跑同口径基线，再谈版本提升。",
+        "failTitle": "你仍把新模型绝对分数当成提升证明。",
+        "known": "新模型平均 86 分，但旧版本没有跑过同一批样本。",
+        "error": "没有参照，无法知道新模型是否真的优于当前系统。",
+        "why": "版本比较必须使用同一评测集、同一金标和同一评分规则。",
+        "chain": "旧版本/规则方案 → 同一评测集 → 同一金标 → 差异分析。",
+        "invariant": "上线判断要看相对提升、退化样本和风险门槛。"
+      },
+      "human": {
+        "correct": "calibrate_adjudicate",
+        "passTitle": "评审分歧要回到规则校准和仲裁。",
+        "failTitle": "你仍把人工分歧当成可以平均掉的噪声。",
+        "known": "两个评审对同一输出给出相反结论。",
+        "error": "直接平均会掩盖规则不清和高风险争议。",
+        "why": "人工评测需要一致性，否则报告不可比较也不可解释。",
+        "chain": "标注规则 → 校准样例 → 双人评审 → 一致性检查 → 仲裁。",
+        "invariant": "高风险任务必须保留人工一致性和争议记录。"
+      },
+      "judge": {
+        "correct": "calibrate_judge",
+        "passTitle": "Judge 是候选评审工具，必须被金标和人工约束。",
+        "failTitle": "你仍把 Judge 分数当成了最终事实源。",
+        "known": "Judge 给新模型显著高分，但人工抽检发现它偏爱长答案。",
+        "error": "Judge 可能共享模型偏差，版本和 prompt 变化也会改变结果。",
+        "why": "LLM-as-a-Judge 可以扩展评审，但不能替代金标和人工仲裁。",
+        "chain": "金标/Rubric → Judge 候选评分 → 人工抽检/仲裁 → 版本锁定。",
+        "invariant": "Judge 结果必须被金标和人工抽检约束。"
+      },
+      "report": {
+        "correct": "block_regression",
+        "passTitle": "评测报告要阻止高风险分层退化被平均分掩盖。",
+        "failTitle": "你仍用平均分替代上线决策。",
+        "known": "新版本平均分提升，但高风险退款争议类明显下降。",
+        "error": "只看平均分会忽略关键业务风险和回归失败。",
+        "why": "评测报告要支持上线、灰度、继续修复或回滚的决策。",
+        "chain": "总体指标 → 分层指标 → badcase → 风险门槛 → 上线/灰度/回滚。",
+        "invariant": "评测报告要支持决策，不只展示好看的数字。"
+      }
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script>
+  <script src="../../assets/study-state.js"></script>
+  <script src="assets/week06-course.js?v=20260823-week06"></script>
+</body>
+</html>

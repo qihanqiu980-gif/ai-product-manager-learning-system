@@ -1,0 +1,215 @@
+.day01-course {
+  --later-ink: #302d2a;
+  --later-copy: #5f5851;
+  --later-muted: #766e66;
+  --later-line: #d3c8bc;
+  --later-surface: #fffdf9;
+  --later-soft: #f6f0e8;
+  --later-accent: #8a4f2d;
+  --later-accent-dark: #573827;
+  --later-accent-soft: #f1e0d2;
+  --later-warm: #966524;
+  --later-warm-soft: #f4e8cc;
+  --later-risk: #874842;
+  --later-risk-soft: #f2dfdc;
+  --later-blue: #4d6d78;
+  --later-blue-soft: #e2ecef;
+}
+
+.day01-hero {
+  background:
+    linear-gradient(120deg, rgba(56, 34, 23, 0.38), rgba(138, 79, 45, 0.18)),
+    var(--later-accent-dark);
+}
+
+.day01-eyebrow {
+  margin: 0 0 14px;
+  color: #f0d7c4;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.orientation-mistake { margin-top: 24px; }
+
+.day01-decision-journey,
+.gate-route {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.day01-decision-journey article {
+  min-height: 198px;
+  padding: 16px;
+}
+
+.day01-decision-journey article:nth-of-type(2),
+.day01-decision-journey article:nth-of-type(4) { background: var(--later-blue-soft); }
+
+.day01-decision-journey article:nth-of-type(5) { background: var(--later-warm-soft); }
+.day01-decision-journey strong { font-size: 15px; }
+.day01-decision-journey p { font-size: 13px; }
+
+.role-board,
+.decision-map,
+.necessity-lens,
+.gate-route,
+.escalation-board,
+.mvp-board {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.role-board,
+.necessity-lens,
+.mvp-board { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.decision-map { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.escalation-board { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gate-route { align-items: stretch; }
+
+.role-board article,
+.decision-map article,
+.necessity-lens article,
+.gate-route article,
+.escalation-board article,
+.mvp-board article {
+  min-width: 0;
+  padding: 19px;
+  background: #fff;
+  border: 1px solid var(--later-line);
+  border-radius: 13px;
+  box-shadow: 0 10px 26px rgba(74, 48, 31, 0.055);
+}
+
+.role-board article:nth-child(2),
+.role-board article:nth-child(4),
+.necessity-lens article:nth-child(2),
+.necessity-lens article:nth-child(4),
+.mvp-board article:nth-child(2),
+.gate-route article:nth-of-type(2),
+.gate-route article:nth-of-type(4) {
+  background: var(--later-blue-soft);
+}
+
+.decision-map article:nth-child(2),
+.decision-map article:nth-child(5),
+.decision-map article:nth-child(8),
+.necessity-lens article:nth-child(3),
+.mvp-board article:nth-child(3) {
+  background: var(--later-accent-soft);
+}
+
+.decision-map article:nth-child(7),
+.escalation-board article:nth-child(2),
+.gate-route article:nth-of-type(5) {
+  background: var(--later-risk-soft);
+  border-color: #d8aaa4;
+}
+
+.decision-map article:nth-child(9),
+.escalation-board article:nth-child(3),
+.mvp-board article:nth-child(4) {
+  background: var(--later-warm-soft);
+  border-color: #ddc28f;
+}
+
+.role-board span,
+.decision-map span,
+.necessity-lens span,
+.gate-route span,
+.escalation-board span,
+.mvp-board span {
+  display: block;
+  color: var(--later-accent);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.decision-map span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: #fff;
+  background: var(--later-accent);
+  border-radius: 999px;
+}
+
+.role-board strong,
+.decision-map strong,
+.necessity-lens strong,
+.gate-route strong,
+.escalation-board strong,
+.mvp-board strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--later-ink);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.role-board p,
+.decision-map p,
+.necessity-lens p,
+.gate-route p,
+.escalation-board p,
+.mvp-board p {
+  margin: 9px 0 0;
+  color: var(--later-copy);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.gate-route article { padding: 16px; }
+
+.gate-route i {
+  align-self: center;
+  color: var(--later-accent);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.day01-course .final-challenge {
+  background:
+    linear-gradient(140deg, rgba(241, 224, 210, 0.84), rgba(255, 253, 249, 0.97)),
+    var(--later-surface);
+}
+
+@media (max-width: 1120px) {
+  .day01-decision-journey,
+  .gate-route { grid-template-columns: 1fr; }
+
+  .day01-decision-journey i,
+  .gate-route i {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .role-board,
+  .necessity-lens,
+  .mvp-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 820px) {
+  .role-board,
+  .decision-map,
+  .necessity-lens,
+  .escalation-board,
+  .mvp-board { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .day01-eyebrow { margin-bottom: 10px; }
+
+  .role-board article,
+  .decision-map article,
+  .necessity-lens article,
+  .gate-route article,
+  .escalation-board article,
+  .mvp-board article { padding: 16px; }
+}

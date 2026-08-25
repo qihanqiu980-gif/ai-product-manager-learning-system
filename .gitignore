@@ -1,0 +1,30 @@
+.DS_Store
+**/.DS_Store
+
+# Local learning records and generated progress snapshots.
+02_复盘总结/学习状态/
+assets/study-state.snapshot.js
+02_复盘总结/导出PDF/
+
+# Local Codex working notes.
+docs/CODEX_STATE.md
+docs/tasks/
+
+# Teacher-only material and future reference answers.
+教师资料/
+
+# Local environment and credentials.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.mobileprovision
+
+# Dependency/build/cache output.
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+coverage/

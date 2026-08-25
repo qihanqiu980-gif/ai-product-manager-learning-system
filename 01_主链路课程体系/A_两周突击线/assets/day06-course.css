@@ -1,0 +1,152 @@
+.day06-course {
+  --later-ink: #172733;
+  --later-copy: #435b68;
+  --later-muted: #536c75;
+  --later-line: #bccbd0;
+  --later-surface: #fffefa;
+  --later-soft: #edf3f4;
+  --later-accent: #236879;
+  --later-accent-dark: #173f50;
+  --later-accent-soft: #dcecf0;
+  --later-warm: #8a5420;
+  --later-warm-soft: #f4e7d4;
+  --later-risk: #8a3e38;
+  --later-risk-soft: #f4dfdc;
+  --later-blue: #365f96;
+  --later-blue-soft: #e1eaf4;
+}
+
+.day06-hero {
+  background:
+    linear-gradient(118deg, rgba(7, 30, 41, 0.28), rgba(35, 104, 121, 0.12)),
+    var(--later-accent-dark);
+}
+
+.day06-eyebrow {
+  margin: 0 0 14px;
+  color: #a9d4dc;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.orientation-mistake { margin-top: 24px; }
+
+.day06-system-journey article {
+  min-height: 176px;
+}
+
+.contract-anatomy,
+.state-layer-grid,
+.mock-skeleton {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.contract-anatomy {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.state-layer-grid,
+.mock-skeleton {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.contract-anatomy article,
+.state-layer-grid article,
+.mock-skeleton article {
+  padding: 18px;
+  background: var(--later-surface);
+  border: 1px solid var(--later-line);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(24, 54, 65, 0.055);
+}
+
+.contract-anatomy span,
+.state-layer-grid span,
+.mock-skeleton span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--later-accent);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.contract-anatomy strong,
+.state-layer-grid strong,
+.mock-skeleton strong {
+  display: block;
+  color: var(--later-ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.contract-anatomy p,
+.state-layer-grid p,
+.mock-skeleton p {
+  margin: 9px 0 0;
+  color: var(--later-copy);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.mock-skeleton article {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fffefa, #eef5f6);
+}
+
+.mock-skeleton article::after {
+  position: absolute;
+  right: -16px;
+  bottom: -25px;
+  width: 70px;
+  height: 70px;
+  content: "";
+  background: var(--later-accent-soft);
+  border-radius: 50%;
+  opacity: 0.72;
+}
+
+.mock-skeleton strong,
+.mock-skeleton p { position: relative; z-index: 1; }
+
+.day06-course .final-challenge {
+  background:
+    linear-gradient(135deg, rgba(220, 236, 240, 0.78), rgba(255, 254, 250, 0.96)),
+    var(--later-surface);
+}
+
+@media (max-width: 1040px) {
+  .contract-anatomy { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .state-layer-grid,
+  .mock-skeleton { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .day06-eyebrow { margin-bottom: 10px; }
+
+  .contract-anatomy,
+  .state-layer-grid,
+  .mock-skeleton {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-anatomy article,
+  .state-layer-grid article,
+  .mock-skeleton article {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mock-skeleton article,
+  .contract-anatomy article,
+  .state-layer-grid article {
+    scroll-behavior: auto;
+  }
+}

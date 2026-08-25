@@ -1,0 +1,281 @@
+.learning-page .page-hero h1 {
+  max-width: 820px;
+  font-size: 46px;
+}
+
+.learning-page .hero__lead {
+  max-width: 760px;
+}
+
+.learning-page .day03-brief strong {
+  font-size: 15px;
+}
+
+.learning-page .lesson-node h2 {
+  max-width: 30ch;
+}
+
+.learning-state-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  color: #3d4e56;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.learning-state-note strong {
+  color: var(--teal-dark);
+}
+
+.learning-state-note p {
+  margin: 4px 0 0;
+}
+
+.logic-strip,
+.rubric-scale,
+.evidence-chain,
+.report-outline {
+  display: grid;
+  gap: 1px;
+  margin-top: 18px;
+  overflow: hidden;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.logic-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rubric-scale {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.evidence-chain {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.report-outline {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.logic-strip > div,
+.rubric-scale > div,
+.evidence-chain > div,
+.report-outline > div {
+  min-width: 0;
+  padding: 13px 14px;
+  background: var(--study-surface-strong);
+}
+
+.logic-strip span,
+.rubric-scale span,
+.evidence-chain span,
+.report-outline span {
+  display: block;
+  color: var(--cobalt-dark);
+  font-size: 14px;
+  font-weight: 820;
+}
+
+.logic-strip strong,
+.rubric-scale strong,
+.evidence-chain strong,
+.report-outline strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.logic-strip p,
+.rubric-scale p,
+.evidence-chain p,
+.report-outline p {
+  margin: 5px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.state-table,
+.coverage-table,
+.rubric-table {
+  width: 100%;
+  margin-top: 18px;
+  border-collapse: collapse;
+  border-top: 2px solid var(--study-dark);
+  font-size: 15px;
+}
+
+.state-table th,
+.state-table td,
+.coverage-table th,
+.coverage-table td,
+.rubric-table th,
+.rubric-table td {
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.state-table th,
+.coverage-table th,
+.rubric-table th {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.state-table td:first-child,
+.coverage-table td:first-child,
+.rubric-table td:first-child {
+  color: var(--cobalt-dark);
+  font-weight: 800;
+}
+
+.rule-callout {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--study-blue-soft);
+  border: 1px solid #cbd6ef;
+  border-radius: 13px;
+}
+
+.rule-callout--deferred {
+  color: #564622;
+  background: #fff8e9;
+  border-color: #dfc995;
+}
+
+.rule-callout strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.rule-callout p {
+  margin: 0;
+}
+
+.mini-decision {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.mini-decision section {
+  padding: 14px 16px;
+  background: var(--study-surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.mini-decision h3 {
+  font-size: 16px;
+}
+
+.mini-decision ul {
+  margin: 7px 0 0;
+  padding-left: 20px;
+}
+
+.output-status {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.learning-page .completion-caveat {
+  color: #564622;
+  background: #fff8e9;
+}
+
+@media (min-width: 951px) and (max-height: 760px) {
+  .learning-page .page-hero h1 {
+    font-size: 40px;
+  }
+
+  .learning-page .learning-state-note {
+    margin-top: 10px;
+    padding-block: 8px;
+  }
+
+  .learning-page .logic-strip,
+  .learning-page .rubric-scale,
+  .learning-page .evidence-chain,
+  .learning-page .report-outline,
+  .learning-page .state-table,
+  .learning-page .coverage-table,
+  .learning-page .rubric-table,
+  .learning-page .mini-decision,
+  .learning-page .rule-callout {
+    margin-top: 10px;
+  }
+
+  .logic-strip > div,
+  .rubric-scale > div,
+  .evidence-chain > div,
+  .report-outline > div {
+    padding: 8px 10px;
+  }
+
+  .state-table th,
+  .state-table td,
+  .coverage-table th,
+  .coverage-table td,
+  .rubric-table th,
+  .rubric-table td {
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 940px) {
+  .logic-strip,
+  .rubric-scale,
+  .report-outline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidence-chain {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .learning-page .page-hero h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .learning-page .day03-brief strong {
+    font-size: 14px;
+  }
+
+  .logic-strip,
+  .rubric-scale,
+  .evidence-chain,
+  .report-outline,
+  .mini-decision {
+    grid-template-columns: 1fr;
+  }
+
+  .state-table,
+  .coverage-table,
+  .rubric-table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .state-table th,
+  .state-table td,
+  .coverage-table th,
+  .coverage-table td,
+  .rubric-table th,
+  .rubric-table td {
+    min-width: 118px;
+  }
+}

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型十二周长期线 Week 05：用白话理解证据驱动评分、Rubric、信息不足、置信度和可追溯报告。">
+  <title>Week 05｜证据驱动评分与 Rubric｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260823-week05">
+</head>
+<body class="day-later-course week05-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html">主链路</a>
+        <a href="../A_两周突击线/index.html">两周突击</a>
+        <a href="index.html" aria-current="page">十二周长期</a>
+        <a href="../../02_复盘总结/index.html">复盘总结</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <h1>先找到原话证据，再给分和下结论。</h1>
+          <p class="later-hero__lead">Week 05 把“让模型评分”拆成可审计的产品链：评分标准怎么写，原话证据怎么抽，分数怎样裁决，信息不足怎么表达，置信度怎么限制，最终报告怎样让人回放。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看评分链路</a><a class="button button--quiet" href="#rubric">从 Rubric 标准开始</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Week 05 章节契约">
+          <div><dt>核心问题</dt><dd>AI 评分系统怎样给出可复核分数，而不是把模型自信的摘要当成正式结论？</dd></div>
+          <div><dt>学习方式</dt><dd>心智模型 · 白话解释 · 错误辨析 · 示例 · 开放式评分报告</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页不创建真实评分、不写错题或掌握证据；只保存当前标签页草稿</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" aria-label="十二周长期线课程导航">
+        <a href="index.html"><span class="day-switcher__day">总览</span><span class="day-switcher__copy"><strong>十二周长期线</strong><small>路线总览</small></span></a>
+        <a href="week-03-rag-knowledge-system.html"><span class="day-switcher__day">W3</span><span class="day-switcher__copy"><strong>RAG 知识系统与检索质量</strong><small>前置课程页</small></span></a>
+        <a href="week-04-adaptive-interview-state.html"><span class="day-switcher__day">W4</span><span class="day-switcher__copy"><strong>自适应面试与状态机</strong><small>上一课程页</small></span></a>
+        <a href="week-05-evidence-rubric-scoring.html" aria-current="page"><span class="day-switcher__day">W5</span><span class="day-switcher__copy"><strong>证据驱动评分与 Rubric</strong><small>当前课程页</small></span></a>
+        <a href="week-06-eval-set-judge.html"><span class="day-switcher__day">W6</span><span class="day-switcher__copy"><strong>Eval Set 与 Judge</strong><small>下一课程页</small></span></a>
+      </nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head">
+          <div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W5 评分证据边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div>
+          <div class="later-cockpit__stamp"><span>W5 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div>
+        </header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式状态、课程承接与网页 / Codex 边界</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度">
+            <li data-later-progress-stage="foundation"><span>承接资产</span><strong>两周突击线与长期线基础</strong><small data-later-stage-status="foundation">核对中…</small></li>
+            <li data-later-progress-stage="week01"><span>前置输入</span><strong>Week 01 缺口与证据看板</strong><small data-later-stage-status="week01">核对中…</small></li>
+            <li data-later-progress-stage="week02"><span>前置流程</span><strong>Week 04 自适应评测流程</strong><small data-later-stage-status="week02">核对中…</small></li>
+            <li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">核对中…</small></li>
+          </ol>
+          <div class="later-cockpit__decision">
+            <section><h3>当前学习定位</h3><dl><div><dt>已承接</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>本周缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section>
+            <section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始 W5 评分链</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W5 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>课程学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录">
+            <a href="#orientation" data-section-link="orientation">先看评分链路</a>
+            <a href="#rubric" data-section-link="rubric">Rubric 怎样写</a>
+            <a href="#evidence" data-section-link="evidence">证据怎样抽取</a>
+            <a href="#scoring" data-section-link="scoring">分数怎样裁决</a>
+            <a href="#insufficient" data-section-link="insufficient">信息不足怎样处理</a>
+            <a href="#confidence" data-section-link="confidence">置信表达怎样限制</a>
+            <a href="#report" data-section-link="report">报告怎样可追溯</a>
+            <a href="#transfer" data-section-link="transfer">综合工作坊</a>
+            <a href="#summary" data-section-link="summary">我的理解地图</a>
+            <a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a>
+          </nav>
+          <p>这里记录的是 W5 页面活动，不等于正式评分或长期线掌握状态。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一张图：评分不是“模型觉得像几分”。</h2>
+            <p class="later-section__lead">证据驱动评分可以先理解为“先找原话，再按标准裁决”。模型可以帮忙抽候选证据和生成解释，但分数、缺口和正式结论必须能回到 Rubric 与原始回答。</p>
+            <div class="learning-contract">
+              <article><strong>先讲评分动作，再讲术语</strong><p>每个英文词都先回答“谁规定标准，谁找证据，谁能给分”。</p></article>
+              <article><strong>用错误评分划边界</strong><p>不把流畅总结当证据，而是找出第一个无法回放的结论。</p></article>
+              <article><strong>带着样例写报告</strong><p>可以回看提示和示例，目标是写出可复核评分报告，不是背评分表。</p></article>
+            </div>
+            <div class="system-journey" aria-label="Week 05 评分链路">
+              <article><strong>Rubric</strong><span>按什么标准</span><p>负责定义等级、通过条件和不可给分边界。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Evidence</strong><span>证据在哪里</span><p>负责抽取原话、题号、回答和交付物片段。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Decision</strong><span>怎样裁决</span><p>负责把证据对齐标准，给出分数或信息不足。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Report</strong><span>怎样回放</span><p>负责写清结论、置信限制、缺口和下一步。</p></article>
+            </div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>定标准</span><span>找原话</span><span>对齐等级</span><span>保留不足</span><span>写报告</span></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="rubric" data-chapter-section data-learning-module="rubric">
+            <header class="learning-module__head"><div><h2>Rubric 是评分表，还是一句“答得完整给高分”？</h2><p class="later-section__lead">Rubric 可以先理解为“评分尺子”。它要写清每一档看什么证据、缺什么不能给分，而不是让模型凭印象判断完整度。</p></div><strong data-module-status="rubric">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="Rubric 的三个角色">
+              <article><h3>Criterion</h3><strong>就是评分维度</strong><p>例如事实定位、机制分工、风险边界。</p><small>能决定：看哪类证据</small><small>不能决定：证据是否存在</small></article>
+              <article><h3>Level</h3><strong>就是分数档位</strong><p>每档要写出可观察行为，而不是“好、一般、差”。</p><small>能帮助：稳定裁决</small><small>不能替代：原话引用</small></article>
+              <article><h3>Gate</h3><strong>就是不能越过的门槛</strong><p>例如没有原话证据时不得给非空分。</p><small>能阻止：模型自信补全</small><small>不能伪造：正式掌握</small></article>
+            </div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Rubric 像验收清单：不是“感觉完成”，而是每个等级都能指向具体证据。</p></div><div><strong>它不等于什么</strong><p>“回答全面给 3 分”不是好 Rubric，因为不同人和模型会把全面理解成不同东西。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来简洁，但错误</strong><code>3 分 = 回答很好</code><p>没有说明好在哪里，评分无法复核。</p></article><article><strong>正确的产品链路</strong><code>维度 → 可观察行为 → 原话证据 → 分数门槛</code><p>先写清评分尺子，再让模型抽候选。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：方案选型评分</strong><span>先定义可观察行为</span></div><p><b>现象：</b>评分规则写“能合理选择 RAG 得 3 分”。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>合理没有可观察标准。</span></li><li><strong>第一个错误节点</strong><span>评分尺子依赖主观印象。</span></li><li><strong>正确动作</strong><span>改成：定位事实来源、说明 RAG 边界、写出不用 RAG 的条件。</span></li><li><strong>保持不变</strong><span>每个分数档都要能被原话证据证明。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="rubric"><fieldset><legend>理解检查：哪个 Rubric 可执行</legend><p>你要评分“AI 方案选型”。第一步应该选哪种标准写法？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="good_answer">3 分：回答完整、专业、有逻辑</option><option value="observable_level">3 分：能定位事实来源、比较至少两个机制、说明风险和不用 AI 的条件</option><option value="model_judge">让模型根据整体感觉自动给分</option></select></label><label>我为什么这样判断（可选）<textarea name="rubric_reason" rows="3" data-persist placeholder="例如：分数档要写可观察行为，而不是印象词。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="rubric" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写一个评分尺子</h3><p>请为“证据链意识”写出 0/1/2/3 四档 Rubric，并标出不能给非空分的门槛。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>关注是否引用原话、是否对齐 claim、是否承认信息不足。</p></details><form data-transfer-practice="rubric"><label>我的 Rubric 草稿<textarea name="rubric_transfer" rows="6" data-persist placeholder="0 分……1 分……2 分……3 分……门槛……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="rubric" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="rubric" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="rubric" hidden><p>0 分：没有证据意识；1 分：提到要看证据但未引用原话；2 分：能绑定部分原话和结论；3 分：每个关键 claim 都绑定原话并说明不足。门槛：没有可回放原话时不得给非空分。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="rubric"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="rubric_teachback" rows="3" data-persist placeholder="例如：我现在理解 Rubric 的价值是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="rubric" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="evidence" data-chapter-section data-learning-module="evidence">
+            <header class="learning-module__head"><div><h2>证据抽取是不是把回答总结一下就行？</h2><p class="later-section__lead">证据是能回到原回答的具体片段。总结可能有用，但只有逐字原话、题号和回答身份能支撑正式评分。</p></div><strong data-module-status="evidence">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>证据像法庭里的原始材料。模型可以帮忙圈重点，但不能把改写后的摘要当原件。</p></div><div><strong>它不等于什么</strong><p>“用户大概表达了……”不是证据；语义相似也不能替代逐字 quote。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来顺畅，但错误</strong><code>模型摘要 → 直接评分</code><p>摘要可能扩大原意，评分无法回放。</p></article><article><strong>正确的产品链路</strong><code>question_id → answer_id → 原话 quote → claim → 分数候选</code><p>先保存原始证据，再生成解释。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：摘要多说了一个边界</strong><span>先回到原话</span></div><p><b>现象：</b>原回答只说“要看制度”，摘要写成“能完整区分制度、票据和权限”。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>原话只支持制度，不支持三类事实源。</span></li><li><strong>第一个错误节点</strong><span>摘要把模型推断当成证据。</span></li><li><strong>正确动作</strong><span>缩小 claim，或标记证据不足。</span></li><li><strong>保持不变</strong><span>评分证据必须来自原话或原始交付物。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="evidence"><fieldset><legend>理解检查：摘要能不能当证据</legend><p>模型摘要比原回答更完整，但关键句不是用户原话。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="score_summary">摘要表达清楚，可以直接评分</option><option value="quote_first">回到原始回答，只用逐字 quote 支撑 claim</option><option value="delete_answer">删除原回答，让用户重答</option></select></label><label>我为什么这样判断（可选）<textarea name="evidence_reason" rows="3" data-persist placeholder="例如：摘要可能扩大原意，正式评分要回到原话。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="evidence" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：抽取评分证据</h3><p>学习者回答：“我会先看政策在哪里，再让模型基于资料解释，没资料就说无法确认。”请抽取能支持 claim 的 quote 和不能支持的范围。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以支持事实定位、RAG 边界、缺证据限制；不能支持成本、延迟、权限设计。</p></details><form data-transfer-practice="evidence"><label>我的证据抽取<textarea name="evidence_transfer" rows="6" data-persist placeholder="可支持 claim……逐字 quote……不能支持……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="evidence" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="evidence" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="evidence" hidden><p>可支持 claim：知道先定位事实来源、模型基于资料回答、缺资料需限制结论。quote 分别是“先看政策在哪里”“基于资料解释”“没资料就说无法确认”。不能支持成本评估、权限校验和延迟治理。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="evidence"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="evidence_teachback" rows="3" data-persist placeholder="例如：我现在理解 quote 和摘要的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="evidence" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="scoring" data-chapter-section data-learning-module="scoring">
+            <header class="learning-module__head"><div><h2>有了证据，分数是不是模型说几分就几分？</h2><p class="later-section__lead">分数裁决要把证据逐条对齐 Rubric。模型可以给候选分，但程序和评审规则要检查证据是否达到档位门槛。</p></div><strong data-module-status="scoring">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>评分像验收。不是看到一个亮点就给满分，而是每个门槛都过了才进入对应等级。</p></div><div><strong>它不等于什么</strong><p>模型给出 0.82 置信度不等于 3 分；置信度不能替代 Rubric 对齐。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来高效，但错误</strong><code>候选 score=3 → 直接写入</code><p>没有逐项验证档位条件。</p></article><article><strong>正确的产品链路</strong><code>候选分 → 证据对齐 → 门槛检查 → 分数或 null</code><p>分数必须小于等于证据能证明的等级。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：只满足 2 分却给 3 分</strong><span>先看缺失门槛</span></div><p><b>现象：</b>学习者能定位事实和限制结论，但没有比较替代方案。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>Rubric 的 3 分要求比较至少两个机制。</span></li><li><strong>第一个错误节点</strong><span>把整体不错当成满档。</span></li><li><strong>正确动作</strong><span>给 2 分，并把“缺少候选比较”写成最高优先缺口。</span></li><li><strong>保持不变</strong><span>分数不能超过证据满足的最高档位。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="scoring"><fieldset><legend>理解检查：缺 3 分门槛时怎么判</legend><p>回答满足 2 分条件，但缺少 3 分要求的候选比较。第一步应该怎么判？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="give_three">整体不错，给 3 分</option><option value="cap_level">分数封顶到 2 分，并记录缺少候选比较</option><option value="no_score">完全不给分，因为不完美</option></select></label><label>我为什么这样判断（可选）<textarea name="scoring_reason" rows="3" data-persist placeholder="例如：分数不能超过证据满足的最高档位。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="scoring" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：裁决一个分数</h3><p>请根据你上面的 Rubric，为一个“能引用原话但没有说明不足”的回答给分，并写出缺口。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先找已满足的最高档，再看下一档缺什么。</p></details><form data-transfer-practice="scoring"><label>我的分数裁决<textarea name="scoring_transfer" rows="6" data-persist placeholder="已满足……未满足……分数是……最高优先缺口是……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="scoring" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="scoring" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="scoring" hidden><p>如果回答能绑定部分原话但没有说明不足，通常停在 2 分；不能给 3 分，因为 3 分要求每个关键 claim 都有证据并披露限制。最高优先缺口是“说明哪些 claim 不能由当前 quote 支撑”。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="scoring"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="scoring_teachback" rows="3" data-persist placeholder="例如：我现在理解分数封顶的意思是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="scoring" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="insufficient" data-chapter-section data-learning-module="insufficient">
+            <header class="learning-module__head"><div><h2>信息不足时，是不是应该猜一个低分？</h2><p class="later-section__lead">信息不足不是低能力。它表示当前证据不够裁决。产品要保留 null、缺口原因和下一步，而不是硬给 0 分。</p></div><strong data-module-status="insufficient">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>没有拍到证据，不等于事情不存在。评分系统只能说“当前证据不足”，不能说“用户不会”。</p></div><div><strong>它不等于什么</strong><p>空回答可以是 0 分，但题目没覆盖、引用缺失、系统丢日志时应该是信息不足，不是低分。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来果断，但错误</strong><code>没看到证据 → 0 分</code><p>可能是题目没问到或证据丢失，不是能力失败。</p></article><article><strong>正确的产品链路</strong><code>判断缺证原因 → score=null → 写 limitation → 安排补证</code><p>把“不知道”和“没做到”分开。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：题目没有问迁移</strong><span>不要给迁移 0 分</span></div><p><b>现象：</b>面试只问了定义，没有给新场景题，报告给迁移 0 分。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>迁移能力没有被采证。</span></li><li><strong>第一个错误节点</strong><span>把未观察到当成失败。</span></li><li><strong>正确动作</strong><span>迁移维度 score=null，写明未覆盖并安排复测。</span></li><li><strong>保持不变</strong><span>无证据不等于负证据。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="insufficient"><fieldset><legend>理解检查：没问到迁移怎么给分</legend><p>当前 session 没有新场景迁移题，因此没有迁移证据。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="zero">迁移能力没看到，给 0 分</option><option value="null_limitation">score=null，写明未采证并安排补证或复测</option><option value="guess">根据定义题表现猜一个分</option></select></label><label>我为什么这样判断（可选）<textarea name="insufficient_reason" rows="3" data-persist placeholder="例如：未采证不是能力失败。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="insufficient" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：区分 0 分和 null</h3><p>请写出三个场景：应该给 0 分、应该给 null、应该保留原分但补 limitation。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>从空回答、题目未覆盖、引用不完整三个角度想。</p></details><form data-transfer-practice="insufficient"><label>我的不足处理规则<textarea name="insufficient_transfer" rows="6" data-persist placeholder="0 分场景……null 场景……保留分但限制……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="insufficient" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="insufficient" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="insufficient" hidden><p>空回答或明确错误可给 0 分；题目未覆盖、证据丢失或 quote 不存在应给 null；回答部分可证但有范围限制时保留分数并写 limitation，例如“仅支持事实定位，不支持方案比较”。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="insufficient"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="insufficient_teachback" rows="3" data-persist placeholder="例如：我现在理解 null 和 0 分的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="insufficient" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="confidence" data-chapter-section data-learning-module="confidence">
+            <header class="learning-module__head"><div><h2>置信度高，是不是就能大胆发布结论？</h2><p class="later-section__lead">置信表达是对当前证据和裁决稳定性的说明，不是模型语气有多自信。置信度必须受到证据完整性、Rubric 清晰度和校验结果限制。</p></div><strong data-module-status="confidence">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>置信度像报告里的“我有多确定以及为什么”。它要解释证据够不够，不是写一个漂亮小数。</p></div><div><strong>它不等于什么</strong><p>模型输出 0.94 不等于可以发布正式结论；如果 quote 缺失，置信表达必须降级。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来量化，但错误</strong><code>confidence=0.94 → 正式通过</code><p>数字没有说明证据和标准是否满足。</p></article><article><strong>正确的产品链路</strong><code>证据完整性 → 标准清晰度 → 校验结果 → 置信文字</code><p>用可解释原因表达稳定性。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：高置信但缺 quote</strong><span>先降级表达</span></div><p><b>现象：</b>模型说 95% 确认用户掌握证据链，但没有逐字引用。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>候选结论自信，但核心证据缺失。</span></li><li><strong>第一个错误节点</strong><span>把模型自信当成证据完整。</span></li><li><strong>正确动作</strong><span>置信表达降级为“无法确认”，并要求补 quote。</span></li><li><strong>保持不变</strong><span>置信不能突破证据边界。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="confidence"><fieldset><legend>理解检查：高置信但无 quote 怎么写</legend><p>模型给出高置信掌握结论，但没有逐字 quote。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="trust_confidence">相信高置信，发布掌握</option><option value="downgrade_confidence">降级为无法确认，要求补充可回放证据</option><option value="hide_confidence">隐藏置信度，只显示分数</option></select></label><label>我为什么这样判断（可选）<textarea name="confidence_reason" rows="3" data-persist placeholder="例如：置信表达不能超过证据边界。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="confidence" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写置信表达</h3><p>请为“有部分 quote、Rubric 清楚、但缺迁移题”的情况写一段置信表达和限制说明。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>不要只写百分比，要说明哪些结论稳定，哪些不能确认。</p></details><form data-transfer-practice="confidence"><label>我的置信表达<textarea name="confidence_transfer" rows="6" data-persist placeholder="我对……有较高把握，因为……但不能确认……下一步……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="confidence" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="confidence" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="confidence" hidden><p>对机制解释有较高把握，因为 quote 能支撑事实定位和边界意识；不能确认新场景迁移，因为没有迁移题和对应 quote。结论应写为“部分通过，迁移待补证”，下一步安排新场景复测。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="confidence"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="confidence_teachback" rows="3" data-persist placeholder="例如：我现在理解置信度要解释的是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="confidence" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="report" data-chapter-section data-learning-module="report">
+            <header class="learning-module__head"><div><h2>评分报告为什么不能只写总分和建议？</h2><p class="later-section__lead">评分报告要让读者从结论回到原题、原答、quote、Rubric 档位和下一步。总分只是结果，不是证据链。</p></div><strong data-module-status="report">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>报告像可复核的判卷记录：不仅写几分，还写为什么、证据在哪里、哪里没观察到、下一步补什么。</p></div><div><strong>它不等于什么</strong><p>“综合表现良好，建议继续练习”不是评分报告，因为它无法回放也无法指导复测。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来友好，但错误</strong><code>总分 + 鼓励建议</code><p>没有证据、缺口和下一步，用户不知道如何改。</p></article><article><strong>正确的产品链路</strong><code>结论 → 原话证据 → Rubric 档位 → 缺口 → 下一题/复测</code><p>报告必须能追溯和行动。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：报告无法复盘</strong><span>先补证据链</span></div><p><b>现象：</b>报告写“2 分，证据意识一般”，没有引用回答。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>有分数，但没有 question_id、answer_id 和 quote。</span></li><li><strong>第一个错误节点</strong><span>报告无法被用户或评审复核。</span></li><li><strong>正确动作</strong><span>补原题、原答片段、Rubric 档位、缺口和下一步。</span></li><li><strong>保持不变</strong><span>正式报告必须从结论回放到证据。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="report"><fieldset><legend>理解检查：报告缺 quote 怎么办</legend><p>报告已有总分和建议，但没有原话 quote。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="publish_summary">建议清楚，可以发布</option><option value="add_trace">补 question_id、answer_id、quote、Rubric 档位和 limitation</option><option value="raise_score">为了鼓励用户，把分数提高</option></select></label><label>我为什么这样判断（可选）<textarea name="report_reason" rows="3" data-persist placeholder="例如：没有 quote，报告无法复核。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="report" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写报告字段</h3><p>请设计一个评分报告字段表：至少包括结论、分数、证据、限制、最高优先缺口和下一步。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>字段要能让 Codex 或评审回到原题和原回答。</p></details><form data-transfer-practice="report"><label>我的报告字段表<textarea name="report_transfer" rows="6" data-persist placeholder="结论……score……evidence……limitation……gap……next_step……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="report" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="report" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="report" hidden><p>字段包括 conclusion、score、rubric_level、question_id、answer_id、quote、claim_supported、limitation、top_gap、next_step、review_needed。若 quote 缺失，score 为 null，next_step 指向补证或新场景复测。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="report"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="report_teachback" rows="3" data-persist placeholder="例如：我现在理解评分报告必须能从……回到……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="report" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>综合工作坊：修好一个“模型直接给分”的评测报告。</h2>
+            <p class="later-section__lead">这不是记忆测试。你可以回看任意模块、打开提示并修改方案。目标是把 Rubric、原话证据、分数、信息不足、置信表达和报告字段连成一份可复核评分方案。</p>
+            <div class="challenge-brief"><p>错误方案：模型读完整回答后直接输出 score=3、confidence=0.91 和一句建议；Rubric 只写“回答完整给高分”；报告没有 question_id、answer_id 和 quote；没有证据时默认给 0 分。</p><strong>请改成：先写可观察 Rubric，再抽原话证据，对齐分数档，信息不足用 null，置信表达受证据限制，报告能回放到原题原答。</strong></div>
+            <details class="workshop-guide" open><summary>工作坊路线：不知道从哪里开始时按这五步走</summary><ol><li><strong>标准</strong><span>每个分数档看什么可观察证据？</span></li><li><strong>证据</strong><span>哪些 claim 有原话 quote，哪些只是模型推断？</span></li><li><strong>裁决</strong><span>分数最高能到哪一档，缺哪一档门槛？</span></li><li><strong>不足</strong><span>哪些维度应为 null，而不是 0 分？</span></li><li><strong>报告</strong><span>读者怎样从结论回放到题目、回答、quote 和下一步？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的 W5 证据评分报告<textarea name="final_diagnosis" rows="12" data-persist placeholder="可以按路线写：Rubric → 原话证据 → 分数裁决 → 信息不足 → 置信表达 → 可追溯报告。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的报告是否覆盖</legend><label><input type="checkbox" name="final_check" value="rubric"> 已写出可观察 Rubric 档位</label><label><input type="checkbox" name="final_check" value="evidence"> 已绑定原题、原答和 quote</label><label><input type="checkbox" name="final_check" value="score"> 已说明分数裁决与封顶原因</label><label><input type="checkbox" name="final_check" value="null"> 已区分 0 分、null 和 limitation</label><label><input type="checkbox" name="final_check" value="report"> 已写出置信表达和下一步</label></fieldset>
+              <button class="button" type="submit">保存 W5 评分报告</button>
+              <span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>W5 评分报告已保存。</h3><p>网页只检查结构覆盖，不代替正式语义评分。现在可以对照示例，挑一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例方案</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>Rubric 每档写可观察行为，不使用“完整、专业”这类印象词。</li><li>每个关键 claim 绑定 question_id、answer_id 和逐字 quote。</li><li>分数不能超过证据满足的最高档，缺口写成下一步。</li><li>未采证维度用 score=null 和 limitation，不用 0 分猜测。</li><li>置信表达说明哪些结论稳定、哪些不能确认，并指向补证或复测。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 W5 理解地图：把笔记、疑问和评分报告放在一起。</h2>
+            <p class="later-section__lead">这里汇总的是你的学习痕迹，不是标准答案或正式掌握结论。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>标准是否可观察</strong><span>我是否能把分数档写成行为证据？</span></div><div><strong>证据是否可回放</strong><span>我是否能从 claim 回到原话 quote？</span></div><div><strong>分数是否被证据封顶</strong><span>我是否知道缺哪个门槛不能升档？</span></div><div><strong>不足是否诚实</strong><span>我是否区分 0 分、null 和 limitation？</span></div><div><strong>报告是否能行动</strong><span>我是否写出最高优先缺口和下一步？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>W5 接力：页面完成后，再决定是否启动正式评测。</h2>
+            <p class="later-section__lead" data-formal-handoff-summary>网页里的评分判断、Rubric 草稿、笔记和理解地图只是草稿证据。正式长期线是否记录 Week 05，需要 Codex 重新读取并写入唯一正式状态源。</p>
+            <div class="handoff-grid"><div><span>网页</span><strong>证据评分机制、误区辨析和开放式评分报告</strong><small>只保存在当前标签页，不生成正式分数。</small></div><div><span>Codex</span><strong>正式状态源、课程开启和证据回写</strong><small>是否纳入长期线由明确动作和 JSON 写入决定。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>继续 W5 评分报告</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W5 接力</button><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Week 05 · Evidence Rubric Scoring</span><span><a href="week-04-adaptive-interview-state.html">上一页：Week 04</a> · <a href="week-06-eval-set-judge.html">下一页：Week 06</a> · <a href="index.html">返回十二周长期线</a></span></div></footer>
+  <script type="application/json" data-later-config>
+  {
+    "week_id": "week-05",
+    "day_label": "Week 05",
+    "storage_key": "ai-pm-week05-course:v1",
+    "legacy_session_keys": [],
+    "knowledge_anchor": "Rubric 标准 → 原话证据 → 分数裁决 → 信息不足 → 置信表达 → 可追溯报告",
+    "page_anchor": "week-05-evidence-rubric-scoring.html#rubric",
+    "module_order": ["rubric", "evidence", "scoring", "insufficient", "confidence", "report"],
+    "module_labels": {
+      "rubric": "Rubric 标准与分数门槛",
+      "evidence": "原话证据与 claim 对齐",
+      "scoring": "分数裁决与封顶原因",
+      "insufficient": "信息不足、0 分与 null",
+      "confidence": "置信表达与证据边界",
+      "report": "可追溯评分报告"
+    },
+    "guided_definitions": {
+      "rubric": {
+        "correct": "observable_level",
+        "passTitle": "评分档位必须写成可观察行为。",
+        "failTitle": "你仍把印象词当成了评分标准。",
+        "known": "要评分 AI 方案选型能力，必须让不同评审能按同一把尺子判断。",
+        "error": "“完整、专业、有逻辑”无法告诉评审看哪类证据。",
+        "why": "没有可观察行为，模型和人工都会按印象给分，结果不可复核。",
+        "chain": "维度 → 可观察行为 → 原话证据 → 分数门槛。",
+        "invariant": "每个分数档都要能被原话或交付物证据证明。"
+      },
+      "evidence": {
+        "correct": "quote_first",
+        "passTitle": "先回到原话，再决定 claim 能写多大。",
+        "failTitle": "你仍把摘要当成了正式证据。",
+        "known": "模型摘要比原回答更完整，但关键句不是用户原话。",
+        "error": "摘要可能扩大原意，不能直接支撑正式分数。",
+        "why": "正式评分需要能回放到 question_id、answer_id 和逐字 quote。",
+        "chain": "原题 → 原答 → 逐字 quote → claim → 分数候选。",
+        "invariant": "评分证据必须来自原话或原始交付物。"
+      },
+      "scoring": {
+        "correct": "cap_level",
+        "passTitle": "分数被证据满足的最高档封顶。",
+        "failTitle": "你仍把整体印象当成了升档理由。",
+        "known": "回答满足 2 分条件，但缺少 3 分要求的候选比较。",
+        "error": "给 3 分会越过 Rubric 门槛；完全不给分又会抹掉已满足证据。",
+        "why": "分数裁决要逐项对齐标准，不能高于证据能证明的等级。",
+        "chain": "候选分 → 证据对齐 → 门槛检查 → 分数封顶或 null。",
+        "invariant": "分数不能超过证据满足的最高档位。"
+      },
+      "insufficient": {
+        "correct": "null_limitation",
+        "passTitle": "未采证维度保留 null，而不是猜低分。",
+        "failTitle": "你仍把没有观察到当成了能力失败。",
+        "known": "当前 session 没有新场景迁移题，因此没有迁移证据。",
+        "error": "0 分代表观察到失败；这里是没有采证。",
+        "why": "无证据不等于负证据，正式记录要区分“不知道”和“没做到”。",
+        "chain": "判断缺证原因 → score=null → 写 limitation → 安排补证或复测。",
+        "invariant": "未采证、证据丢失和题目未覆盖都不能被硬判为低分。"
+      },
+      "confidence": {
+        "correct": "downgrade_confidence",
+        "passTitle": "置信表达被证据边界限制。",
+        "failTitle": "你仍把模型自信当成了证据完整。",
+        "known": "模型给出高置信掌握结论，但没有逐字 quote。",
+        "error": "高置信数字无法替代原话证据和 Rubric 对齐。",
+        "why": "置信度说明裁决稳定性，不能突破证据缺口。",
+        "chain": "证据完整性 → 标准清晰度 → 校验结果 → 置信文字。",
+        "invariant": "置信表达不能超过证据边界。"
+      },
+      "report": {
+        "correct": "add_trace",
+        "passTitle": "评分报告要能从结论回放到证据。",
+        "failTitle": "你仍把总分和建议当成了报告。",
+        "known": "报告已有总分和建议，但没有原题、原答和逐字 quote。",
+        "error": "没有追溯字段，用户和评审都无法复核分数。",
+        "why": "正式报告必须支持证据回放、缺口定位和下一步行动。",
+        "chain": "结论 → 原话证据 → Rubric 档位 → limitation → 最高优先缺口 → 下一步。",
+        "invariant": "正式报告必须从结论回放到证据。"
+      }
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script>
+  <script src="../../assets/study-state.js"></script>
+  <script src="assets/week05-course.js?v=20260823-week05"></script>
+</body>
+</html>

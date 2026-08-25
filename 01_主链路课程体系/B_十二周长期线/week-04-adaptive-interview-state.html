@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型十二周长期线 Week 04：用白话理解自适应面试、能力覆盖、追问、状态机和停止规则。">
+  <title>Week 04｜自适应面试与状态机｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260823-week04">
+</head>
+<body class="day-later-course week04-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html">主链路</a>
+        <a href="../A_两周突击线/index.html">两周突击</a>
+        <a href="index.html" aria-current="page">十二周长期</a>
+        <a href="../../02_复盘总结/index.html">复盘总结</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <h1>先定义要证明什么，再决定下一题问什么。</h1>
+          <p class="later-hero__lead">Week 04 把自适应面试拆成可产品化的判断链：能力目标如何覆盖，题目怎样选择，什么时候追问，哪些上下文能带入，状态由谁推进，什么条件下必须停止或转复测。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看评测链路</a><a class="button button--quiet" href="#coverage">从能力覆盖开始</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Week 04 章节契约">
+          <div><dt>核心问题</dt><dd>AI 面试系统怎样根据回答动态追问，又不让模型随意改题、越权评分或无限延长流程？</dd></div>
+          <div><dt>学习方式</dt><dd>心智模型 · 白话解释 · 错误辨析 · 示例 · 开放式流程设计</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页不创建真实评测 session、不写待答题、不改正式 JSON；只保存当前标签页草稿</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" aria-label="十二周长期线课程导航">
+        <a href="index.html"><span class="day-switcher__day">总览</span><span class="day-switcher__copy"><strong>十二周长期线</strong><small>路线总览</small></span></a>
+        <a href="week-02-mechanism-selection.html"><span class="day-switcher__day">W2</span><span class="day-switcher__copy"><strong>机制理解与方案选型</strong><small>前置课程页</small></span></a>
+        <a href="week-03-rag-knowledge-system.html"><span class="day-switcher__day">W3</span><span class="day-switcher__copy"><strong>RAG 知识系统与检索质量</strong><small>上一课程页</small></span></a>
+        <a href="week-04-adaptive-interview-state.html" aria-current="page"><span class="day-switcher__day">W4</span><span class="day-switcher__copy"><strong>自适应面试与状态机</strong><small>当前课程页</small></span></a>
+        <a href="week-05-evidence-rubric-scoring.html"><span class="day-switcher__day">W5</span><span class="day-switcher__copy"><strong>证据驱动评分与 Rubric</strong><small>下一课程页</small></span></a>
+      </nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head">
+          <div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W4 评测流程边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div>
+          <div class="later-cockpit__stamp"><span>W4 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div>
+        </header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式状态、课程承接与网页 / Codex 边界</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度">
+            <li data-later-progress-stage="foundation"><span>承接资产</span><strong>两周突击线与长期线基础</strong><small data-later-stage-status="foundation">核对中…</small></li>
+            <li data-later-progress-stage="week01"><span>前置输入</span><strong>Week 01 缺口与证据看板</strong><small data-later-stage-status="week01">核对中…</small></li>
+            <li data-later-progress-stage="week02"><span>前置机制</span><strong>Week 02-03 机制与知识系统</strong><small data-later-stage-status="week02">核对中…</small></li>
+            <li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">核对中…</small></li>
+          </ol>
+          <div class="later-cockpit__decision">
+            <section><h3>当前学习定位</h3><dl><div><dt>已承接</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>本周缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section>
+            <section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始 W4 流程设计</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W4 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>课程学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录">
+            <a href="#orientation" data-section-link="orientation">先看评测链路</a>
+            <a href="#coverage" data-section-link="coverage">能力覆盖怎样定</a>
+            <a href="#questioning" data-section-link="questioning">下一题怎样选</a>
+            <a href="#followup" data-section-link="followup">追问怎样限制</a>
+            <a href="#context" data-section-link="context">上下文怎样带入</a>
+            <a href="#state-machine" data-section-link="state-machine">状态机怎样推进</a>
+            <a href="#stopping" data-section-link="stopping">停止与复测怎样判</a>
+            <a href="#transfer" data-section-link="transfer">综合工作坊</a>
+            <a href="#summary" data-section-link="summary">我的理解地图</a>
+            <a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a>
+          </nav>
+          <p>这里记录的是 W4 页面活动，不等于正式评分或长期线掌握状态。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一张图：自适应不是让模型想到哪问到哪。</h2>
+            <p class="later-section__lead">自适应面试可以先理解为“根据证据缺口选择下一步”。模型可以帮助生成候选追问，但能力覆盖、题目顺序、状态推进和停止条件必须由产品规则守住。</p>
+            <div class="learning-contract">
+              <article><strong>先讲评测动作，再讲术语</strong><p>每个概念都先回答“谁决定下一题，谁记录证据，谁能结束 session”。</p></article>
+              <article><strong>用错误流程划边界</strong><p>不把“模型觉得还要问”当流程命令，而是找出第一个越权节点。</p></article>
+              <article><strong>带着流程图做迁移</strong><p>可以回看提示和示例，目标是写出可复盘的评测流程，而不是背状态名。</p></article>
+            </div>
+            <div class="system-journey" aria-label="Week 04 自适应评测链路">
+              <article><strong>能力目标</strong><span>要证明什么</span><p>负责定义覆盖矩阵、通过标准和证据类型。</p></article><i aria-hidden="true">→</i>
+              <article><strong>题目与追问</strong><span>下一步问什么</span><p>负责选择基础题、限制追问次数、避免重复已通过范围。</p></article><i aria-hidden="true">→</i>
+              <article><strong>上下文与状态</strong><span>当前事实是什么</span><p>负责带入必要历史，并由服务端状态机推进。</p></article><i aria-hidden="true">→</i>
+              <article><strong>停止与复测</strong><span>何时结束或重来</span><p>负责判定完成、暂停、转人工、延期复测和证据回写。</p></article>
+            </div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>定能力</span><span>看缺口</span><span>选题</span><span>守状态</span><span>判停止</span></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="coverage" data-chapter-section data-learning-module="coverage">
+            <header class="learning-module__head"><div><h2>能力覆盖是不是多问几题就够了？</h2><p class="later-section__lead">能力覆盖是先定义“哪些能力必须被证据覆盖”。题目只是采证工具，不是问得越多越公平。</p></div><strong data-module-status="coverage">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="能力覆盖的三个角色">
+              <article><h3>Ability</h3><strong>就是要证明的能力点</strong><p>例如机制解释、场景应用、新场景迁移。</p><small>能决定：评测范围</small><small>不能决定：单题是否够证据</small></article>
+              <article><h3>Evidence</h3><strong>就是回答里可引用的证明</strong><p>必须能回到学习者原话、案例或交付物。</p><small>能支持：评分判断</small><small>不能替代：覆盖矩阵</small></article>
+              <article><h3>Coverage Matrix</h3><strong>就是能力和证据的对照表</strong><p>它说明哪些能力已覆盖，哪些还要补题。</p><small>能指导：下一题选择</small><small>不能伪造：网页完成即掌握</small></article>
+            </div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>能力覆盖像体检项目清单：不是抽血次数越多越好，而是每个必须检查的项目都有可靠结果。</p></div><div><strong>它不等于什么</strong><p>问满 10 题不等于覆盖充分；如果 10 题都在问定义，迁移能力仍没有证据。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来勤奋，但错误</strong><code>题数越多 → 评测越准</code><p>重复题会消耗用户时间，却不能补齐能力缺口。</p></article><article><strong>正确的产品链路</strong><code>能力矩阵 → 已有证据 → 缺口 → 下一题目标</code><p>先看缺哪类证据，再决定问什么。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：只问了概念定义</strong><span>先找覆盖缺口</span></div><p><b>现象：</b>候选人能解释 RAG，但没有展示新场景选型能力。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>机制解释已覆盖，迁移证据缺失。</span></li><li><strong>第一个错误节点</strong><span>继续追问 RAG 定义。</span></li><li><strong>正确动作</strong><span>下一题换成不同业务场景，让学习者做方案判断。</span></li><li><strong>保持不变</strong><span>题目选择服务能力缺口，不服务聊天流畅度。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="coverage"><fieldset><legend>理解检查：定义答得好之后下一题问什么</legend><p>学习者已经能解释“什么是 RAG”，但没有新场景迁移证据。下一题应该怎么选？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="more_definition">继续追问 RAG 定义，确认记牢</option><option value="gap_question">选择一个新场景，让他判断是否该用 RAG 及理由</option><option value="finish_mastery">直接标记正式掌握</option></select></label><label>我为什么这样判断（可选）<textarea name="coverage_reason" rows="3" data-persist placeholder="例如：已覆盖机制解释，下一步要补迁移证据。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="coverage" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：AI 产品经理面试覆盖矩阵</h3><p>请为“AI 方案选型能力”设计三个必须覆盖的能力点、对应证据和缺口后的下一题。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以覆盖机制解释、业务场景应用、新场景迁移；每项都要说明证据长什么样。</p></details><form data-transfer-practice="coverage"><label>我的覆盖矩阵<textarea name="coverage_transfer" rows="6" data-persist placeholder="能力点一……证据是……缺口后下一题……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="coverage" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="coverage" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="coverage" hidden><p>机制解释要求学习者说明模型、资料、规则的分工；场景应用要求在已知业务约束下选方案；迁移要求换到新业务仍能判断边界。缺口出现时，下一题只补缺口，不重复已通过能力。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="coverage"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="coverage_teachback" rows="3" data-persist placeholder="例如：我现在理解题目选择要从覆盖缺口出发，因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="coverage" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="questioning" data-chapter-section data-learning-module="questioning">
+            <header class="learning-module__head"><div><h2>下一题是不是让模型临场生成就行？</h2><p class="later-section__lead">下一题可以由模型生成候选，但题目目标、难度、能力标签和不能重复的范围要先由系统限定。</p></div><strong data-module-status="questioning">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>选题像医生开下一项检查。模型能提建议，但检查项目必须对应未确认的风险。</p></div><div><strong>它不等于什么</strong><p>模型生成的问题有趣，不等于它该问；题目必须服务当前缺口和评测计划。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来智能，但错误</strong><code>上一答提到 Agent → 下一题继续聊 Agent</code><p>话题相关不等于能力缺口相关，可能偏离评测目标。</p></article><article><strong>正确的产品链路</strong><code>读取覆盖缺口 → 限定题型难度 → 生成候选 → 去重与审批</code><p>模型在约束内出题，程序检查后才发布。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：题目跑偏</strong><span>先回到缺口</span></div><p><b>现象：</b>候选人回答里提到成本，模型临场生成了商业化题，但当前要补的是状态机缺口。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>状态机缺口未覆盖，商业化不是当前最高缺口。</span></li><li><strong>第一个错误节点</strong><span>把语义相关话题当作下一题目标。</span></li><li><strong>正确动作</strong><span>重新生成围绕状态推进和停止条件的题目。</span></li><li><strong>保持不变</strong><span>下一题由缺口驱动，不由聊天兴趣驱动。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="questioning"><fieldset><legend>理解检查：模型生成了跑偏题怎么办</legend><p>当前缺口是状态机，模型却生成了成本题。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="ask_anyway">问题也不错，直接问</option><option value="regenerate_with_gap">按状态机缺口、题型和难度重新约束生成</option><option value="skip_gap">跳过状态机，避免面试太难</option></select></label><label>我为什么这样判断（可选）<textarea name="questioning_reason" rows="3" data-persist placeholder="例如：下一题要服务覆盖缺口，而不是话题顺滑。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="questioning" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计下一题策略</h3><p>面试已覆盖概念解释，缺少“异常状态恢复”。请写出下一题目标、题型、难度、去重规则和发布前检查。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>题目要让学习者处理具体 session 异常，而不是复述状态机定义。</p></details><form data-transfer-practice="questioning"><label>我的下一题策略<textarea name="questioning_transfer" rows="6" data-persist placeholder="目标是……题型是……难度……不得重复……发布前检查……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="questioning" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="questioning" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="questioning" hidden><p>下一题目标是验证异常状态恢复；题型是给出旧 question_id、超时和已推进 session 的场景，让学习者说明阻断与恢复；难度中等；不得重复定义题；发布前检查能力标签、题型、难度和是否已有同类证据。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="questioning"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="questioning_teachback" rows="3" data-persist placeholder="例如：我现在理解模型出题候选必须先被……约束。"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="questioning" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="followup" data-chapter-section data-learning-module="followup">
+            <header class="learning-module__head"><div><h2>追问越多，评测就越准确吗？</h2><p class="later-section__lead">追问是为了澄清一个高价值缺口，不是把面试变成无限聊天。次数、目标、题目身份和停止条件都要写清楚。</p></div><strong data-module-status="followup">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>追问像补拍一张关键证据照片。拍到证据就收，不该一直换角度拍。</p></div><div><strong>它不等于什么</strong><p>模型觉得还没聊透，不等于还能追问。追问必须和当前题、当前缺口、额度绑定。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来认真，但错误</strong><code>回答模糊 → 一直追问到清楚</code><p>无限追问会改变评测成本、时长和公平性。</p></article><article><strong>正确的产品链路</strong><code>识别单一缺口 → 一次追问 → 记录是否补足 → 超额则进入下一题或结束</code><p>追问是受控补证，不是自由对话。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：追问额度已用完</strong><span>先守额度</span></div><p><b>现象：</b>模型还想追问“为什么不用微调”，但本题唯一追问已用完。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>追问有价值，但 follow_ups_used 已等于上限。</span></li><li><strong>第一个错误节点</strong><span>让内容价值绕过追问额度。</span></li><li><strong>正确动作</strong><span>阻断追问，记录缺口，进入下一基础题或正式反馈。</span></li><li><strong>保持不变</strong><span>追问必须服从额度、当前题身份和停止规则。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="followup"><fieldset><legend>理解检查：追问额度用完还能问吗</legend><p>模型生成了高质量追问，但当前题的追问次数已经达到上限。第一步应该怎么做？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="ask_quality">问题质量高，继续追问</option><option value="block_limit">阻断追问，记录缺口并按流程进入下一步</option><option value="reset_count">把追问次数清零，让流程继续</option></select></label><label>我为什么这样判断（可选）<textarea name="followup_reason" rows="3" data-persist placeholder="例如：追问是受控补证，不能突破额度。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="followup" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：客服质检的追问规则</h3><p>客服质检助手发现回答含糊。请设计追问触发、次数上限、问题身份、补足标准和未补足后的处理。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>追问要绑定一个缺口，不要同时问多个能力点。</p></details><form data-transfer-practice="followup"><label>我的追问规则<textarea name="followup_transfer" rows="6" data-persist placeholder="触发条件是……上限……绑定 question_id……补足标准……未补足则……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="followup" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="followup" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="followup" hidden><p>只在一个关键证据缺口未清时追问一次；追问绑定当前 question_id 和能力标签；补足标准是回答新增了可引用证据。仍未补足则记录缺口并进入下一题或待复测，不继续自由追问。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="followup"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="followup_teachback" rows="3" data-persist placeholder="例如：我现在理解追问不是聊天，而是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="followup" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="context" data-chapter-section data-learning-module="context">
+            <header class="learning-module__head"><div><h2>上下文是不是越多越安全？</h2><p class="later-section__lead">自适应面试要带入必要历史，但不能把所有回答、评分和内部规则都塞给模型。上下文要服务当前判断，并保护正式状态边界。</p></div><strong data-module-status="context">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>上下文像给面试官的简历摘要，只给当前问题必要信息。给太多会干扰判断，也可能泄露不该给模型的状态。</p></div><div><strong>它不等于什么</strong><p>完整历史不等于更公平。模型不需要看到正式 JSON 的全部字段，更不能根据历史字段直接改状态。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来完整，但错误</strong><code>所有历史回答 + 全部评分规则 → 模型决定下一步</code><p>会引入噪音，也让模型接触它不该决定的状态。</p></article><article><strong>正确的产品链路</strong><code>当前题目标 → 必要证据摘要 → 禁止字段 → 模型候选 → 程序裁决</code><p>上下文最小够用，状态由程序读取和推进。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：历史噪音干扰追问</strong><span>先裁剪上下文</span></div><p><b>现象：</b>模型看到三周前的错题，忽略当前题已经通过，继续追问旧缺口。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>旧缺口已复测通过，当前题目标不同。</span></li><li><strong>第一个错误节点</strong><span>把未过滤历史当成当前事实。</span></li><li><strong>正确动作</strong><span>只传当前题、最近有效证据和仍未通过缺口。</span></li><li><strong>保持不变</strong><span>上下文要按当前决策裁剪，而不是全量倒入。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="context"><fieldset><legend>理解检查：模型被旧缺口干扰怎么办</legend><p>旧错题已经通过复测，但模型仍基于旧错题继续追问。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="more_history">给模型更多历史，让它自己判断</option><option value="minimal_context">裁剪上下文，只保留当前题目标、有效证据和未通过缺口</option><option value="delete_records">删除旧错题记录，避免干扰</option></select></label><label>我为什么这样判断（可选）<textarea name="context_reason" rows="3" data-persist placeholder="例如：旧记录要保留，但不是所有旧记录都进入当前模型上下文。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="context" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：面试上下文白名单</h3><p>请为“下一题生成”设计上下文白名单和禁止字段，并说明为什么这些字段不能交给模型直接使用。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以区分当前题目标、最近回答摘要、已通过能力、未通过能力、正式状态字段。</p></details><form data-transfer-practice="context"><label>我的上下文白名单<textarea name="context_transfer" rows="6" data-persist placeholder="允许给模型的是……禁止给模型的是……程序自己读取的是……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="context" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="context" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="context" hidden><p>允许给模型：当前题目标、能力标签、必要回答摘要、仍未覆盖缺口。禁止给模型：完整正式 JSON、可写状态字段、内部评分阈值、敏感个人信息。程序读取正式状态并裁决下一步，模型只生成候选题目或追问。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="context"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="context_teachback" rows="3" data-persist placeholder="例如：我现在理解上下文最小够用是因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="context" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="state-machine" data-chapter-section data-learning-module="state">
+            <header class="learning-module__head"><div><h2>状态机为什么不能让模型自己推进？</h2><p class="later-section__lead">状态机就是流程事实表：当前在第几题、有没有待答题、追问次数、是否已完成。模型可以建议动作，但不能直接写状态。</p></div><strong data-module-status="state">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>状态机像排队叫号系统。模型可以建议“下一位”，但叫号屏幕只能由系统规则更新。</p></div><div><strong>它不等于什么</strong><p>模型输出 <code>next_state=completed</code> 不是完成事实。完成必须来自服务端检查和证据覆盖。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来自动化，但错误</strong><code>模型说 completed → 页面结束</code><p>模型绕过了题目队列、证据覆盖和待答题检查。</p></article><article><strong>正确的产品链路</strong><code>模型候选 action → Guard 检查 → 服务端状态迁移 → 页面投影</code><p>页面只展示状态，不能反向制造正式事实。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：旧题提交回来</strong><span>先核对 question_id</span></div><p><b>现象：</b>用户提交的是上一题答案，但页面已经进入下一题。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>提交 question_id 和当前 session 不一致。</span></li><li><strong>第一个错误节点</strong><span>接受旧题提交并覆盖当前状态。</span></li><li><strong>正确动作</strong><span>Guard 阻断 stale submit，提示刷新或恢复当前题。</span></li><li><strong>保持不变</strong><span>所有状态迁移都要核对身份、顺序和权限。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="state"><fieldset><legend>理解检查：旧题答案还能提交吗</legend><p>提交请求携带旧 question_id，服务端 session 已经推进到下一题。第一步应该怎么做？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="accept_old">接受旧答案，避免用户挫败</option><option value="guard_stale">阻断旧题提交，保持当前 session 状态不变</option><option value="model_decides">让模型判断旧答案是否仍有价值</option></select></label><label>我为什么这样判断（可选）<textarea name="state_reason" rows="3" data-persist placeholder="例如：内容有价值不等于状态迁移有效。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="state" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计状态迁移表</h3><p>请为一次自适应面试写出 4 个状态、允许动作、阻断条件和页面展示。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>可以从 not_started、asking_base、asking_followup、completed 或 waiting_retest 设计。</p></details><form data-transfer-practice="state"><label>我的状态迁移表<textarea name="state_transfer" rows="6" data-persist placeholder="状态一……允许动作……阻断条件……页面显示……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="state" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="state" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="state" hidden><p>not_started 只能创建新 session；asking_base 接收当前基础题答案；asking_followup 只接收绑定当前题的追问答案；completed 禁止再写答案；waiting_retest 只允许创建新场景复测。旧 question_id、超额追问和模型越权状态都被 Guard 阻断。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="state"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="state_teachback" rows="3" data-persist placeholder="例如：我现在理解页面只能投影状态，不能……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="state" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="stopping" data-chapter-section data-learning-module="stopping">
+            <header class="learning-module__head"><div><h2>什么时候该结束、暂停或安排复测？</h2><p class="later-section__lead">停止规则不是“答得差不多就结束”。它要说明覆盖完成、时间耗尽、证据不足、风险过高和延期复测各自怎么处理。</p></div><strong data-module-status="stopping">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>停止规则像考试交卷规则：达到覆盖就结束，缺关键证据就标缺口，不能为了完成感硬判掌握。</p></div><div><strong>它不等于什么</strong><p>提前结束不等于通过；页面做完也不等于正式掌握。停止只是流程动作，掌握要看正式证据。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来友好，但错误</strong><code>用户答累了 → 标记掌握</code><p>疲劳只能触发暂停或降级反馈，不能生成掌握证据。</p></article><article><strong>正确的产品链路</strong><code>覆盖检查 → 缺口记录 → 完成/暂停/复测 → 正式证据回写</code><p>停止原因必须可追溯。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：时间耗尽但迁移未覆盖</strong><span>先保留缺口</span></div><p><b>现象：</b>面试时间到了，机制解释通过，但新场景迁移没有问到。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>部分能力已覆盖，迁移证据缺失。</span></li><li><strong>第一个错误节点</strong><span>因为流程结束就标记全部掌握。</span></li><li><strong>正确动作</strong><span>标记课程完成但掌握缺口保留，安排新场景延期复测。</span></li><li><strong>保持不变</strong><span>停止流程不能抹掉未覆盖证据层。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="stopping"><fieldset><legend>理解检查：时间到了但迁移没覆盖怎么办</legend><p>机制解释已通过，迁移能力没有证据，面试时间已到。第一步应该怎么处理？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="master_all">流程结束，标记正式掌握</option><option value="defer_retest">记录已覆盖与缺口，安排新场景延期复测</option><option value="ask_forever">继续问到覆盖为止，不管时间</option></select></label><label>我为什么这样判断（可选）<textarea name="stopping_reason" rows="3" data-persist placeholder="例如：停止流程不等于所有能力都有证据。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="stopping" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：复测接力规则</h3><p>请设计“机制解释通过、迁移未通过”后的停止原因、正式记录、下一次复测触发和复测题边界。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>复测应只测未通过范围，用不同场景，不能重复已通过内容。</p></details><form data-transfer-practice="stopping"><label>我的停止与复测规则<textarea name="stopping_transfer" rows="6" data-persist placeholder="停止原因是……正式记录……复测触发……复测题不能……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="stopping" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="stopping" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="stopping" hidden><p>停止原因记录为时间耗尽且迁移证据缺失；正式记录保留机制解释通过和迁移待巩固；复测由 Codex 读取状态后创建新场景题，只验证迁移缺口，不重复机制解释，也不由页面草稿直接写掌握。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="stopping"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="stopping_teachback" rows="3" data-persist placeholder="例如：我现在理解提前结束和正式掌握之间的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="stopping" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>综合工作坊：修好一个“模型想问什么就问什么”的 AI 面试系统。</h2>
+            <p class="later-section__lead">这不是记忆测试。你可以回看任意模块、打开提示并修改方案。目标是把能力覆盖、题目选择、追问、上下文、状态机和停止复测连成一份可评审的产品流程。</p>
+            <div class="challenge-brief"><p>错误方案：模型根据上一句自由生成下一题；追问没有次数上限；所有历史和正式状态都塞进上下文；模型返回 completed 后页面结束；时间到了就把课程标记掌握。</p><strong>请改成：先定义能力覆盖和缺口，再限制题目、追问、上下文、状态迁移、停止原因和复测接力。</strong></div>
+            <details class="workshop-guide" open><summary>工作坊路线：不知道从哪里开始时按这五步走</summary><ol><li><strong>覆盖</strong><span>哪些能力必须有证据，已有证据和缺口是什么？</span></li><li><strong>选题</strong><span>下一题目标、题型、难度和去重规则是什么？</span></li><li><strong>追问</strong><span>何时追问，最多几次，如何绑定当前题？</span></li><li><strong>状态</strong><span>谁推进 session，哪些模型字段必须被 Guard 阻断？</span></li><li><strong>停止</strong><span>完成、暂停、复测和正式回写分别怎样触发？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的 W4 自适应面试流程<textarea name="final_diagnosis" rows="12" data-persist placeholder="可以按路线写：能力覆盖 → 下一题 → 追问规则 → 上下文白名单 → 状态机 → 停止与复测。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的流程是否覆盖</legend><label><input type="checkbox" name="final_check" value="coverage"> 已定义能力覆盖与证据缺口</label><label><input type="checkbox" name="final_check" value="question"> 已说明下一题选择和去重</label><label><input type="checkbox" name="final_check" value="followup"> 已限制追问目标、次数和身份</label><label><input type="checkbox" name="final_check" value="state"> 已说明上下文白名单和状态机 Guard</label><label><input type="checkbox" name="final_check" value="stop"> 已说明停止、复测和正式边界</label></fieldset>
+              <button class="button" type="submit">保存 W4 面试流程</button>
+              <span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>W4 面试流程已保存。</h3><p>网页只检查结构覆盖，不代替正式语义评分。现在可以对照示例，挑一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例方案</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>能力矩阵分出机制解释、场景应用和新场景迁移，下一题只补当前缺口。</li><li>模型只生成题目或追问候选，系统检查能力标签、难度、去重和题目身份。</li><li>追问绑定当前 question_id，最多一次，未补足则记录缺口。</li><li>上下文只带必要摘要，状态迁移由服务端 Guard 执行。</li><li>停止原因可追溯；页面草稿不写掌握，复测由 Codex 重读正式状态后创建新题。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 W4 理解地图：把笔记、疑问和面试流程放在一起。</h2>
+            <p class="later-section__lead">这里汇总的是你的学习痕迹，不是标准答案或正式掌握结论。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>覆盖是否明确</strong><span>我是否知道当前要证明哪类能力？</span></div><div><strong>下一题是否有目标</strong><span>我是否能把题目绑定到缺口？</span></div><div><strong>追问是否受控</strong><span>我是否限制了次数、身份和补足标准？</span></div><div><strong>状态是否由程序守住</strong><span>我是否阻断模型越权改状态？</span></div><div><strong>停止是否保留缺口</strong><span>我是否区分流程结束和正式掌握？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>W4 接力：页面完成后，再决定是否启动正式评测。</h2>
+            <p class="later-section__lead" data-formal-handoff-summary>网页里的自适应评测判断、面试流程方案、笔记和理解地图只是草稿证据。正式长期线是否记录 Week 04，需要 Codex 重新读取并写入唯一正式状态源。</p>
+            <div class="handoff-grid"><div><span>网页</span><strong>自适应评测机制、误区辨析和开放式流程草稿</strong><small>只保存在当前标签页，不生成正式分数。</small></div><div><span>Codex</span><strong>正式状态源、课程开启和证据回写</strong><small>是否纳入长期线由明确动作和 JSON 写入决定。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>继续 W4 面试流程</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W4 接力</button><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Week 04 · Adaptive Interview State Machine</span><span><a href="week-03-rag-knowledge-system.html">上一页：Week 03</a> · <a href="index.html">返回十二周长期线</a></span></div></footer>
+  <script type="application/json" data-later-config>
+  {
+    "week_id": "week-04",
+    "day_label": "Week 04",
+    "storage_key": "ai-pm-week04-course:v1",
+    "legacy_session_keys": [],
+    "knowledge_anchor": "能力覆盖 → 下一题选择 → 追问限制 → 上下文白名单 → 状态机 Guard → 停止与复测",
+    "page_anchor": "week-04-adaptive-interview-state.html#coverage",
+    "module_order": ["coverage", "questioning", "followup", "context", "state", "stopping"],
+    "module_labels": {
+      "coverage": "能力覆盖与证据缺口",
+      "questioning": "下一题选择与去重",
+      "followup": "追问触发、次数与身份",
+      "context": "上下文白名单与禁止字段",
+      "state": "状态机、Guard 与页面投影",
+      "stopping": "停止原因、延期复测与正式边界"
+    },
+    "guided_definitions": {
+      "coverage": {
+        "correct": "gap_question",
+        "passTitle": "下一题要补迁移证据，而不是重复定义。",
+        "failTitle": "你仍把题目数量或定义熟练度当成了覆盖。",
+        "known": "机制解释已经有证据，新场景迁移还没有证据。",
+        "error": "继续问定义会重复已覆盖范围，直接标记掌握会伪造迁移证据。",
+        "why": "正式掌握至少需要机制解释、场景应用和新场景迁移的证据。",
+        "chain": "能力矩阵 → 已有证据 → 迁移缺口 → 新场景题目。",
+        "invariant": "题目选择服务能力缺口，不服务聊天流畅度。"
+      },
+      "questioning": {
+        "correct": "regenerate_with_gap",
+        "passTitle": "按当前缺口重新约束下一题。",
+        "failTitle": "你仍让语义相关话题带偏评测目标。",
+        "known": "当前最高缺口是状态机，模型生成的是成本题。",
+        "error": "成本题可能有价值，但不能补当前状态机证据缺口。",
+        "why": "自适应选题要由覆盖矩阵驱动，模型只能在约束内生成候选。",
+        "chain": "读取缺口 → 限定题型难度 → 生成候选 → 去重与审批 → 发布。",
+        "invariant": "下一题由缺口驱动，不由聊天兴趣驱动。"
+      },
+      "followup": {
+        "correct": "block_limit",
+        "passTitle": "追问被额度守住，缺口被诚实记录。",
+        "failTitle": "你仍让问题质量突破流程规则。",
+        "known": "追问有价值，但当前题的追问次数已经达到上限。",
+        "error": "继续追问会破坏时长、成本和公平性边界。",
+        "why": "追问是受控补证，不是自由聊天。",
+        "chain": "识别单一缺口 → 一次追问 → 检查补足 → 超额则记录缺口并进入下一步。",
+        "invariant": "追问必须服从额度、题目身份和停止规则。"
+      },
+      "context": {
+        "correct": "minimal_context",
+        "passTitle": "上下文按当前决策最小够用。",
+        "failTitle": "你仍把全量历史当成更可靠。",
+        "known": "旧错题已经复测通过，但模型仍被旧记录带偏。",
+        "error": "未过滤历史被当成当前有效缺口。",
+        "why": "上下文越多越可能带入噪音和不该让模型决定的状态字段。",
+        "chain": "当前题目标 → 必要证据摘要 → 未通过缺口 → 禁止字段 → 模型候选。",
+        "invariant": "上下文要按当前决策裁剪，不全量倒入。"
+      },
+      "state": {
+        "correct": "guard_stale",
+        "passTitle": "旧题提交被 Guard 阻断，当前状态不被反向改写。",
+        "failTitle": "你仍把内容价值当成了状态迁移有效。",
+        "known": "提交的 question_id 已过期，服务端 session 已进入下一题。",
+        "error": "接受旧提交会让页面和服务端状态分叉。",
+        "why": "状态机必须核对题目身份、顺序、权限和当前 session。",
+        "chain": "模型或页面候选 action → Guard 检查 → 服务端迁移 → 页面投影。",
+        "invariant": "所有状态迁移都要核对身份、顺序和权限。"
+      },
+      "stopping": {
+        "correct": "defer_retest",
+        "passTitle": "流程可以停止，缺口必须保留并进入复测。",
+        "failTitle": "你仍把流程结束当成了正式掌握。",
+        "known": "机制解释已覆盖，迁移证据缺失，面试时间已到。",
+        "error": "标记全部掌握会抹掉未覆盖证据层；无限追问会破坏停止边界。",
+        "why": "停止是流程动作，掌握是证据结论，二者不能互相替代。",
+        "chain": "覆盖检查 → 缺口记录 → 暂停/完成/复测 → 正式证据回写。",
+        "invariant": "停止流程不能抹掉未覆盖证据层。"
+      }
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script>
+  <script src="../../assets/study-state.js"></script>
+  <script src="assets/week04-course.js?v=20260823-week04"></script>
+</body>
+</html>

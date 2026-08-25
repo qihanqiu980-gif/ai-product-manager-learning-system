@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 产品经理转型十二周长期线 Week 09：用白话理解激活、留存、付费、Token 成本、模型路由与商业实验。">
+  <title>Week 09｜AI 商业指标与单位经济｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260823-week09">
+</head>
+<body class="day-later-course week09-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html">主链路</a>
+        <a href="../A_两周突击线/index.html">两周突击</a>
+        <a href="index.html" aria-current="page">十二周长期</a>
+        <a href="../../02_复盘总结/index.html">复盘总结</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <h1>先算清一次 AI 帮助值多少钱，再决定怎么增长。</h1>
+          <p class="later-hero__lead">Week 09 把“AI 产品商业化”拆成可判断的产品链：用户第一次成功做成什么算激活，哪些行为说明愿意回来，什么时候愿意付费，Token 成本怎样吃掉毛利，模型路由怎样平衡效果和成本，商业实验怎样避免只看漂亮点击率。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看商业闭环</a><a class="button button--quiet" href="#activation">从激活指标开始</a></div>
+        </div>
+        <dl class="later-contract" aria-label="Week 09 章节契约">
+          <div><dt>核心问题</dt><dd>AI 产品怎样证明“模型带来的价值”大于获客、Token、人工和风险成本？</dd></div>
+          <div><dt>学习方式</dt><dd>心智模型 · 白话解释 · 错误辨析 · 示例 · 开放式商业实验方案</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页不创建真实营收、成本或实验数据；只保存当前标签页商业方案草稿</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+      <nav class="shell day-switcher" aria-label="十二周长期线课程导航">
+        <a href="index.html"><span class="day-switcher__day">总览</span><span class="day-switcher__copy"><strong>十二周长期线</strong><small>路线总览</small></span></a>
+        <a href="week-07-badcase-regression.html"><span class="day-switcher__day">W7</span><span class="day-switcher__copy"><strong>Badcase 修复与回归</strong><small>前置课程页</small></span></a>
+        <a href="week-08-ai-risk-guardrails.html"><span class="day-switcher__day">W8</span><span class="day-switcher__copy"><strong>AI 风险边界与防护</strong><small>上一课程页</small></span></a>
+        <a href="week-09-ai-business-economics.html" aria-current="page"><span class="day-switcher__day">W9</span><span class="day-switcher__copy"><strong>AI 商业指标与单位经济</strong><small>当前课程页</small></span></a>
+        <a href="week-10-web-demo-rag-integration.html"><span class="day-switcher__day">W10</span><span class="day-switcher__copy"><strong>Web Demo 与 RAG 接入</strong><small>下一课程页</small></span></a>
+      </nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head">
+          <div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W9 商业闭环边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div>
+          <div class="later-cockpit__stamp"><span>W9 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div>
+        </header>
+        <details class="formal-state-disclosure">
+          <summary>展开正式状态、课程承接与网页 / Codex 边界</summary>
+          <ol class="later-progress-map" aria-label="正式知识进度">
+            <li data-later-progress-stage="foundation"><span>承接资产</span><strong>两周突击线与长期线基础</strong><small data-later-stage-status="foundation">核对中…</small></li>
+            <li data-later-progress-stage="week01"><span>前置风险</span><strong>Week 08 风险边界与防护</strong><small data-later-stage-status="week01">核对中…</small></li>
+            <li data-later-progress-stage="week02"><span>前置质量</span><strong>Week 07 坏例修复与回归</strong><small data-later-stage-status="week02">核对中…</small></li>
+            <li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">核对中…</small></li>
+          </ol>
+          <div class="later-cockpit__decision">
+            <section><h3>当前学习定位</h3><dl><div><dt>已承接</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>本周缺口</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section>
+            <section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始 W9 商业链</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W9 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter">
+      <div class="shell later-layout">
+        <aside class="later-rail" aria-label="本章能力与目录">
+          <div class="later-rail__status"><span>课程学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+          <ol class="ability-evidence" aria-label="四项网页学习进度">
+            <li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li>
+            <li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li>
+            <li data-ability-evidence="apply"><span>场景方案做过</span><strong data-ability-status="apply">未完成</strong></li>
+            <li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li>
+          </ol>
+          <nav aria-label="课程目录">
+            <a href="#orientation" data-section-link="orientation">先看商业闭环</a>
+            <a href="#activation" data-section-link="activation">激活怎样定义</a>
+            <a href="#retention" data-section-link="retention">留存怎样判断</a>
+            <a href="#payment" data-section-link="payment">付费怎样验证</a>
+            <a href="#cost" data-section-link="cost">Token 成本怎样算</a>
+            <a href="#routing" data-section-link="routing">模型路由怎样取舍</a>
+            <a href="#experiment" data-section-link="experiment">商业实验怎样做</a>
+            <a href="#transfer" data-section-link="transfer">综合工作坊</a>
+            <a href="#summary" data-section-link="summary">我的理解地图</a>
+            <a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a>
+          </nav>
+          <p>这里记录的是 W9 页面活动，不等于真实营收、成本、实验结论或长期线掌握状态。</p>
+        </aside>
+
+        <div class="later-content" id="chapter-content">
+          <div class="lesson-live" data-live-message aria-live="polite"></div>
+
+          <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+            <h2>先在脑中搭起一张图：商业化不是“AI 功能上线后找人付费”。</h2>
+            <p class="later-section__lead">AI 产品商业闭环可以先理解为“用户用 AI 做成一件有价值的事，并且这件事产生的收入或留存价值大于模型、人工、获客和风险成本”。指标要从一次成功任务开始，沿着回来使用、愿意付费、成本控制和实验验证往下走。</p>
+            <div class="learning-contract">
+              <article><strong>先讲业务动作，再讲指标名</strong><p>每个指标都先回答“用户做成了什么、为什么愿意回来、为什么愿意付钱”。</p></article>
+              <article><strong>用错误增长划边界</strong><p>不把点击、试用和模型调用量当成商业成功，而是找到第一个没有产生价值或毛利的节点。</p></article>
+              <article><strong>带着场景写实验方案</strong><p>可以回看提示和示例，目标是写出能同时看价值、成本、风险和收入的商业实验。</p></article>
+            </div>
+            <div class="system-journey" aria-label="Week 09 商业闭环">
+              <article><strong>Activation</strong><span>第一次做成事</span><p>负责定义用户第一次获得 AI 帮助的可观察结果。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Retention</strong><span>愿意回来用</span><p>负责判断用户是否把 AI 放进持续工作流。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Revenue</strong><span>愿意为价值付费</span><p>负责验证价格、额度、套餐和付费门槛。</p></article><i aria-hidden="true">→</i>
+              <article><strong>Margin</strong><span>收入盖过成本</span><p>负责控制 Token、模型、人工、风险和获客成本。</p></article>
+            </div>
+            <div class="learning-loop" aria-label="本页学习循环"><span>定义价值动作</span><span>观察复用</span><span>验证付费</span><span>控制成本</span><span>跑实验</span></div>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="activation" data-chapter-section data-learning-module="activation">
+            <header class="learning-module__head"><div><h2>激活是不是用户点了“生成”按钮？</h2><p class="later-section__lead">激活可以先理解为“用户第一次用 AI 做成有价值的任务”。点击按钮只是尝试，真正的激活要看到用户拿到了可用结果，或完成了原本更费时的工作。</p></div><strong data-module-status="activation">0 / 2 步</strong></header>
+            <div class="term-atlas" aria-label="激活指标的三个角色">
+              <article><h3>Value Action</h3><strong>就是用户真的完成的价值动作</strong><p>例如生成可提交的 JD 分析，而不是只打开页面。</p><small>能决定：是否进入激活</small><small>不能决定：是否愿意付费</small></article>
+              <article><h3>Time-to-Value</h3><strong>就是多久拿到第一次价值</strong><p>从进入产品到得到可用结果的时间。</p><small>能帮助：发现上手阻塞</small><small>不能替代：结果质量</small></article>
+              <article><h3>Activation Gate</h3><strong>就是激活门槛</strong><p>必须足够接近业务价值，不能只是低成本点击。</p><small>能阻止：虚高数据</small><small>不能证明：长期留存</small></article>
+            </div>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>激活像第一次真正吃到产品的好处。用户只是点了按钮，还不算；用户拿到能用的方案、报告或节省了明确时间，才接近激活。</p></div><div><strong>它不等于什么</strong><p>注册、浏览、点击生成、调用模型都不是天然激活。它们可能只是好奇或误触。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来增长，但错误</strong><code>点击生成率 80% → 激活很好</code><p>不知道生成结果是否被采用，也不知道用户是否获得价值。</p></article><article><strong>正确的产品链路</strong><code>关键任务 → 可用结果 → 用户采用/保存 → 激活</code><p>把激活定义到业务结果上。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：简历优化助手</strong><span>先定义采用动作</span></div><p><b>现象：</b>用户点击“优化简历”很多，但很少复制或保存结果。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>点击发生了，但结果没有进入用户求职流程。</span></li><li><strong>第一个错误节点</strong><span>把模型调用当成激活。</span></li><li><strong>正确动作</strong><span>改成“生成后保存一版并修改至少一个段落”作为激活候选。</span></li><li><strong>保持不变</strong><span>激活必须绑定用户第一次获得可用价值。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="activation"><fieldset><legend>理解检查：哪个更像激活</legend><p>简历助手上线后，用户大量点击生成，但很少保存结果。第一步应该怎么改指标？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="button_click">继续用点击生成作为激活，数据更高</option><option value="value_action">用保存、复制、改写或提交结果这类价值动作作为激活门槛</option><option value="model_calls">用模型调用次数作为激活，方便统计成本</option></select></label><label>我为什么这样判断（可选）<textarea name="activation_reason" rows="3" data-persist placeholder="例如：激活要绑定用户第一次拿到并采用可用结果。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="activation" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：定义激活指标</h3><p>请为“AI 面试模拟助手”设计激活指标，写清价值动作、时间窗口、反作弊和失败信号。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>面试助手的价值可能是完成一轮模拟、收到可执行反馈、保存改进计划，而不是只开始对话。</p></details><form data-transfer-practice="activation"><label>我的激活定义<textarea name="activation_transfer" rows="6" data-persist placeholder="价值动作……时间窗口……不算激活的行为……失败信号……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="activation" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="activation" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="activation" hidden><p>激活可定义为新用户 24 小时内完成一次不少于 3 题的模拟，查看并保存一份含最高优先缺口的反馈计划；只打开页面、只问候、只生成一题未答不算激活。失败信号包括退出在首题前、反馈未打开、生成后无保存或无下一步。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="activation"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="activation_teachback" rows="3" data-persist placeholder="例如：我现在理解激活不是……而是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="activation" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="retention" data-chapter-section data-learning-module="retention">
+            <header class="learning-module__head"><div><h2>留存是不是用户下周又打开了 App？</h2><p class="later-section__lead">留存可以先理解为“用户把产品放进重复发生的任务里”。只打开 App 可能是提醒、误触或看通知；真正的留存要看用户是否回来完成同类价值动作。</p></div><strong data-module-status="retention">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>留存像用户把工具放进日常流程：每周写周报、每次投递前练面试、每次客服争议先查知识库。</p></div><div><strong>它不等于什么</strong><p>DAU、打开率和消息点击不是天然留存。AI 产品更要看任务频率和价值动作是否重复。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来活跃，但错误</strong><code>7 日打开率高 → 留存好</code><p>打开不代表完成价值任务。</p></article><article><strong>正确的产品链路</strong><code>任务周期 → 重复价值动作 → 质量/成本稳定 → 留存</code><p>用任务复用判断留存。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：AI 周报助手</strong><span>先看任务周期</span></div><p><b>现象：</b>用户每天打开页面，但只有月底生成过一次周报。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>打开频繁，但周报任务没有按周重复。</span></li><li><strong>第一个错误节点</strong><span>把打开当成工作流复用。</span></li><li><strong>正确动作</strong><span>观察用户是否每周导入材料、生成、编辑并发送周报。</span></li><li><strong>保持不变</strong><span>留存要匹配任务自然频率。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="retention"><fieldset><legend>理解检查：打开率能不能当留存</legend><p>AI 周报助手 7 日打开率很高，但用户没有持续生成周报。第一步应该怎么改留存定义？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="open_rate">继续用打开率，说明产品有吸引力</option><option value="repeat_value">按任务周期观察重复生成、编辑和发送周报</option><option value="push_more">增加提醒，让用户多打开页面</option></select></label><label>我为什么这样判断（可选）<textarea name="retention_reason" rows="3" data-persist placeholder="例如：留存要看用户是否重复完成同类价值动作。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="retention" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：定义留存队列</h3><p>请为“AI 客服质检助手”设计留存指标，写清任务周期、复用动作、分群和退化信号。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>客服质检可能按日、按班次或按工单批次复用，和普通日活不同。</p></details><form data-transfer-practice="retention"><label>我的留存设计<textarea name="retention_transfer" rows="6" data-persist placeholder="任务周期……重复价值动作……用户分群……退化信号……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="retention" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="retention" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="retention" hidden><p>留存可按“每个工作日上传工单批次并处理质检报告”定义，分客服主管、质检员和业务负责人看复用；退化信号包括只上传不看报告、报告无标记、人工复核比例升高、连续两个质检周期未处理高风险工单。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="retention"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="retention_teachback" rows="3" data-persist placeholder="例如：我现在理解留存要跟……对齐。"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="retention" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="payment" data-chapter-section data-learning-module="payment">
+            <header class="learning-module__head"><div><h2>付费是不是把免费额度用完后弹窗收费？</h2><p class="later-section__lead">付费可以先理解为“用户愿意为确定价值、节省时间、降低风险或提高产出质量付钱”。收费点要贴近价值完成，而不是简单卡住用户。</p></div><strong data-module-status="payment">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>好的付费点像升级工具箱：用户已经看到价值，愿意为更多次数、更高质量、更低风险或团队协作付费。</p></div><div><strong>它不等于什么</strong><p>“用到一半强制付费”可能提高短期转化，也可能破坏激活和留存，尤其是用户还没看到价值时。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来能赚钱，但错误</strong><code>首个结果生成前弹付费</code><p>用户还没体验价值，转化和信任都会受损。</p></article><article><strong>正确的产品链路</strong><code>价值已发生 → 升级权益 → 价格锚点 → 付费验证</code><p>让付费连接到可感知价值。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：求职辅导助手</strong><span>先看价值门槛</span></div><p><b>现象：</b>用户刚上传简历，系统还没给反馈就要求订阅。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>用户尚未看到 AI 能改善什么。</span></li><li><strong>第一个错误节点</strong><span>在价值出现前收费。</span></li><li><strong>正确动作</strong><span>先给一份基础诊断，再为深度岗位匹配、模拟面试和持续跟踪收费。</span></li><li><strong>保持不变</strong><span>付费点要靠近用户已确认的价值。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="payment"><fieldset><legend>理解检查：什么时候弹付费</legend><p>求职助手在用户刚上传简历、还没看到反馈前弹订阅。第一步应该怎么改？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="pay_before_value">继续前置收费，筛掉低意愿用户</option><option value="charge_after_value">先展示基础价值，再为深度匹配、更多次数或团队功能收费</option><option value="free_forever">完全免费，只追求用户量</option></select></label><label>我为什么这样判断（可选）<textarea name="payment_reason" rows="3" data-persist placeholder="例如：用户看到价值后，付费才有合理锚点。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="payment" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计付费权益</h3><p>请为“AI 学习教练”设计免费层、付费层和升级触发点，说明每层给什么价值。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>免费层要足够完成第一次价值；付费层可以是更深反馈、长期追踪、更多复测或作品集导出。</p></details><form data-transfer-practice="payment"><label>我的付费设计<textarea name="payment_transfer" rows="6" data-persist placeholder="免费层……付费层……升级触发……价格锚点……不该收费的位置……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="payment" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="payment" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="payment" hidden><p>免费层可提供一次完整诊断和一条改进建议；付费层提供多轮复测、长期学习计划、错题追踪、作品集导出和更高质量模型。升级触发点应在用户保存诊断或完成首次复测后，而不是首次进入页面前。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="payment"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="payment_teachback" rows="3" data-persist placeholder="例如：我现在理解付费点要靠近……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="payment" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="cost" data-chapter-section data-learning-module="cost">
+            <header class="learning-module__head"><div><h2>Token 成本是不是只看每次调用多少钱？</h2><p class="later-section__lead">Token 成本可以先理解为“每次 AI 帮助背后的可变成本”。它不只包括输入输出 Token，还包括重试、长上下文、工具调用、缓存、人工复核和失败补偿。</p></div><strong data-module-status="cost">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>Token 成本像每单外卖的食材和配送费。订单越多不一定越赚钱，如果每单成本超过收入，增长越快亏得越快。</p></div><div><strong>它不等于什么</strong><p>只看模型 API 单价不够。长文档、反复重试、低质量导致人工兜底，都会进入单位成本。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来便宜，但错误</strong><code>一次调用 0.05 元 → 毛利没问题</code><p>忽略长上下文、重试、失败和人工复核。</p></article><article><strong>正确的产品链路</strong><code>每次任务收入 → Token/工具/人工/风险成本 → 毛利</code><p>按完整任务算单位经济。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：长文档总结套餐</strong><span>先算每个成功任务</span></div><p><b>现象：</b>产品按每份报告 1 元收费，但每份平均 4 次模型调用、一次长上下文和 20% 人工复核。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>单次调用便宜，但完成一份报告有多项成本。</span></li><li><strong>第一个错误节点</strong><span>用一次调用成本替代一次成功任务成本。</span></li><li><strong>正确动作</strong><span>按完成报告计算 Token、重试、人工、失败补偿和支付成本。</span></li><li><strong>保持不变</strong><span>商业判断要看单位任务毛利。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="cost"><fieldset><legend>理解检查：每次调用便宜就够了吗</legend><p>每次模型调用只要 0.05 元，但一份付费报告平均要 4 次调用和人工复核。第一步应该怎么算？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="single_call">只用 0.05 元估算成本</option><option value="unit_task_cost">按一次成功报告计算 Token、重试、工具、人工和失败成本</option><option value="ignore_cost">先增长用户，成本以后再看</option></select></label><label>我为什么这样判断（可选）<textarea name="cost_reason" rows="3" data-persist placeholder="例如：商业判断要按一次成功任务，而不是单次调用。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="cost" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写单位成本表</h3><p>请为“AI 合同摘要助手”写单位成本表，覆盖输入输出 Token、长上下文、重试、人工复核和失败退款。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先以一次成功合同摘要为单位，而不是一次 API 调用。</p></details><form data-transfer-practice="cost"><label>我的单位成本表<textarea name="cost_transfer" rows="6" data-persist placeholder="成功任务收入……Token 成本……工具/缓存……重试……人工复核……退款/风险……毛利……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="cost" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="cost" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="cost" hidden><p>单位成本表应以“完成一份可交付合同摘要”为单位：收入、输入 Token、输出 Token、长上下文或 RAG 检索、平均重试次数、缓存命中抵扣、人工抽检比例、失败退款和支付成本，最后计算单份毛利和毛利率。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="cost"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="cost_teachback" rows="3" data-persist placeholder="例如：我现在理解 Token 成本要按……来算。"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="cost" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module later-section--soft" id="routing" data-chapter-section data-learning-module="routing">
+            <header class="learning-module__head"><div><h2>模型路由是不是贵模型效果最好就全用贵模型？</h2><p class="later-section__lead">模型路由可以先理解为“不同任务用不同成本和能力的模型”。简单任务用便宜模型或规则，高风险复杂任务用强模型或人工；目标是让足够好的结果以可承受成本交付。</p></div><strong data-module-status="routing">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>模型路由像交通出行：附近买菜不必坐商务舱，跨城出差也不能只骑共享单车。任务风险和价值决定路线。</p></div><div><strong>它不等于什么</strong><p>全用最强模型不是稳妥商业化；全用最便宜模型也可能因质量差、人工兜底和流失而更贵。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来高质量，但错误</strong><code>所有请求 → 最高级模型</code><p>简单任务成本过高，毛利被吃掉。</p></article><article><strong>正确的产品链路</strong><code>任务分层 → 质量门槛 → 成本预算 → 路由规则</code><p>按任务选择规则、便宜模型、强模型或人工。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：客服助手路由</strong><span>先分任务层</span></div><p><b>现象：</b>所有 FAQ、退款争议和投诉都走同一个强模型。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>FAQ 低风险高频，退款争议高风险，投诉需要人工可能性高。</span></li><li><strong>第一个错误节点</strong><span>按统一模型处理不同价值和风险任务。</span></li><li><strong>正确动作</strong><span>FAQ 走规则或便宜模型，高风险争议走强模型加人工，投诉直接转人工队列。</span></li><li><strong>保持不变</strong><span>路由要同时看任务价值、风险、质量和成本。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="routing"><fieldset><legend>理解检查：所有任务用强模型吗</legend><p>客服助手把所有 FAQ 和高风险退款争议都交给最贵模型。第一步应该怎么改？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="best_model_all">继续全用强模型，质量最重要</option><option value="tiered_routing">按任务风险、价值和质量门槛分层路由</option><option value="cheap_model_all">全切到便宜模型，先压成本</option></select></label><label>我为什么这样判断（可选）<textarea name="routing_reason" rows="3" data-persist placeholder="例如：不同任务的价值、风险和成本不一样，不能统一路由。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="routing" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计模型路由</h3><p>请为“AI 销售线索评分助手”设计模型路由，覆盖低风险规则、中等任务模型、高价值线索强模型和人工复核。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先按线索价值、资料完整度、客户等级、错误代价分层。</p></details><form data-transfer-practice="routing"><label>我的路由方案<textarea name="routing_transfer" rows="6" data-persist placeholder="低风险……中等任务……高价值线索……人工复核……质量门槛……成本预算……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="routing" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="routing" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="routing" hidden><p>路由示例：资料完整且低价值线索用规则或轻模型打初分；中等线索用标准模型生成理由；高价值企业线索用强模型加证据引用；高分但证据不足或金额较大时进入人工复核。每层绑定质量门槛、最大成本和回退策略。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="routing"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="routing_teachback" rows="3" data-persist placeholder="例如：我现在理解模型路由不是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="routing" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section learning-module" id="experiment" data-chapter-section data-learning-module="experiment">
+            <header class="learning-module__head"><div><h2>商业实验是不是 A/B 看哪个转化率更高？</h2><p class="later-section__lead">商业实验可以先理解为“用受控方式验证价值、收入、成本和风险的变化”。AI 实验不能只看点击或转化，还要看结果质量、Token 成本、人工介入、退款和长期留存。</p></div><strong data-module-status="experiment">0 / 2 步</strong></header>
+            <div class="plain-language-pair"><div><strong>白话解释</strong><p>商业实验像试开一家店：不只看进店人数，还要看成交、毛利、退货、投诉和用户会不会回来。</p></div><div><strong>它不等于什么</strong><p>“付费按钮点击率更高”不等于实验成功。如果成本上升、退款增加或留存下降，商业结果可能更差。</p></div></div>
+            <div class="mistake-compare"><article><strong>看起来胜出，但错误</strong><code>转化率 +20% → 上线</code><p>没有看成本、质量、退款和长期留存。</p></article><article><strong>正确的产品链路</strong><code>假设 → 指标组 → 成本/风险护栏 → 实验决策</code><p>把增长指标和护栏指标一起看。</p></article></div>
+            <div class="worked-example"><div class="worked-example__head"><strong>完整示范：强模型试验</strong><span>先设护栏</span></div><p><b>现象：</b>强模型让付费转化提升 8%，但每单成本翻倍，人工投诉也上升。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>收入指标变好，但成本和风险指标变差。</span></li><li><strong>第一个错误节点</strong><span>只看转化率，忽略单位经济和质量护栏。</span></li><li><strong>正确动作</strong><span>比较毛利、留存、退款、投诉和高风险 badcase，再决定灰度或回滚。</span></li><li><strong>保持不变</strong><span>AI 商业实验必须同时看价值、成本和风险。</span></li></ol></div>
+            <form class="guided-practice" data-guided-practice="experiment"><fieldset><legend>理解检查：转化更高就上线吗</legend><p>强模型实验付费转化提升，但每单成本翻倍，投诉增加。第一步应该怎么判断？</p><label>选择第一个动作<select name="decision" required><option value="">请选择</option><option value="ship_conversion">转化率提升，直接全量上线</option><option value="guardrail_decision">同时看毛利、留存、退款、投诉和风险护栏再决策</option><option value="ignore_quality">质量问题以后修，先抓收入</option></select></label><label>我为什么这样判断（可选）<textarea name="experiment_reason" rows="3" data-persist placeholder="例如：商业实验不能只看转化，还要看成本和风险。"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="experiment" hidden aria-live="polite"></div></form>
+            <div class="closed-book-practice guided-lab"><h3>带着资料做一次：设计商业实验</h3><p>请为“AI 简历诊断助手”的付费升级实验设计假设、主指标、护栏指标、分群和决策规则。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>主指标可以是付费转化或首月收入，护栏要包含激活、留存、成本、退款和投诉。</p></details><form data-transfer-practice="experiment"><label>我的商业实验设计<textarea name="experiment_transfer" rows="6" data-persist placeholder="实验假设……主指标……护栏指标……样本分群……成本口径……上线/回滚规则……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="experiment" hidden><p>方案已记录。</p><button type="button" data-reveal-reference="experiment" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="experiment" hidden><p>实验示例：假设“首次诊断后展示深度岗位匹配包能提升付费”。主指标为首周付费转化和付费收入；护栏为激活率不下降、7 日价值留存不下降、单次成功诊断毛利为正、退款和投诉不升高；按求职阶段和岗位类型分群；若高价值用户毛利为正且护栏稳定，先灰度扩大。</p></div></div></div>
+            <form class="teach-back learning-note" data-teachback-form="experiment"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="experiment_teachback" rows="3" data-persist placeholder="例如：我现在理解商业实验必须同时看……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="experiment" aria-live="polite"></span></form>
+          </section>
+
+          <section class="later-section final-challenge" id="transfer" data-chapter-section>
+            <h2>综合工作坊：修好一个“用户量增长但越做越亏”的 AI 产品方案。</h2>
+            <p class="later-section__lead">这不是记忆测试。你可以回看任意模块、打开提示并修改方案。目标是把激活、留存、付费、Token 成本、模型路由和商业实验连成一套可判断的单位经济方案。</p>
+            <div class="challenge-brief"><p>错误方案：AI 简历助手把“点击生成”当激活，把“7 日打开”当留存；免费用户可无限用强模型；付费点在用户看到反馈前弹出；只看订阅点击率，不看 Token、重试、人工复核、退款和留存；所有任务都走最贵模型。</p><strong>请改成：先定义价值动作和任务周期，再设计付费权益、单位成本、模型路由和带护栏的商业实验，确保增长不会吞掉毛利和信任。</strong></div>
+            <details class="workshop-guide" open><summary>工作坊路线：不知道从哪里开始时按这五步走</summary><ol><li><strong>价值</strong><span>第一次真正做成什么算激活，哪个周期重复算留存？</span></li><li><strong>收入</strong><span>用户看到什么价值后愿意为哪些权益付费？</span></li><li><strong>成本</strong><span>一次成功任务的 Token、工具、人工、退款和风险成本是多少？</span></li><li><strong>路由</strong><span>哪些任务用规则/轻模型/强模型/人工，质量门槛是什么？</span></li><li><strong>实验</strong><span>主指标和护栏指标如何一起决定上线、灰度或回滚？</span></li></ol></details>
+            <form data-final-challenge>
+              <label>我的 W9 商业闭环方案<textarea name="final_diagnosis" rows="12" data-persist placeholder="可以按路线写：Activation → Retention → Payment → Unit Cost → Model Routing → Commercial Experiment。" required></textarea></label>
+              <fieldset class="self-check"><legend>保存前核对：我的方案是否覆盖</legend><label><input type="checkbox" name="final_check" value="activation"> 已定义价值动作和激活门槛</label><label><input type="checkbox" name="final_check" value="retention"> 已按任务周期定义留存</label><label><input type="checkbox" name="final_check" value="payment"> 已设计付费权益和升级触发</label><label><input type="checkbox" name="final_check" value="cost"> 已计算单位任务成本和毛利</label><label><input type="checkbox" name="final_check" value="experiment"> 已写出模型路由、商业实验和护栏指标</label></fieldset>
+              <button class="button" type="submit">保存 W9 商业闭环方案</button>
+              <span class="builder-error" data-final-error role="alert"></span>
+            </form>
+            <div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>W9 商业闭环方案已保存。</h3><p>网页只检查结构覆盖，不代替正式语义评分。现在可以对照示例，挑一处继续补强。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例方案</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>激活定义为用户保存并采用一份可投递简历诊断，而不是点击生成。</li><li>留存按求职周期看复用，例如每次投递前生成岗位匹配和面试改进计划。</li><li>免费层给一次基础诊断，付费层卖深度岗位匹配、多轮复测、作品集导出和持续跟踪。</li><li>单位成本按一次成功诊断计算 Token、长上下文、重试、人工复核、退款和支付成本，要求毛利为正。</li><li>低风险任务用轻模型或规则，高价值任务用强模型加证据；实验同时看付费转化、毛利、留存、退款、投诉和 badcase。</li></ol></div></div>
+          </section>
+
+          <section class="later-section answer-card-section" id="summary" data-chapter-section>
+            <h2>我的 W9 理解地图：把笔记、疑问和商业闭环方案放在一起。</h2>
+            <p class="later-section__lead">这里汇总的是你的学习痕迹，不是标准答案、真实经营数据或正式掌握结论。</p>
+            <div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div>
+            <div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div>
+            <div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>激活是否绑定价值</strong><span>我是否知道用户第一次做成什么才算激活？</span></div><div><strong>留存是否匹配任务周期</strong><span>我是否区分打开和重复价值动作？</span></div><div><strong>付费是否靠近价值</strong><span>我是否设计了合理免费层、付费层和升级触发？</span></div><div><strong>成本是否按成功任务算</strong><span>我是否把 Token、重试、人工和退款放进单位经济？</span></div><div><strong>实验是否有护栏</strong><span>我是否同时看收入、毛利、质量、风险和留存？</span></div></div>
+          </section>
+
+          <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section>
+            <h2 data-formal-handoff-title>W9 接力：页面完成后，再决定是否启动正式评测。</h2>
+            <p class="later-section__lead" data-formal-handoff-summary>网页里的激活、留存、付费、成本、路由、实验方案和理解地图只是草稿证据。正式长期线是否记录 Week 09，需要 Codex 重新读取并写入唯一正式状态源。</p>
+            <div class="handoff-grid"><div><span>网页</span><strong>商业指标机制、误区辨析和开放式单位经济方案</strong><small>只保存在当前标签页，不生成真实营收、成本或实验结论。</small></div><div><span>Codex</span><strong>正式状态源、课程开启和证据回写</strong><small>是否纳入长期线由明确动作和 JSON 写入决定。</small></div></div>
+            <div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>继续 W9 商业闭环方案</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W9 接力</button><span data-formal-entry-status aria-live="polite"></span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>Week 09 · AI Business Economics</span><span><a href="week-08-ai-risk-guardrails.html">上一页：Week 08</a> · <a href="index.html">返回十二周长期线</a> · <a href="week-10-web-demo-rag-integration.html">下一页：Week 10</a></span></div></footer>
+  <script type="application/json" data-later-config>
+  {
+    "week_id": "week-09",
+    "day_label": "Week 09",
+    "storage_key": "ai-pm-week09-course:v1",
+    "legacy_session_keys": [],
+    "knowledge_anchor": "Activation → Retention → Payment → Unit Cost → Model Routing → Commercial Experiment",
+    "page_anchor": "week-09-ai-business-economics.html#activation",
+    "module_order": ["activation", "retention", "payment", "cost", "routing", "experiment"],
+    "module_labels": {
+      "activation": "激活指标与第一次价值",
+      "retention": "留存、任务周期与复用",
+      "payment": "付费权益与升级触发",
+      "cost": "Token 成本与单位经济",
+      "routing": "模型路由与成本质量取舍",
+      "experiment": "商业实验与护栏指标"
+    },
+    "guided_definitions": {
+      "activation": {
+        "correct": "value_action",
+        "passTitle": "激活要绑定第一次可用价值。",
+        "failTitle": "你仍把点击或调用量当成了激活。",
+        "known": "用户大量点击生成，但很少保存或采用结果。",
+        "error": "点击只说明尝试，不说明用户完成了有价值的任务。",
+        "why": "激活指标要接近用户第一次获得可用结果。",
+        "chain": "关键任务 → 可用结果 → 用户采用/保存 → 激活。",
+        "invariant": "激活必须绑定用户第一次获得可用价值。"
+      },
+      "retention": {
+        "correct": "repeat_value",
+        "passTitle": "留存要按任务周期看重复价值动作。",
+        "failTitle": "你仍把打开率当成了留存。",
+        "known": "AI 周报助手 7 日打开率高，但用户没有持续生成周报。",
+        "error": "打开可能来自提醒或好奇，不能证明工具进入工作流。",
+        "why": "AI 产品留存要看用户是否回来完成同类价值任务。",
+        "chain": "任务周期 → 重复价值动作 → 质量/成本稳定 → 留存。",
+        "invariant": "留存要匹配任务自然频率。"
+      },
+      "payment": {
+        "correct": "charge_after_value",
+        "passTitle": "付费点要靠近用户已确认的价值。",
+        "failTitle": "你仍在价值出现前强行收费。",
+        "known": "求职助手在用户刚上传简历、还没看到反馈前弹订阅。",
+        "error": "用户没有体验价值，价格没有锚点，信任也容易受损。",
+        "why": "付费验证要证明用户愿意为具体价值、质量或效率付钱。",
+        "chain": "价值已发生 → 升级权益 → 价格锚点 → 付费验证。",
+        "invariant": "付费点要靠近用户已确认的价值。"
+      },
+      "cost": {
+        "correct": "unit_task_cost",
+        "passTitle": "成本要按一次成功任务完整计算。",
+        "failTitle": "你仍用单次调用成本替代单位经济。",
+        "known": "每次模型调用只要 0.05 元，但一份报告平均要 4 次调用和人工复核。",
+        "error": "一次成功任务包含重试、长上下文、人工、失败和支付成本。",
+        "why": "商业判断要看每次价值交付的毛利，而不是 API 单价。",
+        "chain": "每次任务收入 → Token/工具/人工/风险成本 → 毛利。",
+        "invariant": "商业判断要看单位任务毛利。"
+      },
+      "routing": {
+        "correct": "tiered_routing",
+        "passTitle": "模型路由要按任务价值、风险、质量和成本分层。",
+        "failTitle": "你仍用同一个模型处理所有任务。",
+        "known": "客服助手把所有 FAQ 和高风险退款争议都交给最贵模型。",
+        "error": "低风险高频任务会浪费成本，高风险任务又可能缺人工兜底。",
+        "why": "路由的目标是用可承受成本达到足够质量。",
+        "chain": "任务分层 → 质量门槛 → 成本预算 → 路由规则。",
+        "invariant": "路由要同时看任务价值、风险、质量和成本。"
+      },
+      "experiment": {
+        "correct": "guardrail_decision",
+        "passTitle": "商业实验要同时看主指标和护栏指标。",
+        "failTitle": "你仍用转化率替代商业结论。",
+        "known": "强模型实验付费转化提升，但每单成本翻倍，投诉增加。",
+        "error": "收入指标变好不代表毛利、质量和长期留存变好。",
+        "why": "AI 商业实验必须同时验证价值、收入、成本、质量和风险。",
+        "chain": "假设 → 指标组 → 成本/风险护栏 → 实验决策。",
+        "invariant": "AI 商业实验必须同时看价值、成本和风险。"
+      }
+    }
+  }
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script>
+  <script src="../../assets/study-state.js"></script>
+  <script src="assets/week09-course.js?v=20260823-week09"></script>
+</body>
+</html>
