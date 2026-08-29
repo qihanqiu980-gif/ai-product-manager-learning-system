@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W02-D01：理解 Prompt 的产品边界，为 AI 面试与项目答辩教练 Agent 形成 Prompt 适用边界表。">
+  <title>W02-D01｜Prompt 边界与 Agent 适用边界表｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260826-w02d01">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260826-long-term-nav">
+</head>
+<body class="day-later-course w02d01-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="../A_两周突击线/index.html">两周突击</a><a href="index.html" aria-current="page">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <p class="eyebrow">W02-D01 · 每日课程</p>
+          <h1>先判断 Prompt 的边界，再决定哪些问题需要 RAG、工具、规则或人工。</h1>
+          <p class="later-hero__lead">今天不再把 Prompt 当成“写得更好就能解决一切”的技巧课。你会把 Prompt 放回产品系统里，判断它适合约束什么、不适合承担什么，并为 AI 面试与项目答辩教练 Agent 留下一张可评审的适用边界表。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看 Prompt 边界</a><a class="button button--quiet" href="#deliverable">直接做边界表</a></div>
+        </div>
+        <dl class="later-contract" aria-label="W02-D01 课程契约">
+          <div><dt>核心问题</dt><dd>Prompt 能约束模型行为，但不能替代资料、工具、规则、评测和人工确认。</dd></div>
+          <div><dt>学习方式</dt><dd>概念边界 · 失败归因 · Agent 场景 · 适用表</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页只保存当前标签页草稿，不写入长期线正式状态</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+<nav class="shell day-switcher" data-course-day-nav data-current-day="w02-d01" aria-label="W2 每日课程导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W02-D01 边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div><div class="later-cockpit__stamp"><span>W02-D01 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure"><summary>展开正式状态、日课进度与网页 / Codex 接力说明</summary><ol class="later-progress-map" aria-label="W02-D01 学习进度"><li data-later-progress-stage="foundation"><span>前置参考</span><strong>W1 机会判断与立项记录</strong><small data-later-stage-status="foundation">核对中…</small></li><li data-later-progress-stage="current"><span>当前日课</span><strong>W02-D01 · Prompt 边界</strong><small data-later-stage-status="current">核对中…</small></li><li data-later-progress-stage="next"><span>下一日课</span><strong>W02-D02 · RAG 基础</strong><small data-later-stage-status="next">待本页确认</small></li><li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">本页只读</small></li></ol><div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>已确认</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>今日重点</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始日课</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W02-D01 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section></div></details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter"><div class="shell later-layout">
+      <aside class="later-rail" aria-label="日课能力与目录">
+        <div class="later-rail__status"><span>日课学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+        <ol class="ability-evidence" aria-label="四项网页学习进度"><li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li><li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li><li data-ability-evidence="apply"><span>边界表做过</span><strong data-ability-status="apply">未完成</strong></li><li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li></ol>
+        <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">先看 Prompt 边界</a><a href="#prompt" data-section-link="prompt">Prompt 能做什么</a><a href="#failure" data-section-link="failure">Prompt 不能补什么</a><a href="#material" data-section-link="material">材料与上下文边界</a><a href="#handoff" data-section-link="handoff">模型 / 规则 / 人工分界</a><a href="#deliverable" data-section-link="deliverable">今日边界表</a><a href="#transfer" data-section-link="transfer">综合工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+        <p>这里记录的是页面学习活动，不等于正式评分或正式掌握。遇到不懂的地方可以回看解释和示例。</p>
+      </aside>
+
+      <div class="later-content" id="chapter-content"><div class="lesson-live" data-live-message aria-live="polite"></div>
+        <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+          <h2>把 Prompt 放回产品系统：它是契约，不是万能补丁。</h2>
+          <p class="later-section__lead">Prompt 的价值是把任务、输入、输出、语气、步骤和禁区说清楚。它能降低模型漂移，但不能凭空补齐缺失事实，也不能替代检索、工具执行、状态校验、质量评测和人工确认。</p>
+          <div class="learning-contract"><article><strong>先讲边界</strong><p>知道 Prompt 能约束什么，才不会把所有失败都归因于“提示词还不够好”。</p></article><article><strong>再看失败</strong><p>同样是回答不好，可能是指令不清、材料缺失、检索失败、规则缺失或需要人工确认。</p></article><article><strong>最后落到 Agent</strong><p>今天的结果是《Agent Prompt 适用边界表 v1》，作为 W2 后续 RAG、数据、工具和 ADR 的输入。</p></article></div>
+          <div class="system-journey" aria-label="Prompt 边界判断链路"><article><strong>任务契约</strong><span>模型该做什么</span><p>明确角色、目标、输入字段、输出格式和禁止事项。</p></article><i aria-hidden="true">→</i><article><strong>材料边界</strong><span>模型知道什么</span><p>确认 JD、简历、项目经历、回答原文和评分标准是否存在。</p></article><i aria-hidden="true">→</i><article><strong>系统边界</strong><span>模型不能做什么</span><p>不能查询未接入数据、不能修改状态、不能代替正式评分或人工确认。</p></article><i aria-hidden="true">→</i><article><strong>转交策略</strong><span>失败时交给谁</span><p>改 Prompt、补资料、上 RAG、走规则、调工具或人工复核。</p></article></div>
+          <div class="learning-loop" aria-label="本页学习循环"><span>理解 Prompt 作用</span><span>辨认失败类别</span><span>拆 Agent 场景</span><span>填写边界表</span><span>留下 W2 输入</span></div>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="prompt" data-chapter-section data-learning-module="prompt">
+          <header class="learning-module__head"><div><h2>Prompt 能做什么：把模型行为写成可执行任务契约</h2><p class="later-section__lead">一个好的 Prompt 不是华丽话术，而是把任务目标、上下文、输出结构、判断步骤、禁止事项和失败处理说清楚。它让模型在已有信息内更稳定地完成任务。</p></div><strong data-module-status="prompt">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="Prompt 可约束的内容"><article><h3>任务目标</h3><strong>这次到底要完成什么</strong><p>例如“根据候选人的项目回答，指出缺少的业务结果证据”。</p><small>不等于：笼统说“像资深面试官一样”</small></article><article><h3>输入字段</h3><strong>模型可以使用哪些材料</strong><p>例如 JD、简历段落、项目背景、用户回答和评分 Rubric。</p><small>不等于：让模型默认知道用户真实经历</small></article><article><h3>输出结构</h3><strong>结果按什么格式交付</strong><p>例如问题诊断、追问、改写建议、证据引用和下一步练习。</p><small>不等于：只要求“详细一点”</small></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>Prompt 像给模型的任务单：写清它要读什么、怎么想、怎么输出、哪些话不能说。</p></div><div><strong>它不等于什么</strong><p>它不是资料库、不是后端接口、不是自动化工具，也不是正式评分系统。</p></div></div>
+          <div class="mistake-compare"><article><strong>错误写法</strong><code>你是最专业的 AI 面试官，请给我完美答案</code><p>没有输入字段、评分标准、输出格式和不能编造的边界，模型容易给出听起来合理但不可复核的建议。</p></article><article><strong>产品化写法</strong><code>基于用户原回答和 Rubric，只指出证据缺口，并输出追问与改写建议</code><p>任务、材料、输出和禁止事项都清楚，才能成为可评测的产品能力。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：让 Agent 评价一个项目回答</strong><span>先写任务契约，再谈模型表现</span></div><p><b>场景：</b>用户回答“我做了一个增长项目，效果很好”，但没有提供指标、角色和过程。</p><ol class="decision-chain"><li><strong>已知事实</strong><span>模型只有用户这句话，没有项目数据和结果证据。</span></li><li><strong>Prompt 可做</strong><span>要求模型指出缺少指标、角色、动作和结果，并生成追问。</span></li><li><strong>Prompt 不可做</strong><span>不能替用户编造增长率、团队规模或业务结果。</span></li><li><strong>产品动作</strong><span>输出“信息不足 + 三个追问 + 可改写结构”，而不是直接给满分答案。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="prompt"><fieldset><legend>理解检查：Prompt 首先应该被当成什么</legend><p>面试教练 Agent 要稳定评价用户回答时，Prompt 最适合承担哪项职责？</p><label>选择职责<select name="decision" required><option value="">请选择</option><option value="magic_fix">让模型自动补齐缺失事实</option><option value="prompt_contract">约束任务、材料、输出格式和禁止事项</option><option value="database">直接替代用户项目资料库</option></select></label><label>我为什么这样判断（可选）<textarea name="prompt_reason" rows="3" data-persist placeholder="例如：Prompt 能约束模型如何使用已有材料，但不能创造可靠事实……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="prompt" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着资料做一次：写一条可评测 Prompt 契约</h3><p>为“项目答辩回答诊断”写一条 Prompt 契约，必须包含输入、输出、禁止事项和失败处理。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>从“只能依据哪些材料”开始写，再写“缺材料时要追问，不要编造”。</p></details><form data-transfer-practice="prompt"><label>我的 Prompt 契约<textarea name="prompt_transfer" rows="6" data-persist placeholder="任务目标：……输入材料：……输出结构：……禁止事项：……失败处理：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="prompt" hidden><p>Prompt 契约已记录。打开示例后，检查你是否写出材料边界。</p><button type="button" data-reveal-reference="prompt" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="prompt" hidden><p>示例：只根据用户回答、JD 和 Rubric 诊断项目答辩缺口；输出“缺口、追问、改写建议、引用依据”；不得编造项目数据；材料不足时先列追问。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="prompt"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="prompt_teachback" rows="3" data-persist placeholder="例如：Prompt 是任务契约，不是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="prompt" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module" id="failure" data-chapter-section data-learning-module="failure"><header class="learning-module__head"><div><h2>Prompt 不能补什么：先做失败归因，再决定是否改提示词</h2><p class="later-section__lead">产品经理最容易犯的错，是把所有输出问题都归结为“Prompt 没写好”。W2D1 要练的是分类：哪些能靠 Prompt 改，哪些必须靠材料、检索、规则、工具或人工。</p></div><strong data-module-status="failure">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>Prompt 可以让模型更守规矩，但不能让模型知道未提供的信息，也不能保证事实、执行动作或承担正式责任。</p></div><div><strong>它不等于什么</strong><p>不是无限加指令，也不是把系统能力全写进一段提示词里。</p></div></div><div class="mistake-compare"><article><strong>错误归因</strong><code>模型漏引用证据，继续加一句“必须引用证据”</code><p>如果系统没有提供可引用材料或没有校验引用字段，Prompt 只能要求，不能保证。</p></article><article><strong>正确归因</strong><code>先看材料、检索、格式校验和评测，再判断 Prompt 是否要改</code><p>同一个失败现象背后可能是不同系统原因，不能只修表层文字。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：Agent 评价偏泛泛时怎么办</strong><span>不要第一反应只改 Prompt</span></div><ol class="decision-chain"><li><strong>现象</strong><span>Agent 总说“建议补充量化结果”，但不能指出具体缺哪一段。</span></li><li><strong>可能原因</strong><span>Rubric 不清、项目材料缺失、回答切片太粗、输出格式没有证据字段。</span></li><li><strong>Prompt 可修</strong><span>补充评分步骤、输出字段和禁止泛泛评价。</span></li><li><strong>Prompt 不可修</strong><span>如果没有项目材料或引用机制，需要补资料结构或 RAG，而不是继续堆指令。</span></li></ol></div><form class="guided-practice" data-guided-practice="failure"><fieldset><legend>理解检查：什么时候不能继续靠 Prompt</legend><p>Agent 对一个没有任何项目材料的用户给出了具体增长数字。你应该先判断什么？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="make_prompt_longer">把 Prompt 写得更长，要求数字更真实</option><option value="needs_system_boundary">这是材料和事实边界问题，需要禁止编造并转为追问或补资料</option><option value="accept_if_fluent">只要表达流畅，就可以作为练习答案</option></select></label><label>我为什么这样判断（可选）<textarea name="failure_reason" rows="3" data-persist placeholder="例如：缺材料时应追问或标注不足，不能让模型编造事实……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="failure" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着资料做一次：给三类失败归因</h3><p>分别判断“输出格式乱”“事实编造”“没有引用依据”更可能该由 Prompt、资料/RAG、规则或人工哪一层处理。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>格式问题可能先改 Prompt；事实和引用问题通常要看材料、检索和校验。</p></details><form data-transfer-practice="failure"><label>我的失败归因<textarea name="failure_transfer" rows="6" data-persist placeholder="输出格式乱：……事实编造：……没有引用依据：……每类下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="failure" hidden><p>失败归因已记录。</p><button type="button" data-reveal-reference="failure" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="failure" hidden><p>示例：输出格式乱先改 Prompt 和结构化输出；事实编造要禁止无依据生成并补资料来源；没有引用依据要补引用字段、检索或材料清单。</p></div></div><form class="teach-back learning-note" data-teachback-form="failure"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="failure_teachback" rows="3" data-persist placeholder="例如：我以后看到输出失败，会先判断……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="failure" aria-live="polite"></span></form></section>
+
+        <section class="later-section learning-module later-section--soft" id="material" data-chapter-section data-learning-module="material"><header class="learning-module__head"><div><h2>材料与上下文边界：没有输入，就不要要求模型给确定结论</h2><p class="later-section__lead">AI 面试与项目答辩教练 Agent 的核心材料包括 JD、简历、项目经历、用户回答、Rubric 和历史反馈。Prompt 必须声明材料边界，并在材料不足时触发追问或不确定标注。</p></div><strong data-module-status="material">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>材料边界就是告诉模型“你只能根据这些内容判断；缺的要问，不准编”。</p></div><div><strong>它不等于什么</strong><p>不是把用户没给的信息包装成“合理推测”，也不是让模型代替候选人虚构经历。</p></div></div><div class="term-atlas" aria-label="Agent 材料边界"><article><h3>可用材料</h3><strong>可以引用</strong><p>用户上传或输入的 JD、简历、项目原文、回答记录和评分标准。</p></article><article><h3>缺失材料</h3><strong>必须追问</strong><p>项目结果、个人贡献、业务背景、指标来源和约束条件。</p></article><article><h3>不确定信息</h3><strong>必须标注</strong><p>无法从材料证明的事实只能标记“不足”，不能写成确定结论。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：用户只给了岗位 JD，没有简历</strong><span>Prompt 应触发追问，不是直接打分</span></div><ol class="decision-chain"><li><strong>已有材料</strong><span>JD 能说明岗位能力要求。</span></li><li><strong>缺失材料</strong><span>没有候选人经历、项目证据和回答原文。</span></li><li><strong>允许输出</strong><span>可以输出“可能考察点”和“需要补充的材料清单”。</span></li><li><strong>禁止输出</strong><span>不能输出候选人的项目评分或是否匹配岗位的确定结论。</span></li></ol></div><form class="guided-practice" data-guided-practice="material"><fieldset><legend>理解检查：材料不足时的产品动作</legend><p>用户只提供 JD，没有简历和项目经历。Agent 最稳妥的下一步是什么？</p><label>选择动作<select name="decision" required><option value="">请选择</option><option value="score_anyway">直接给出项目答辩评分</option><option value="ask_or_retrieve">说明材料不足，先追问或引导补充资料</option><option value="invent_profile">根据 JD 推测用户经历</option></select></label><label>我为什么这样判断（可选）<textarea name="material_reason" rows="3" data-persist placeholder="例如：只有 JD 时只能生成考察点，不能评价用户项目……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="material" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：列出 W2D1 材料边界</h3><p>写出面试教练 Agent 的可用材料、缺失时追问、禁止生成和可输出建议四列。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>把“可给建议”和“可下结论”分开写。</p></details><form data-transfer-practice="material"><label>我的材料边界<textarea name="material_transfer" rows="6" data-persist placeholder="可用材料：……缺失追问：……禁止生成：……可输出建议：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="material" hidden><p>材料边界已记录。</p><button type="button" data-reveal-reference="material" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="material" hidden><p>示例：可用材料为 JD、简历、项目原文、回答记录和 Rubric；缺项目指标时先追问；禁止编造经历；可输出“缺口诊断、追问清单和回答结构建议”。</p></div></div><form class="teach-back learning-note" data-teachback-form="material"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="material_teachback" rows="3" data-persist placeholder="例如：材料不足时，Prompt 应该让 Agent……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="material" aria-live="polite"></span></form></section>
+
+        <section class="later-section learning-module" id="handoff" data-chapter-section data-learning-module="handoff"><header class="learning-module__head"><div><h2>模型 / 规则 / 人工分界：Prompt 只负责表达和推理引导的一部分</h2><p class="later-section__lead">W2 的技术选型从这里开始：不是所有问题都上 RAG，也不是所有问题都靠 Prompt。你需要把表达引导、事实引用、状态动作、质量门槛和高风险结论分配给不同机制。</p></div><strong data-module-status="handoff">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>把 Agent 想成一个小系统：Prompt 负责让模型按任务说话；规则负责硬约束；RAG 负责找资料；工具负责执行动作；人工负责高风险确认。</p></div><div><strong>它不等于什么</strong><p>不是把全部职责藏进系统提示词，然后期待模型永远正确。</p></div></div><div class="mistake-compare"><article><strong>危险分工</strong><code>Prompt 负责评分、引用、保存状态和通过结论</code><p>难以评测，也难以排错；一旦错了，不知道该修 Prompt、数据、规则还是流程。</p></article><article><strong>可治理分工</strong><code>Prompt 生成建议，规则校验格式，资料提供引用，人工确认正式结论</code><p>每层职责清晰，后续可以做评测、日志和发布门槛。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：答辩评分应如何拆层</strong><span>评分建议不等于正式通过</span></div><ol class="decision-chain"><li><strong>Prompt</strong><span>根据 Rubric 输出初步诊断、追问和改写建议。</span></li><li><strong>规则</strong><span>检查是否覆盖背景、行动、结果、反思和证据引用。</span></li><li><strong>资料/RAG</strong><span>从项目材料中找可引用的事实和历史反馈。</span></li><li><strong>人工</strong><span>确认是否作为正式答辩材料或简历表达。</span></li></ol></div><form class="guided-practice" data-guided-practice="handoff"><fieldset><legend>理解检查：职责应该怎样拆</legend><p>Agent 要输出“是否可以放进作品集”的结论，下面哪种分工更稳？</p><label>选择分工<select name="decision" required><option value="">请选择</option><option value="prompt_all">让 Prompt 直接判断并保存通过状态</option><option value="split_responsibility">Prompt 给建议，规则和证据校验，人确认正式采用</option><option value="no_output">只展示原文，不给任何建议</option></select></label><label>我为什么这样判断（可选）<textarea name="handoff_reason" rows="3" data-persist placeholder="例如：作品集结论影响较高，不能只由模型直接决定……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="handoff" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：拆一个 Agent 能力</h3><p>选择“生成追问、判断证据充分、保存练习记录、输出正式评分”中的一个，拆成 Prompt、规则、资料/工具、人工四层。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>越靠近事实、状态和正式结论，越不能只靠 Prompt。</p></details><form data-transfer-practice="handoff"><label>我的职责拆分<textarea name="handoff_transfer" rows="6" data-persist placeholder="能力：……Prompt：……规则：……资料/工具：……人工：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="handoff" hidden><p>职责拆分已记录。</p><button type="button" data-reveal-reference="handoff" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="handoff" hidden><p>示例：能力为“判断证据充分”。Prompt 输出缺口诊断；规则检查必填证据字段；资料/RAG 提供项目原文引用；用户确认是否把建议写入作品集。</p></div></div><form class="teach-back learning-note" data-teachback-form="handoff"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="handoff_teachback" rows="3" data-persist placeholder="例如：我会把 Prompt 和规则分开，因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="handoff" aria-live="polite"></span></form></section>
+
+        <section class="later-section learning-module later-section--soft" id="deliverable" data-chapter-section data-learning-module="deliverable"><header class="learning-module__head"><div><h2>今日产出：Agent Prompt 适用边界表 v1</h2><p class="later-section__lead">边界表要能直接服务 W2 后续选型：哪些先靠 Prompt，哪些需要 RAG，哪些需要数据结构，哪些需要工具，哪些必须人工确认。</p></div><strong data-module-status="deliverable">0 / 2 步</strong></header><div class="term-atlas" aria-label="边界表字段"><article><h3>Agent 场景</h3><strong>在哪一步用</strong><p>面试练习、项目答辩、补证追问、复盘报告或作品集判断。</p></article><article><h3>Prompt 可做</h3><strong>能稳定约束什么</strong><p>任务、格式、语气、步骤、禁止事项和追问策略。</p></article><article><h3>Prompt 不可做</h3><strong>需要转交什么</strong><p>事实来源、资料检索、状态保存、正式评分、人工确认和成本控制。</p></article><article><h3>失败信号</h3><strong>什么时候不再改 Prompt</strong><p>缺材料、引用不存在、状态动作失败、评分漂移或高风险结论。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：把“答辩追问”写入边界表</strong><span>一行表要能指导选型</span></div><p><b>场景：</b>用户答辩回答太空，Agent 要生成追问。</p><ol class="decision-chain"><li><strong>Prompt 可做</strong><span>按 Rubric 生成针对背景、行动、结果和反思的追问。</span></li><li><strong>Prompt 不可做</strong><span>不能确认用户真实做过什么，也不能编造指标。</span></li><li><strong>失败信号</strong><span>连续追问仍无证据、引用不到项目材料、用户要求生成虚假经历。</span></li><li><strong>转交方案</strong><span>材料不足时追问；需要引用时进入 RAG；涉及正式作品集时人工确认。</span></li></ol></div><form class="guided-practice" data-guided-practice="deliverable"><fieldset><legend>理解检查：合格边界表长什么样</legend><p>下面哪种写法最适合作为 W2D1 的产出？</p><label>选择写法<select name="decision" required><option value="">请选择</option><option value="prompt_good">Prompt 用来优化 AI 的回答效果</option><option value="boundary_table">场景、Prompt 可做、不可做、失败信号和转交方案都写清楚</option><option value="tech_stack">先决定模型厂商和前端框架</option></select></label><label>我为什么这样判断（可选）<textarea name="deliverable_reason" rows="3" data-persist placeholder="例如：边界表要能指导后续 RAG、数据和工具选型……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="deliverable" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一行边界表</h3><p>选择 Agent 的一个场景，写出 Prompt 可做、不可做、失败信号和下一步技术/人工方案。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>建议从“项目答辩追问”或“复盘报告生成”开始，不要一次覆盖所有场景。</p></details><form data-transfer-practice="deliverable"><label>我的边界表一行<textarea name="deliverable_transfer" rows="6" data-persist placeholder="Agent 场景：……Prompt 可做：……Prompt 不可做：……失败信号：……转交方案：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="deliverable" hidden><p>边界表已记录。</p><button type="button" data-reveal-reference="deliverable" aria-expanded="false">打开示例方案</button><div class="reference-panel" data-reference-panel="deliverable" hidden><p>示例：场景为项目答辩追问；Prompt 可做是按 Rubric 生成追问；不可做是确认真实经历；失败信号是缺少项目事实或用户要求编造；转交方案是先追问补资料，后续用 RAG 引用材料，高风险表达由用户确认。</p></div></div><form class="teach-back learning-note" data-teachback-form="deliverable"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="deliverable_teachback" rows="3" data-persist placeholder="例如：今天的边界表会影响 W2D2，因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="deliverable" aria-live="polite"></span></form></section>
+
+        <section class="later-section final-challenge" id="transfer" data-chapter-section><h2>综合工作坊：完成《Agent Prompt 适用边界表 v1》。</h2><p class="later-section__lead">请把今天的判断压成可被评审的一张表。它要能告诉后续 W2D2-W2D6：哪里先用 Prompt，哪里需要补 RAG、数据、工具、规则或人工。</p><div class="challenge-brief"><p>团队原始写法：只要把系统提示词写得很长，Agent 就能完成面试追问、项目评分、资料引用、报告生成和作品集判断。</p><strong>请从第一个错误节点开始，重写 Prompt 的适用边界、不可承担职责、失败信号和转交方案。</strong></div><details class="workshop-guide" open><summary>不知道从哪里开始时，按这五步走</summary><ol><li><strong>场景</strong><span>选一个 Agent 场景，不要一次写全产品。</span></li><li><strong>Prompt 可做</strong><span>写清它能约束的任务、格式、步骤和禁止事项。</span></li><li><strong>Prompt 不可做</strong><span>列出缺资料、事实引用、状态动作、正式结论等边界。</span></li><li><strong>失败信号</strong><span>什么时候不应该继续只改 Prompt。</span></li><li><strong>转交方案</strong><span>交给追问、RAG、数据结构、工具、规则或人工哪一层。</span></li></ol></details><form data-final-challenge><label>我的 W02-D01 Prompt 适用边界表<textarea name="final_diagnosis" rows="14" data-persist placeholder="按五步写：场景 → Prompt 可做 → Prompt 不可做 → 失败信号 → 转交方案" required></textarea></label><fieldset class="self-check"><legend>保存前核对：我的边界表是否覆盖</legend><label><input type="checkbox" name="final_check" value="scenario"> 具体 Agent 场景</label><label><input type="checkbox" name="final_check" value="can_do"> Prompt 可做</label><label><input type="checkbox" name="final_check" value="cannot_do"> Prompt 不可做</label><label><input type="checkbox" name="final_check" value="failure"> 失败信号</label><label><input type="checkbox" name="final_check" value="handoff"> 转交方案</label></fieldset><button class="button" type="submit">保存边界表</button><span class="builder-error" data-final-error role="alert"></span></form><div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>《Agent Prompt 适用边界表 v1》已保存。</h3><p>网页只检查是否覆盖五个字段，不代替正式语义评分。下一步可以把边界表带到 W02-D02，判断哪些场景需要 RAG。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例边界表</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>场景：项目答辩追问。</li><li>Prompt 可做：按 Rubric 生成追问、要求输出结构、禁止编造。</li><li>Prompt 不可做：确认真实项目事实、引用未提供材料、决定正式通过。</li><li>失败信号：回答缺事实、引用为空、模型给出未验证指标。</li><li>转交方案：先追问补资料；需要事实引用时进入 RAG；作品集采用前由用户确认。</li></ol></div></div></section>
+
+        <section class="later-section answer-card-section" id="summary" data-chapter-section><h2>我的 W02-D01 理解地图：把 Prompt 边界留成 W2 后续选型输入。</h2><p class="later-section__lead">这里汇总你的学习笔记和边界表。它是当前标签页的学习草稿，不是正式评分或掌握结论。</p><div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div><div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div><div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>边界是否清楚</strong><span>我是否说明了 Prompt 能做和不能做的部分？</span></div><div><strong>材料是否守住</strong><span>我是否避免让模型编造未提供事实？</span></div><div><strong>失败是否归因</strong><span>我是否能判断什么时候该改 Prompt，什么时候该转交？</span></div><div><strong>职责是否分层</strong><span>我是否把 Prompt、RAG、规则、工具和人工分开？</span></div><div><strong>输入是否可用</strong><span>这张表是否能作为 W2D2 RAG 判断的输入？</span></div></div></section>
+
+        <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section><h2 data-formal-handoff-title>W02-D01 页面学习完成后，仍需另行确认长期线状态。</h2><p class="later-section__lead" data-formal-handoff-summary>本页的概念、练习、边界表和理解地图都属于网页学习。它们不会创建正式 session、评分、复测关系或正式掌握证据。</p><div class="handoff-grid"><div><span>网页</span><strong>Prompt 边界与 Agent Prompt 适用边界表</strong><small>只保存当前标签页草稿；不改变两周突击线状态。</small></div><div><span>Codex</span><strong>长期线是否正式开启与证据回写</strong><small>需要另行读取状态源和明确确认，不能由页面按钮代替。</small></div></div><div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>核对我的理解地图</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><a class="button button--quiet" href="index.html">返回日课总览</a><span data-formal-entry-status aria-live="polite"></span></div></section>
+      </div>
+    </div></section>
+  </main>
+
+  <noscript><div class="shell"><p class="source-note">W02-D01 的页面草稿需要 JavaScript 保存；当前正式位置仍以 <a href="../../02_复盘总结/学习状态/study-project.json">study-project.json</a> 为准。</p></div></noscript>
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>W02-D01 · Prompt Boundary</span><span><a href="index.html">返回十二周长期线</a></span></div></footer>
+
+  <script type="application/json" data-later-config>
+{
+  "week_id": "week-02",
+  "day_label": "W02-D01",
+  "storage_key": "ai-pm-w02d01-course:v1",
+  "legacy_session_keys": [],
+  "knowledge_anchor": "Prompt 边界 → Agent Prompt 适用边界表 v1",
+  "page_anchor": "w02-d01-prompt-boundary.html#prompt",
+  "module_order": [
+    "prompt",
+    "failure",
+    "material",
+    "handoff",
+    "deliverable"
+  ],
+  "module_labels": {
+    "prompt": "Prompt 能做什么",
+    "failure": "Prompt 不能补什么",
+    "material": "材料与上下文边界",
+    "handoff": "模型 / 规则 / 人工分界",
+    "deliverable": "适用边界表"
+  },
+  "guided_definitions": {
+    "prompt": {
+      "correct": "prompt_contract",
+      "passTitle": "你已经把 Prompt 看成任务契约，而不是万能能力。",
+      "failTitle": "这个判断仍把 Prompt 当成万能补丁。",
+      "known": "Prompt 可以约束任务、输入、输出格式、语气、步骤和禁止事项。",
+      "error": "以为只要提示词写得足够长，就能解决事实缺失、材料缺失和工具动作。",
+      "why": "Prompt 只是在现有上下文内调度模型行为，不能创造可靠事实、访问未提供资料或执行系统动作。",
+      "chain": "任务目标 → 输入材料 → 输出格式 → 禁止事项 → 失败时转交。",
+      "invariant": "Prompt 是产品契约的一层，不是数据源、评测体系或业务系统。"
+    },
+    "failure": {
+      "correct": "needs_system_boundary",
+      "passTitle": "你已经识别出必须交给系统、数据或人工的边界。",
+      "failTitle": "这里不能继续靠改 Prompt 硬扛。",
+      "known": "AI 面试教练要处理事实、证据、评分和用户行动，很多部分不是提示词单独能保证的。",
+      "error": "把幻觉、漏引证据、评分漂移和不追问都归因于 Prompt 不够好。",
+      "why": "如果缺少材料、规则、Eval 和人工确认，模型输出再流畅也无法稳定可信。",
+      "chain": "失败现象 → 判断根因 → Prompt 可修 → 系统/数据/人工接管。",
+      "invariant": "先判断失败类别，再决定是否改 Prompt。"
+    },
+    "material": {
+      "correct": "ask_or_retrieve",
+      "passTitle": "你已经把材料不足和 Prompt 优化分开处理。",
+      "failTitle": "材料不足时不能让模型硬编。",
+      "known": "面试与答辩反馈依赖 JD、简历、项目经历、评分标准和用户回答。",
+      "error": "用户没有给项目结果或证据时，要求 Prompt 直接生成完整答辩答案。",
+      "why": "缺材料时最稳的产品动作是追问、引用已有资料或标注不确定，而不是生成确定结论。",
+      "chain": "材料是否存在 → 是否能引用 → 是否需要追问 → 是否允许输出建议。",
+      "invariant": "材料边界决定 Prompt 能说到哪里。"
+    },
+    "handoff": {
+      "correct": "split_responsibility",
+      "passTitle": "你已经能把 Prompt、规则、RAG、工具和人工分开。",
+      "failTitle": "职责边界还没有拆清。",
+      "known": "首版 Agent 不必所有能力都上 RAG 或工具，但必须知道什么不能留给 Prompt。",
+      "error": "把检索、状态变更、成本控制和正式评分都写进提示词。",
+      "why": "提示词可以指导模型表达，但无法替代确定性规则、外部资料检索、系统状态和人工复核。",
+      "chain": "表达引导给 Prompt → 事实引用给资料/RAG → 动作给工具 → 高风险结论给人工。",
+      "invariant": "职责分开后，Agent 才能被评测、排错和迭代。"
+    },
+    "deliverable": {
+      "correct": "boundary_table",
+      "passTitle": "适用边界表已经具备可评审结构。",
+      "failTitle": "适用边界表还停留在泛泛描述。",
+      "known": "W2D1 的产出要为 W2 后续 RAG、数据、工具和 ADR 做输入。",
+      "error": "只写“Prompt 用来优化回答”，没有列出适用条件、失败信号和转交对象。",
+      "why": "没有边界表，后续技术方案会再次退回“改提示词试试”。",
+      "chain": "Agent 场景 → Prompt 可做 → Prompt 不可做 → 失败信号 → 转交方案。",
+      "invariant": "边界表必须能指导下一步技术选型。"
+    }
+  }
+}
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script><script src="../../assets/study-state.js"></script><script src="assets/long-term-day-nav.js?v=20260827-w02d01"></script>
+  <script src="assets/w02-d01-course.js?v=20260827-w02d01"></script>
+</body>
+</html>

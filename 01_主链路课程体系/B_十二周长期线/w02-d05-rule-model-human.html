@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W02-D05：判断 AI 面试与项目答辩教练 Agent 的规则、模型与人工职责分工。">
+  <title>W02-D05｜规则 / 模型 / 人工职责分工｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260827-w02d05">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260826-long-term-nav">
+</head>
+<body class="day-later-course w02d05-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="../A_两周突击线/index.html">两周突击</a><a href="index.html" aria-current="page">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <p class="eyebrow">W02-D05 · 每日课程</p>
+          <h1>先判断规则、模型和人工分别负责什么，再决定谁来处理。</h1>
+          <p class="later-hero__lead">今天不讲接口接法，而是把 AI 面试与项目答辩教练 Agent 的职责边界讲清楚：什么该由规则约束，什么该由模型生成，什么必须人工确认。没有职责边界，产品会把所有问题都塞给模型。</p>
+          <div class="hero-actions"><a class="button" href="#rule">先看职责边界</a><a class="button button--quiet" href="#deliverable">直接做分工表</a></div>
+        </div>
+        <dl class="later-contract" aria-label="W02-D05 课程契约">
+          <div><dt>核心问题</dt><dd>规则负责约束，模型负责生成，人工负责确认。</dd></div>
+          <div><dt>学习方式</dt><dd>职责判断 · 规则边界 · 模型边界 · 人工边界</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页只保存当前标签页草稿，不写入长期线正式状态</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+<nav class="shell day-switcher" data-course-day-nav data-current-day="w02-d05" aria-label="W2 每日课程导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W02-D05 边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div><div class="later-cockpit__stamp"><span>W02-D05 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure"><summary>展开正式状态、日课进度与网页 / Codex 接力说明</summary><ol class="later-progress-map" aria-label="W02-D05 学习进度"><li data-later-progress-stage="foundation"><span>前置参考</span><strong>W02-D03 · 数据与材料</strong><small data-later-stage-status="foundation">已创建 · 可回看</small></li><li data-later-progress-stage="current"><span>当前日课</span><strong>W02-D05 · 规则 / 模型 / 人工职责分工</strong><small data-later-stage-status="current">核对中…</small></li><li data-later-progress-stage="next"><span>下一日课</span><strong>W02-D05 · 规则 / 模型 / 人工</strong><small data-later-stage-status="next">待本页确认</small></li><li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">本页只读</small></li></ol><div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>已确认</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>今日重点</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#rule">开始日课</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W02-D05 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section></div></details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter"><div class="shell later-layout">
+      <aside class="later-rail" aria-label="日课能力与目录">
+        <div class="later-rail__status"><span>日课学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+        <ol class="ability-evidence" aria-label="四项网页学习进度"><li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li><li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li><li data-ability-evidence="apply"><span>分工表做过</span><strong data-ability-status="apply">未完成</strong></li><li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li></ol>
+        <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">先看职责边界</a><a href="#rule" data-section-link="rule">规则、模型、人工分别做什么</a><a href="#model" data-section-link="model">规则、模型、人工不能互相替代什么</a><a href="#human" data-section-link="human">职责与边界</a><a href="#handoff" data-section-link="handoff">规则 / 模型 / 人工分界</a><a href="#deliverable" data-section-link="deliverable">今日分工表</a><a href="#transfer" data-section-link="transfer">综合工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+        <p>这里记录的是页面学习活动，不等于正式评分或正式掌握。遇到不懂的地方可以回看解释和示例。</p>
+      </aside>
+
+      <div class="later-content" id="chapter-content"><div class="lesson-live" data-live-message aria-live="polite"></div>
+        <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+          <h2>把职责放回系统：规则先定边界，模型负责生成，人工负责确认。</h2>
+          <p class="later-section__lead">规则、模型和人工先各自站好位置，才能知道后面哪些内容需要执行层、哪些只需要生成层、哪些必须人工确认。今天先把职责边界讲清楚，再谈后续实现。</p>
+          <div class="learning-contract"><article><strong>先讲职责</strong><p>先判断规则、模型和人工分别负责什么。</p></article><article><strong>再看边界</strong><p>各层能做什么、不能做什么要先写清楚。</p></article><article><strong>最后落到 Agent</strong><p>今天的结果是《规则 / 模型 / 人工职责分工判断表 v1》，作为 W2 后续方案选型输入。</p></article></div>
+          <div class="system-journey" aria-label="职责分工判断链路"><article><strong>规则职责</strong><span>要不要先立边界</span><p>判断哪些情况可以自动处理，哪些情况必须停下。</p></article><i aria-hidden="true">→</i><article><strong>模型职责</strong><span>能生成什么</span><p>确认模型适合输出哪些内容与表达。</p></article><i aria-hidden="true">→</i><article><strong>状态变化</strong><span>会改什么</span><p>确认调用后会影响哪些字段和结果。</p></article><i aria-hidden="true">→</i><article><strong>转交策略</strong><span>失败时怎么办</span><p>补权限、改工具、走规则或人工复核。</p></article></div>
+          <div class="learning-loop" aria-label="本页学习循环"><span>理解职责分工</span><span>辨认职责错位</span><span>拆 Agent 场景</span><span>填写分工表</span><span>留下 W2 输入</span></div>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="rule" data-chapter-section data-learning-module="rule">
+          <header class="learning-module__head"><div><h2>规则负责什么：先写清边界与约束</h2><p class="later-section__lead">规则适合定义边界，模型适合生成内容，人工适合确认高风险。</p></div><strong data-module-status="rule">0 / 2 步</strong></header><div class="term-atlas" aria-label="职责分工要素"><article><h3>查询状态</h3><strong>需要读数据</strong><p>查任务进度、查询答辩记录、拉取历史反馈。</p></article><article><h3>写入记录</h3><strong>需要改状态</strong><p>保存追问、更新答辩结果或写入评价。</p></article><article><h3>触发流程</h3><strong>需要调用系统</strong><p>发起审批、提交记录或更新工作流状态。</p></article></div><div class="plain-language-pair"><div><strong>白话解释</strong><p>规则像图纸，模型像施工员，人工像验收的人。</p></div><div><strong>它不等于什么</strong><p>它不是把三层职责揉成一层，也不是让模型替代规则和人工。</p></div></div><div class="mistake-compare"><article><strong>错误写法</strong><code>一切都交给模型，自然会知道何时调用接口</code><p>没有动作边界，模型容易把展示、判断和执行混在一起。</p></article><article><strong>产品化写法</strong><code>明确哪些任务必须落到查询、写入或触发流程</code><p>动作清楚后，才知道是否需要工具。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：更新答辩记录是不是要调用工具</strong><span>先看动作，再看接口</span></div><ol class="decision-chain"><li><strong>已知事实</strong><span>用户完成了一轮答辩，需要把追问和结论写入记录。</span></li><li><strong>工具可做</strong><span>如果系统有写入接口，就应该由工具保存。</span></li><li><strong>工具不可做</strong><span>如果只是展示总结，未必需要调用写入动作。</span></li><li><strong>产品动作</strong><span>先判断是否是“要改状态”的动作，再决定是否接工具。</span></li></ol></div><form class="guided-practice" data-guided-practice="rule"><fieldset><legend>理解检查：规则先确认什么</legend><p>Agent 需要先决定规则、模型和人工分别负责什么。最合适的判断是什么？</p><label>选择职责<select name="decision" required><option value="">请选择</option><option value="rule_contract">规则先写清约束、边界和禁止事项</option><option value="model_only">把所有判断都交给模型</option><option value="human_only">先让人工确认高风险</option></select></label><label>我为什么这样判断（可选）<textarea name="rule_reason" rows="3" data-persist placeholder="例如：写入记录是动作，不是表达……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="rule" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：列三种职责边界</h3><p>为 AI 面试与项目答辩教练 Agent 写出三条职责边界。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>优先想“查、写、触发”这三类动作。</p></details><form data-transfer-practice="rule"><label>我的分工表<textarea name="intent_transfer" rows="6" data-persist placeholder="动作 1：……；动作 2：……；动作 3：……；为什么需要工具：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="intent" hidden><p>分工表已记录。打开示例后，检查你是否把动作和表达分开。</p><button type="button" data-reveal-reference="intent" aria-expanded="false">打开示例动作</button><div class="reference-panel" data-reference-panel="intent" hidden><p>示例：查答辩记录、写入追问、触发复核流程都属于工具动作；单纯修改语气或说明则不需要工具。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="intent"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="rule_teachback" rows="3" data-persist placeholder="例如：工具和 Prompt 的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="rule" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module" id="model" data-chapter-section data-learning-module="model"><header class="learning-module__head"><div><h2>模型负责什么：先分生成与判断，不要把它都混进规则里</h2><p class="later-section__lead">模型有生成能力，但不等于规则和人工确认。只要职责不清，就不能把失败都解释成“模型不够聪明”。</p></div><strong data-module-status="model">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>模型解决的是生成和归纳，不是自动知道业务规则和人工确认边界。</p></div><div><strong>它不等于什么</strong><p>它不是万能执行器，也不是只要接上就会成功。</p></div></div><div class="mistake-compare"><article><strong>错误归因</strong><code>模型输出不稳，继续堆 Prompt</code><p>如果接口不存在或没有权限，重试也不会改变结果。</p></article><article><strong>正确归因</strong><code>先看规则、模型、人工哪一层出了问题</code><p>先分类职责错位，再决定是补规则、调模型还是转人工。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：写入记录失败怎么办</strong><span>先找失败层，再改对应层</span></div><ol class="decision-chain"><li><strong>现象</strong><span>Agent 想把答辩结论写入记录，但保存失败。</span></li><li><strong>可能原因</strong><span>接口没开、权限不够、字段格式错或状态冲突。</span></li><li><strong>工具可修</strong><span>如果是接口或权限问题，先修工具层。</span></li><li><strong>工具不可修</strong><span>如果只是展示问题，不该调用写入动作。</span></li></ol></div><form class="guided-practice" data-guided-practice="model"><fieldset><legend>理解检查：工具失败先看什么</legend><p>Agent 需要先判断规则、模型和人工是否分工清楚。第一步最应该做什么？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="model_generation">模型负责生成内容，不能替代规则</option><option value="rule_only">只写规则，不管生成</option><option value="human_override">所有内容都交给人工写</option></select></label><label>我为什么这样判断（可选）<textarea name="model_reason" rows="3" data-persist placeholder="例如：动作失败不是提示词问题……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="model" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：给三类失败分类</h3><p>把“权限失败”“接口失败”“状态失败”分别写出来，并说明下一步该改哪层。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先分权限，再分接口，再分状态。</p></details><form data-transfer-practice="model"><label>我的职责判断<textarea name="failure_transfer" rows="6" data-persist placeholder="权限失败：……；接口失败：……；状态失败：……；下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="failure" hidden><p>失败分类已记录。打开示例后，检查你是否先分了问题层级。</p><button type="button" data-reveal-reference="failure" aria-expanded="false">打开示例分类</button><div class="reference-panel" data-reference-panel="failure" hidden><p>示例：权限失败先补权限；接口失败先确认 API；状态失败先校验数据格式；这些都不是 Prompt 可以单独补齐的。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="failure"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="model_teachback" rows="3" data-persist placeholder="例如：工具失败和提示词失败的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="model" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="human" data-chapter-section data-learning-module="human">
+          <header class="learning-module__head"><div><h2>人工负责什么：先确认高风险和例外</h2><p class="later-section__lead">工具调用前要先明确权限和状态边界。动作不是“能点按钮”这么简单，而是要知道会改哪些字段、产生哪些后果。</p></div><strong data-module-status="human">0 / 2 步</strong></header><div class="term-atlas" aria-label="人工确认要素"><article><h3>权限</h3><strong>谁能做</strong><p>当前用户或 Agent 是否有执行权限。</p></article><article><h3>状态</h3><strong>会改什么</strong><p>调用后会影响哪些记录和字段。</p></article><article><h3>回执</h3><strong>怎样确认</strong><p>如何把执行结果写回到界面或日志。</p></article></div><div class="plain-language-pair"><div><strong>白话解释</strong><p>人工确认像正式签字：先看风险能不能接受，再决定能不能进入正式记录。</p></div><div><strong>它不等于什么</strong><p>它不是让人工处理所有小事，也不是让模型自动拍板。</p></div></div><div class="mistake-compare"><article><strong>危险写法</strong><code>高风险结论也让模型自动通过</code><p>不看状态影响，后续会难以回滚和排查。</p></article><article><strong>更稳的写法</strong><code>先看权限和状态，再决定是否调用工具</code><p>知道动作会改什么，后面才能治理。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：更新答辩结果前先看什么</strong><span>权限和状态要先清楚</span></div><ol class="decision-chain"><li><strong>权限</strong><span>当前角色是否能写入该记录。</span></li><li><strong>状态</strong><span>写入后会不会覆盖已有结论。</span></li><li><strong>回执</strong><span>如何把结果回给用户或日志。</span></li><li><strong>产品动作</strong><span>动作前先检查权限和状态边界。</span></li></ol></div><form class="guided-practice" data-guided-practice="human"><fieldset><legend>理解检查：先确认什么</legend><p>Agent 要先判断规则、模型、人工各自的职责，下面哪种最稳妥？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="human_confirmation">高风险结论由人工确认</option><option value="model_decide">让模型直接拍板</option><option value="rule_decide">让规则自动完成所有判断</option></select></label><label>我为什么这样判断（可选）<textarea name="human_reason" rows="3" data-persist placeholder="例如：权限和状态边界先定义，动作才可控……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="human" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一个动作表</h3><p>列出一个动作、它的权限、会改的状态和回执方式。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写动作，再写权限和状态。</p></details><form data-transfer-practice="human"><label>我的分工表<textarea name="action_transfer" rows="6" data-persist placeholder="动作：……；权限：……；状态：……；回执：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="action" hidden><p>分工表已记录。打开示例后，检查你是否写出了状态变化。</p><button type="button" data-reveal-reference="action" aria-expanded="false">打开示例动作</button><div class="reference-panel" data-reference-panel="action" hidden><p>示例：动作是保存答辩结论；权限是当前教练角色可写；状态是更新记录中的结论字段；回执是把保存结果返回给用户并记录日志。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="action"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="human_teachback" rows="3" data-persist placeholder="例如：动作和状态的关系是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="human" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module" id="handoff" data-chapter-section data-learning-module="handoff"><header class="learning-module__head"><div><h2>规则 / 模型 / 人工分界：把职责拆开，Agent 才好治理</h2><p class="later-section__lead">Prompt 负责判断与表达，工具负责执行，数据负责保存，人工负责高风险确认。今天要把这四层分开。</p></div><strong data-module-status="handoff">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>把 Agent 想成一个小系统：Prompt 负责说清楚，工具负责去做，数据负责记下来，人工负责拍板。</p></div><div><strong>它不等于什么</strong><p>它不是把全部职责塞进同一个层里，也不是让模型替代工具。</p></div></div><div class="mistake-compare"><article><strong>危险分工</strong><code>执行、展示和正式确认混在一起</code><p>一出错就不知道该回滚哪一层。</p></article><article><strong>可治理分工</strong><code>Prompt 判断 → 工具执行 → 数据落库 → 人工确认</code><p>职责分开后，才能评测、日志和回滚。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：保存答辩记录应该怎么分层</strong><span>先分层，再实现</span></div><ol class="decision-chain"><li><strong>Prompt</strong><span>判断是否需要保存以及输出说明。</span></li><li><strong>工具</strong><span>真正写入记录。</span></li><li><strong>数据</strong><span>保存字段、版本和状态。</span></li><li><strong>人工</strong><span>确认是否作为正式结论。</span></li></ol></div><form class="guided-practice" data-guided-practice="handoff"><fieldset><legend>理解检查：职责应该怎样拆</legend><p>Agent 要把结论写入系统，下面哪种分工更稳？</p><label>选择分工<select name="decision" required><option value="">请选择</option><option value="split_responsibility">规则约束，模型生成，人工确认</option><option value="all_rule">全部写进规则就行</option><option value="all_model">全部交给模型就行</option></select></label><label>我为什么这样判断（可选）<textarea name="handoff_reason" rows="3" data-persist placeholder="例如：职责拆开后，后续才好治理……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="handoff" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：拆一个动作职责</h3><p>选择“保存记录”“查询状态”或“触发流程”中的一个，写出四层职责。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写 Prompt，再写工具、数据和人工。</p></details><form data-transfer-practice="handoff"><label>我的职责拆分<textarea name="handoff_transfer" rows="6" data-persist placeholder="Prompt：……；工具：……；数据：……；人工：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="handoff" hidden><p>职责拆分已记录。打开示例后，检查你是否把正式确认分出来。</p><button type="button" data-reveal-reference="handoff" aria-expanded="false">打开示例拆分</button><div class="reference-panel" data-reference-panel="handoff" hidden><p>示例：Prompt 负责判断，工具负责写入，数据负责保存版本和状态，人工负责最终确认是否进入正式材料。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="handoff"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="handoff_teachback" rows="3" data-persist placeholder="例如：分层后为什么更容易治理……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="handoff" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="deliverable" data-chapter-section data-learning-module="deliverable"><header class="learning-module__head"><div><h2>今日产出：职责分工表 v1</h2><p class="later-section__lead">这张表要直接给后续 W2 和工程协作使用：它不是接口说明书，而是动作判断表。</p></div><strong data-module-status="deliverable">0 / 2 步</strong></header><div class="term-atlas" aria-label="职责分工字段"><article><h3>场景</h3><strong>在哪一步用</strong><p>查询记录、写入结论、触发流程或更新状态。</p></article><article><h3>动作</h3><strong>工具到底做什么</strong><p>读、写、触发还是仅查询。</p></article><article><h3>权限与状态</h3><strong>会不会改结果</strong><p>谁能做、会改哪些字段。</p></article><article><h3>转交</h3><strong>失败后给谁</strong><p>改工具、补权限、走规则或人工确认。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：保存答辩记录要不要用工具</strong><span>要先看动作</span></div><ol class="decision-chain"><li><strong>场景</strong><span>用户完成答辩后要保存结论。</span></li><li><strong>动作</strong><span>这是写入记录的动作，应该调用工具。</span></li><li><strong>权限与状态</strong><span>要先确认当前角色能否写入。</span></li><li><strong>转交</strong><span>如果权限不够，转人工确认或改权限。</span></li></ol></div><form class="guided-practice" data-guided-practice="deliverable"><fieldset><legend>理解检查：合格的分工表长什么样</legend><p>下面哪种写法最适合作为 W2D5 的产出？</p><label>选择写法<select name="decision" required><option value="">请选择</option><option value="responsibility_table">场景、规则、模型、人工和转交都写清楚</option><option value="role_list">先列出所有角色名称</option><option value="vague">需要接接口就接一下</option></select></label><label>我为什么这样判断（可选）<textarea name="deliverable_reason" rows="3" data-persist placeholder="例如：分工表要能直接指导工程实现……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="deliverable" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一份分工表</h3><p>选一个需要分工的场景，写出规则、模型、人工和转交方案。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写动作，再写权限和状态。</p></details><form data-transfer-practice="deliverable"><label>我的分工表<textarea name="deliverable_transfer" rows="6" data-persist placeholder="场景：……；动作：……；权限：……；状态：……；转交：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="deliverable" hidden><p>分工表已记录。打开示例后，检查你是否写出了状态变化。</p><button type="button" data-reveal-reference="deliverable" aria-expanded="false">打开示例动作</button><div class="reference-panel" data-reference-panel="deliverable" hidden><p>示例：场景是保存答辩记录；动作是写入；权限是当前教练可写；状态是更新结论字段；转交是权限不足时让人工确认。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="deliverable"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="deliverable_teachback" rows="3" data-persist placeholder="例如：分工表会影响后面的方案选型……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="deliverable" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section final-challenge" id="transfer" data-chapter-section><h2>综合工作坊：完成《职责分工表 v1》。</h2><p class="later-section__lead">请把今天的判断压成一张可直接给后续使用的动作表。</p><div class="challenge-brief"><p>团队原始写法：所有需要自动化的地方都交给工具，先接上再说。</p><strong>请从第一个错误节点开始，重写场景、动作、权限、状态和转交方案。</strong></div><details class="workshop-guide" open><summary>不知道从哪里开始时，按这五步走</summary><ol><li><strong>场景</strong><span>列出一个需要动作执行的场景。</span></li><li><strong>动作</strong><span>写清工具到底做什么。</span></li><li><strong>权限</strong><span>说明谁能执行。</span></li><li><strong>状态</strong><span>说明会改什么。</span></li><li><strong>转交</strong><span>写出失败时给谁。</span></li></ol></details><form data-final-challenge><label>我的 W02-D05 职责分工表<textarea name="final_diagnosis" rows="14" data-persist placeholder="按五步写：场景 → 动作 → 权限 → 状态 → 转交方案" required></textarea></label><fieldset class="self-check"><legend>保存前核对：我的判断表是否覆盖</legend><label><input type="checkbox" name="final_check" value="scenario"> 场景</label><label><input type="checkbox" name="final_check" value="action"> 动作</label><label><input type="checkbox" name="final_check" value="permission"> 权限</label><label><input type="checkbox" name="final_check" value="state"> 状态</label><label><input type="checkbox" name="final_check" value="handoff"> 转交方案</label></fieldset><button class="button" type="submit">保存判断表</button><span class="builder-error" data-final-error role="alert"></span></form><div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>《规则 / 模型 / 人工职责分工判断表 v1》已保存。</h3><p>网页只检查是否覆盖五个字段，不代替正式语义评分。下一步可以把判断表带到 W02-D05，梳理规则、模型和人工分工。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例判断表</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>场景：保存答辩记录。</li><li>动作：写入记录。</li><li>权限：当前教练角色可写。</li><li>状态：更新结论字段和版本号。</li><li>转交：权限不足时让人工确认或改权限。</li></ol></div></div></section>
+
+        <section class="later-section answer-card-section" id="summary" data-chapter-section><h2>我的 W02-D05 理解地图：把职责分工表留给后续 W2 使用。</h2><p class="later-section__lead">这里汇总你的学习笔记和动作表。它是当前标签页的学习草稿，不是正式评分或掌握结论。</p><div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div><div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div><div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>规则是否明确</strong><span>我是否写清了稳定约束？</span></div><div><strong>模型是否清楚</strong><span>我是否知道模型负责生成什么？</span></div><div><strong>人工是否清楚</strong><span>我是否知道哪些结论需要人工确认？</span></div><div><strong>职责是否分层</strong><span>我是否把规则、模型和人工分开？</span></div><div><strong>后续是否可接</strong><span>这张表是否能直接给 W2D6 使用？</span></div></div></section>
+
+        <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section><h2 data-formal-handoff-title>W02-D05 页面学习完成后，仍需另行确认长期线状态。</h2><p class="later-section__lead" data-formal-handoff-summary>本页的概念、练习、分工表和理解地图都属于网页学习。它们不会创建正式 session、评分、复测关系或正式掌握证据。</p><div class="handoff-grid"><div><span>网页</span><strong>规则、模型与人工职责分工</strong><small>只保存当前标签页草稿；不改变两周突击线状态。</small></div><div><span>Codex</span><strong>长期线是否正式开启与证据回写</strong><small>需要另行读取状态源和明确确认，不能由页面按钮代替。</small></div></div><div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>核对我的理解地图</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><a class="button button--quiet" href="index.html">返回日课总览</a><span data-formal-entry-status aria-live="polite"></span></div></section>
+      </div>
+    </div></section>
+  </main>
+
+  <noscript><div class="shell"><p class="source-note">W02-D05 的页面草稿需要 JavaScript 保存；当前正式位置仍以 <a href="../../02_复盘总结/学习状态/study-project.json">study-project.json</a> 为准。</p></div></noscript>
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>W02-D05 · 规则 / 模型 / 人工</span><span><a href="index.html">返回十二周长期线</a></span></div></footer>
+
+  <script type="application/json" data-later-config>
+{
+  "week_id": "week-02",
+  "day_label": "W02-D05",
+  "storage_key": "ai-pm-w02d05-course:v1",
+  "legacy_session_keys": [],
+  "knowledge_anchor": "规则 / 模型 / 人工职责分工 → 职责分工表 v1",
+  "page_anchor": "w02-d05-rule-model-human.html#rule",
+  "module_order": [
+    "rule",
+    "model",
+    "human",
+    "handoff",
+    "deliverable"
+  ],
+  "module_labels": {
+    "rule": "规则负责什么",
+    "model": "模型负责什么",
+    "human": "人工负责什么",
+    "handoff": "交接与转交边界",
+    "deliverable": "职责分工表"
+  },
+  "guided_definitions": {
+    "rule": {
+      "correct": "rule_contract",
+      "passTitle": "你已经把规则看成了边界和约束。",
+      "failTitle": "这里还没有把规则和模型区分开。",
+      "known": "规则负责明确边界、禁止事项、判断条件和稳定约束。",
+      "error": "把所有判断都留给模型，或者把规则写成模糊口号。",
+      "why": "规则是确定性的约束层，不负责凭空生成内容。",
+      "chain": "场景约束 → 判断条件 → 禁止事项 → 输出边界 → 交接对象。",
+      "invariant": "规则先定边界，再谈生成。"
+    },
+    "model": {
+      "correct": "model_generation",
+      "passTitle": "你已经把模型理解成生成与归纳的能力。",
+      "failTitle": "这里还在让模型承担规则职责。",
+      "known": "模型负责生成答案、改写表达、归纳信息和补充可读性。",
+      "error": "把模型当成规则引擎，或者要求它自动决定所有业务边界。",
+      "why": "模型会生成，但不会天然知道所有稳定约束。",
+      "chain": "输入材料 → 生成内容 → 检查规则 → 需要时转人工。",
+      "invariant": "模型只负责生成，不负责替代规则。"
+    },
+    "human": {
+      "correct": "human_confirmation",
+      "passTitle": "你已经把人工看成高风险确认层。",
+      "failTitle": "这里还没把人工确认和自动生成分开。",
+      "known": "人工负责高风险、例外情况、最终确认和边界判断。",
+      "error": "把需要确认的内容也交给模型自动拍板。",
+      "why": "当结果会影响正式记录、用户权益或业务风险时，需要人工确认。",
+      "chain": "高风险场景 → 人工确认 → 正式记录 → 后续执行。",
+      "invariant": "高风险结论不能只靠模型决定。"
+    },
+    "handoff": {
+      "correct": "split_responsibility",
+      "passTitle": "你已经能把规则、模型和人工分工。",
+      "failTitle": "职责边界还没有拆清。",
+      "known": "规则、模型、人工各有固定职责，不能互相顶替。",
+      "error": "把边界写成一句“智能处理”，没有说明谁负责什么。",
+      "why": "职责拆开后，才有治理、评测和回滚空间。",
+      "chain": "规则约束 → 模型生成 → 人工确认 → 结果记录。",
+      "invariant": "职责拆开，Agent 才能被治理。"
+    },
+    "deliverable": {
+      "correct": "responsibility_table",
+      "passTitle": "职责分工表已经具备可评审结构。",
+      "failTitle": "产出还停留在泛泛描述。",
+      "known": "W2D5 的产出要直接给后续 W2 的方案选型使用。",
+      "error": "只写“规则、模型、人工都很重要”，但没有分工。",
+      "why": "没有分工表，后续方案会再次把所有问题塞给模型。",
+      "chain": "场景 → 规则 → 模型 → 人工 → 转交对象。",
+      "invariant": "分工表必须能直接指导实现。"
+    }
+  }
+}
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script><script src="../../assets/study-state.js"></script><script src="assets/long-term-day-nav.js?v=20260827-w02d05"></script>
+  <script src="assets/w02-d05-course.js?v=20260827-w02d05"></script>
+</body>
+</html>

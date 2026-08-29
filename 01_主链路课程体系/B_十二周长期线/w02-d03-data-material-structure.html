@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W02-D03：整理 AI 面试与项目答辩教练 Agent 的材料清单、字段和切片边界。">
+  <title>W02-D03｜数据与材料结构｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260827-w02d03">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260826-long-term-nav">
+</head>
+<body class="day-later-course w02d03-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="../A_两周突击线/index.html">两周突击</a><a href="index.html" aria-current="page">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <p class="eyebrow">W02-D03 · 每日课程</p>
+          <h1>先整理材料清单，再谈字段、切片和引用结构。</h1>
+          <p class="later-hero__lead">今天不做泛泛的数据定义，而是把 AI 面试与项目答辩教练 Agent 需要哪些来源、哪些字段、哪些版本、哪些切片讲清楚。没有清单，后面的 RAG、评分和工程都没法稳。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看材料结构</a><a class="button button--quiet" href="#deliverable">直接做材料清单</a></div>
+        </div>
+        <dl class="later-contract" aria-label="W02-D03 课程契约">
+          <div><dt>核心问题</dt><dd>材料清单、字段和切片规则决定后续能不能检索、引用和评测。</dd></div>
+          <div><dt>学习方式</dt><dd>清单设计 · 切片判断 · 版本意识 · 可引用结构</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页只保存当前标签页草稿，不写入长期线正式状态</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+<nav class="shell day-switcher" data-course-day-nav data-current-day="w02-d03" aria-label="W2 每日课程导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W02-D03 边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div><div class="later-cockpit__stamp"><span>W02-D03 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure"><summary>展开正式状态、日课进度与网页 / Codex 接力说明</summary><ol class="later-progress-map" aria-label="W02-D03 学习进度"><li data-later-progress-stage="foundation"><span>前置参考</span><strong>W02-D02 · RAG 需求判断</strong><small data-later-stage-status="foundation">已创建 · 可回看</small></li><li data-later-progress-stage="current"><span>当前日课</span><strong>W02-D03 · 数据与材料</strong><small data-later-stage-status="current">核对中…</small></li><li data-later-progress-stage="next"><span>下一日课</span><strong>W02-D04 · Agent 工具调用</strong><small data-later-stage-status="next">待本页确认</small></li><li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">本页只读</small></li></ol><div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>已确认</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>今日重点</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始日课</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W02-D03 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section></div></details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter"><div class="shell later-layout">
+      <aside class="later-rail" aria-label="日课能力与目录">
+        <div class="later-rail__status"><span>日课学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+        <ol class="ability-evidence" aria-label="四项网页学习进度"><li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li><li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li><li data-ability-evidence="apply"><span>材料清单做过</span><strong data-ability-status="apply">未完成</strong></li><li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li></ol>
+        <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">先看材料结构</a><a href="#inventory" data-section-link="inventory">材料清单怎么列</a><a href="#failure" data-section-link="failure">材料结构不能补什么</a><a href="#slice" data-section-link="slice">切片与字段边界</a><a href="#handoff" data-section-link="handoff">数据 / Prompt / RAG / 人工分界</a><a href="#deliverable" data-section-link="deliverable">今日材料清单</a><a href="#transfer" data-section-link="transfer">综合工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+        <p>这里记录的是页面学习活动，不等于正式评分或正式掌握。遇到不懂的地方可以回看解释和示例。</p>
+      </aside>
+
+      <div class="later-content" id="chapter-content"><div class="lesson-live" data-live-message aria-live="polite"></div>
+        <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+          <h2>把材料结构先搭好：后面的 RAG、评分和工程都要靠它。</h2>
+          <p class="later-section__lead">材料结构不是技术炫技，而是把 AI 面试与项目答辩教练 Agent 能看什么、能引用什么、能保存什么讲清楚。先列清单，再谈字段和切片，才知道后续该做什么。</p>
+          <div class="learning-contract"><article><strong>先讲来源</strong><p>从哪些文档和记录里取材料。</p></article><article><strong>再讲结构</strong><p>哪些字段要保留、哪些内容可切片。</p></article><article><strong>最后落到 Agent</strong><p>今天的结果是《Agent 材料清单 v1》，作为 W2 后续技术和选型的输入。</p></article></div>
+          <div class="system-journey" aria-label="材料结构判断链路"><article><strong>来源</strong><span>有哪些材料</span><p>JD、简历、项目经历、Rubric、答辩记录和作品集。</p></article><i aria-hidden="true">→</i><article><strong>字段</strong><span>保留哪些信息</span><p>版本、来源、项目、指标、角色、时间和权限。</p></article><i aria-hidden="true">→</i><article><strong>切片</strong><span>怎么拆更好用</span><p>按项目、按答案段落、按评分维度或按版本切开。</p></article><i aria-hidden="true">→</i><article><strong>转交</strong><span>失败时怎么办</span><p>补字段、改切片、补来源、调 RAG 或让人确认。</p></article></div>
+          <div class="learning-loop" aria-label="本页学习循环"><span>理解材料结构</span><span>辨认失败类别</span><span>拆 Agent 场景</span><span>填写材料清单</span><span>留下 W2 输入</span></div>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="inventory" data-chapter-section data-learning-module="inventory">
+          <header class="learning-module__head"><div><h2>材料清单怎么列：先把来源和范围说清楚</h2><p class="later-section__lead">材料清单决定后续能不能检索和引用。没有清单，材料就只是散落的文件。</p></div><strong data-module-status="inventory">0 / 2 步</strong></header><div class="term-atlas" aria-label="材料清单要素"><article><h3>来源</h3><strong>有哪些文档</strong><p>JD、简历、项目经历、Rubric、答辩记录、作品集。</p></article><article><h3>权限</h3><strong>谁能看</strong><p>哪些材料允许检索、展示和引用。</p></article><article><h3>版本</h3><strong>哪一版有效</strong><p>更新时间、版本号和来源标识。</p></article></div><div class="plain-language-pair"><div><strong>白话解释</strong><p>材料清单像仓库总表：先知道仓里有什么、谁能拿、哪一版是新的，再去设计后面的检索和评分。</p></div><div><strong>它不等于什么</strong><p>它不是把所有文件丢给模型，也不是只写一个模糊的“数据集”。</p></div></div><div class="mistake-compare"><article><strong>错误写法</strong><code>把所有资料统一放进去，后面再说</code><p>没有来源、权限和版本，就不知道什么能引用、什么已经过期。</p></article><article><strong>产品化写法</strong><code>先列来源清单、权限和版本，再决定检索与引用</code><p>材料清楚，后续才知道怎样切片、怎样查找、怎样更新。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：面试教练的来源清单</strong><span>先列材料，再谈结构</span></div><ol class="decision-chain"><li><strong>已知来源</strong><span>用户上传了 JD、简历、一个项目复盘和一份答辩记录。</span></li><li><strong>材料边界</strong><span>这几个来源允许当前用户检索，但版本需要标清。</span></li><li><strong>后续用途</strong><span>RAG、评分和追问都要能回到这些来源。</span></li><li><strong>产品动作</strong><span>先做材料清单，再决定字段和切片规则。</span></li></ol></div><form class="guided-practice" data-guided-practice="inventory"><fieldset><legend>理解检查：先补哪一项</legend><p>如果你要给面试教练 Agent 接材料，先补哪项最重要？</p><label>选择步骤<select name="decision" required><option value="">请选择</option><option value="inventory_first">先列来源清单、权限和版本</option><option value="ui">先做漂亮一点的检索界面</option><option value="all_docs">先把所有文档都丢进去</option></select></label><label>我为什么这样判断（可选）<textarea name="inventory_reason" rows="3" data-persist placeholder="例如：没有清单，就无法判断什么能引用……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="inventory" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：写清材料来源</h3><p>为 AI 面试与项目答辩教练 Agent 列出材料来源、权限边界和版本规则。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先列来源，再列版本和权限，最后补更新频率。</p></details><form data-transfer-practice="inventory"><label>我的材料来源<textarea name="inventory_transfer" rows="6" data-persist placeholder="来源：……；权限：……；版本：……；更新频率：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="inventory" hidden><p>材料来源已记录。打开示例后，检查你是否写了权限和版本。</p><button type="button" data-reveal-reference="inventory" aria-expanded="false">打开示例清单</button><div class="reference-panel" data-reference-panel="inventory" hidden><p>示例：来源包括 JD、简历、项目经历和答辩记录；只有已上传材料可检索；每次版本更新后重新索引；敏感内容默认不对外展示。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="inventory"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="inventory_teachback" rows="3" data-persist placeholder="例如：材料清单和检索不同，因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="inventory" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module" id="failure" data-chapter-section data-learning-module="failure"><header class="learning-module__head"><div><h2>材料结构不能补什么：先辨认是结构问题还是提示词问题</h2><p class="later-section__lead">材料结构不是万能修补器。缺字段、缺版本、缺权限、缺来源，和 Prompt 本身写得不好是不同问题。</p></div><strong data-module-status="failure">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>结构问题是“输入长什么样”，提示词问题是“模型该怎么说”；两者不能混为一谈。</p></div><div><strong>它不等于什么</strong><p>它不是把所有失败都推给数据工程，也不是把所有问题都推给 Prompt。</p></div></div><div class="mistake-compare"><article><strong>错误归因</strong><code>答案不好，就继续改提示词</code><p>如果问题是字段缺失或版本错误，Prompt 再长也救不了。</p></article><article><strong>正确归因</strong><code>先看材料结构，再判断要不要改 Prompt</code><p>先分清是结构、字段、版本、权限还是表达问题，再决定下一步。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：为什么模型找不到项目结果</strong><span>先判断结构，再判断提示词</span></div><ol class="decision-chain"><li><strong>现象</strong><span>Agent 总说“缺少项目结果”，但没法定位到底缺哪一项。</span></li><li><strong>结构问题</strong><span>项目材料没有拆出“指标、角色、时间、版本”等字段。</span></li><li><strong>提示词问题</strong><span>如果字段已经有了，才考虑补充提示词里的引用规则。</span></li><li><strong>产品动作</strong><span>先补材料结构，再决定是否改 Prompt。</span></li></ol></div><form class="guided-practice" data-guided-practice="failure"><fieldset><legend>理解检查：先判断什么</legend><p>用户一直得不到可引用的项目结果时，第一步应先判断什么？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="structure_before_prompt">先看材料结构，再决定是否改 Prompt</option><option value="prompt_only">先把 Prompt 写得更长</option><option value="accept">只要回答顺，就先接受</option></select></label><label>我为什么这样判断（可选）<textarea name="failure_reason" rows="3" data-persist placeholder="例如：结构和提示词是不同层的问题……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="failure" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：给三类失败分类</h3><p>分别判断“没字段”“没版本”“没权限”更该先补哪一层。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先区分结构、版本和权限，再看是不是要改 Prompt。</p></details><form data-transfer-practice="failure"><label>我的失败分类<textarea name="failure_transfer" rows="6" data-persist placeholder="没字段：……；没版本：……；没权限：……；下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="failure" hidden><p>失败分类已记录。打开示例后，检查你是否先分了问题层级。</p><button type="button" data-reveal-reference="failure" aria-expanded="false">打开示例分类</button><div class="reference-panel" data-reference-panel="failure" hidden><p>示例：没字段先补结构；没版本先补版本号；没权限先补权限规则；都不是 Prompt 能直接补齐的。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="failure"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="failure_teachback" rows="3" data-persist placeholder="例如：结构问题和 Prompt 问题的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="failure" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="slice" data-chapter-section data-learning-module="slice"><header class="learning-module__head"><div><h2>切片与字段边界：字段负责结构，切片负责检索</h2><p class="later-section__lead">字段和切片不是一回事。字段决定能不能稳定引用，切片决定能不能准确检索。</p></div><strong data-module-status="slice">0 / 2 步</strong></header><div class="term-atlas" aria-label="切片与字段要素"><article><h3>字段</h3><strong>保留什么信息</strong><p>版本、来源、项目、指标、角色、时间和权限。</p></article><article><h3>切片</h3><strong>怎么拆更好查</strong><p>按项目、按答案段落、按评分维度或按版本拆开。</p></article><article><h3>引用键</h3><strong>怎么回到原文</strong><p>每个结论都能定位到原始材料与对应版本。</p></article></div><div class="plain-language-pair"><div><strong>白话解释</strong><p>字段像表头，切片像把长文拆成可查的小块；两者一起决定后续 RAG 能不能稳定工作。</p></div><div><strong>它不等于什么</strong><p>它不是把整份文件直接塞给模型，也不是只切得越碎越好。</p></div></div><div class="mistake-compare"><article><strong>危险写法</strong><code>整个项目文档直接丢给检索，反正模型会自己找</code><p>没有字段和引用键，后续根本不知道结果从哪里来。</p></article><article><strong>更稳的写法</strong><code>字段先定义，切片再按项目和评分维度拆开</code><p>后续 RAG、评分和追问都能回到原始版本和来源。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：项目答辩材料怎么切</strong><span>字段和切片分开做</span></div><ol class="decision-chain"><li><strong>字段</strong><span>版本号、项目名、结果指标、角色和时间。</span></li><li><strong>切片</strong><span>按“背景 / 动作 / 结果 / 反思”拆成片段。</span></li><li><strong>引用键</strong><span>每个片段都能回到原始答辩记录。</span></li><li><strong>产品动作</strong><span>字段和切片一起设计，后续 RAG 才能引用。</span></li></ol></div><form class="guided-practice" data-guided-practice="slice"><fieldset><legend>理解检查：先分什么</legend><p>要让项目答辩材料可引用，先分清什么更重要？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="field_and_chunk">字段和切片分别设计</option><option value="chunk_only">只要切得够碎就行</option><option value="whole_doc">整份文档直接给模型</option></select></label><label>我为什么这样判断（可选）<textarea name="slice_reason" rows="3" data-persist placeholder="例如：字段决定引用，切片决定检索……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="slice" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：给一个项目材料切字段</h3><p>为一份项目答辩记录写出字段、切片和引用键。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写字段，再按“背景 / 动作 / 结果 / 反思”切片。</p></details><form data-transfer-practice="slice"><label>我的字段与切片<textarea name="slice_transfer" rows="6" data-persist placeholder="字段：……；切片：……；引用键：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="slice" hidden><p>字段与切片已记录。打开示例后，检查你是否把引用键写出来。</p><button type="button" data-reveal-reference="slice" aria-expanded="false">打开示例切片</button><div class="reference-panel" data-reference-panel="slice" hidden><p>示例：字段包括版本、项目、指标、角色和时间；切片按“背景 / 动作 / 结果 / 反思”拆开；引用键把每个片段指回原始答辩记录。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="slice"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="slice_teachback" rows="3" data-persist placeholder="例如：字段和切片的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="slice" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module" id="handoff" data-chapter-section data-learning-module="handoff"><header class="learning-module__head"><div><h2>数据 / Prompt / RAG / 人工分界：把职责拆开，Agent 才好治理</h2><p class="later-section__lead">W2 的结构化数据不负责表达，也不负责最终结论。它负责让来源、版本、字段和状态可被后续机制使用。</p></div><strong data-module-status="handoff">0 / 2 步</strong></header><div class="plain-language-pair"><div><strong>白话解释</strong><p>数据结构负责把材料变成表头、字段和版本；Prompt 负责怎么说；RAG 负责引用；人工负责确认。</p></div><div><strong>它不等于什么</strong><p>它不是把所有职责都塞进一个表单，也不是让模型自己猜字段。</p></div></div><div class="mistake-compare"><article><strong>危险分工</strong><code>材料结构、检索逻辑和正式结论都混在一起</code><p>这样一旦失败，后面不知道该改哪一层。</p></article><article><strong>可治理分工</strong><code>数据先搭好，再让 Prompt 和 RAG 用它</code><p>职责清楚后，后面才能做评测、日志和改版。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：材料清单怎么接到后续系统</strong><span>先建数据，再接后续</span></div><ol class="decision-chain"><li><strong>数据</strong><span>材料来源、版本和权限先记录好。</span></li><li><strong>Prompt</strong><span>表达任务和追问时引用结构化字段。</span></li><li><strong>RAG</strong><span>检索对应原文和片段。</span></li><li><strong>人工</strong><span>确认是否写入正式答辩材料或作品集。</span></li></ol></div><form class="guided-practice" data-guided-practice="handoff"><fieldset><legend>理解检查：职责应该怎样拆</legend><p>材料结构要支撑后续 Agent，下面哪种分工更稳？</p><label>选择分工<select name="decision" required><option value="">请选择</option><option value="split_responsibility">数据管来源和版本，Prompt 管表达，RAG 管引用，人工管确认</option><option value="all_in_prompt">全部都写进 Prompt 里</option><option value="all_in_rag">全部都交给 RAG</option></select></label><label>我为什么这样判断（可选）<textarea name="handoff_reason" rows="3" data-persist placeholder="例如：职责拆开后，后面才能治理……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="handoff" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：拆一层材料职责</h3><p>选择一个场景，把数据、Prompt、RAG 和人工分别写出来。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先写数据，再写后面三层怎么用它。</p></details><form data-transfer-practice="handoff"><label>我的职责拆分<textarea name="handoff_transfer" rows="6" data-persist placeholder="数据：……；Prompt：……；RAG：……；人工：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="handoff" hidden><p>职责拆分已记录。打开示例后，检查你是否把正式确认分出来。</p><button type="button" data-reveal-reference="handoff" aria-expanded="false">打开示例拆分</button><div class="reference-panel" data-reference-panel="handoff" hidden><p>示例：数据保存来源和版本；Prompt 引导模型表达；RAG 提供原文引用；人工确认是否进入作品集或简历。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="handoff"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="handoff_teachback" rows="3" data-persist placeholder="例如：数据结构和 Prompt 的区别是……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="handoff" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section learning-module later-section--soft" id="deliverable" data-chapter-section data-learning-module="deliverable"><header class="learning-module__head"><div><h2>今日产出：Agent 材料清单 v1</h2><p class="later-section__lead">这张清单要能直接给后续 W2 使用：它不是流水账，而是后续 RAG、评分和工程可以继续用的材料入口。</p></div><strong data-module-status="deliverable">0 / 2 步</strong></header><div class="term-atlas" aria-label="材料清单字段"><article><h3>来源</h3><strong>哪些材料</strong><p>JD、简历、项目经历、Rubric、答辩记录、作品集。</p></article><article><h3>字段</h3><strong>要保留什么</strong><p>版本、项目、指标、角色、时间、权限。</p></article><article><h3>切片</h3><strong>怎么拆</strong><p>按项目、答案段落、评分维度和版本拆开。</p></article><article><h3>转交</h3><strong>失败后给谁</strong><p>补字段、改切片、补来源、调 RAG、让人确认。</p></article></div><div class="worked-example"><div class="worked-example__head"><strong>完整示范：写一个项目答辩材料清单</strong><span>要能指导后续使用</span></div><ol class="decision-chain"><li><strong>来源</strong><span>项目复盘记录、答辩记录、简历和项目原文。</span></li><li><strong>字段</strong><span>版本、项目、指标、角色、时间和权限。</span></li><li><strong>切片</strong><span>按“背景 / 动作 / 结果 / 反思”拆分。</span></li><li><strong>产品动作</strong><span>清单后续可直接给 RAG 和评测使用。</span></li></ol></div><form class="guided-practice" data-guided-practice="deliverable"><fieldset><legend>理解检查：合格清单长什么样</legend><p>下面哪种写法最适合作为 W2D3 的产出？</p><label>选择写法<select name="decision" required><option value="">请选择</option><option value="material_list">来源、字段、切片和转交方案都写清楚</option><option value="data_vague">整理一下数据就行</option><option value="tech_stack">先决定数据库和向量库</option></select></label><label>我为什么这样判断（可选）<textarea name="deliverable_reason" rows="3" data-persist placeholder="例如：清单要能直接服务后续工程和选型……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="deliverable" hidden aria-live="polite"></div></form><div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一份材料清单</h3><p>为 AI 面试与项目答辩教练 Agent 列出来源、字段、切片和转交方案。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先列来源，再列字段和切片，最后补转交。</p></details><form data-transfer-practice="deliverable"><label>我的材料清单<textarea name="deliverable_transfer" rows="6" data-persist placeholder="来源：……；字段：……；切片：……；转交方案：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="deliverable" hidden><p>材料清单已记录。打开示例后，检查你是否能直接给后续使用。</p><button type="button" data-reveal-reference="deliverable" aria-expanded="false">打开示例清单</button><div class="reference-panel" data-reference-panel="deliverable" hidden><p>示例：来源包括 JD、简历、项目经历和答辩记录；字段保留版本、项目、指标、角色、时间和权限；切片按“背景 / 动作 / 结果 / 反思”拆分；后续可直接给 RAG 和评分系统使用。</p></div></div></div><form class="teach-back learning-note" data-teachback-form="deliverable"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="deliverable_teachback" rows="3" data-persist placeholder="例如：材料清单会影响后面的……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="deliverable" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section final-challenge" id="transfer" data-chapter-section><h2>综合工作坊：完成《Agent 材料清单 v1》。</h2><p class="later-section__lead">请把今天的判断压成一张可直接给后续使用的材料清单。</p><div class="challenge-brief"><p>团队原始写法：先把所有资料放进一个文件夹，后面由模型自己找。</p><strong>请从第一个错误节点开始，重写来源、字段、切片和转交方案。</strong></div><details class="workshop-guide" open><summary>不知道从哪里开始时，按这五步走</summary><ol><li><strong>来源</strong><span>列出要用的材料。</span></li><li><strong>字段</strong><span>写明要保留的结构化信息。</span></li><li><strong>切片</strong><span>说明怎么拆更好查。</span></li><li><strong>转交</strong><span>写出失败时给谁。</span></li><li><strong>后续使用</strong><span>说清这张清单会给谁用。</span></li></ol></details><form data-final-challenge><label>我的 W02-D03 材料清单<textarea name="final_diagnosis" rows="14" data-persist placeholder="按五步写：来源 → 字段 → 切片 → 转交方案 → 后续使用" required></textarea></label><fieldset class="self-check"><legend>保存前核对：我的清单是否覆盖</legend><label><input type="checkbox" name="final_check" value="source"> 来源</label><label><input type="checkbox" name="final_check" value="field"> 字段</label><label><input type="checkbox" name="final_check" value="slice"> 切片</label><label><input type="checkbox" name="final_check" value="handoff"> 转交方案</label><label><input type="checkbox" name="final_check" value="usage"> 后续使用</label></fieldset><button class="button" type="submit">保存材料清单</button><span class="builder-error" data-final-error role="alert"></span></form><div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>《Agent 材料清单 v1》已保存。</h3><p>网页只检查是否覆盖五个字段，不代替正式语义评分。下一步可以把清单带到 W02-D04，判断工具调用的输入和状态字段。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例清单</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>来源：JD、简历、项目经历、答辩记录。</li><li>字段：版本、项目、指标、角色、时间、权限。</li><li>切片：按“背景 / 动作 / 结果 / 反思”拆开。</li><li>转交方案：字段缺失补字段，切片不合适就改规则，资料不足则追问。</li><li>后续使用：供 RAG、评分和工程协作使用。</li></ol></div></div></section>
+
+        <section class="later-section answer-card-section" id="summary" data-chapter-section><h2>我的 W02-D03 理解地图：把材料清单留给后续 W2 使用。</h2><p class="later-section__lead">这里汇总你的学习笔记和材料清单。它是当前标签页的学习草稿，不是正式评分或掌握结论。</p><div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div><div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div><div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>来源是否清楚</strong><span>我是否写明了材料从哪里来？</span></div><div><strong>字段是否明确</strong><span>我是否保留了版本、角色、时间和权限？</span></div><div><strong>切片是否可用</strong><span>我是否能说明如何拆分材料？</span></div><div><strong>转交是否明确</strong><span>我是否知道失败时该交给谁？</span></div><div><strong>后续是否可接</strong><span>这张表是否能直接给 RAG 和工程协作使用？</span></div></div></section>
+
+        <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section><h2 data-formal-handoff-title>W02-D03 页面学习完成后，仍需另行确认长期线状态。</h2><p class="later-section__lead" data-formal-handoff-summary>本页的概念、练习、材料清单和理解地图都属于网页学习。它们不会创建正式 session、评分、复测关系或正式掌握证据。</p><div class="handoff-grid"><div><span>网页</span><strong>材料清单与数据结构</strong><small>只保存当前标签页草稿；不改变两周突击线状态。</small></div><div><span>Codex</span><strong>长期线是否正式开启与证据回写</strong><small>需要另行读取状态源和明确确认，不能由页面按钮代替。</small></div></div><div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>核对我的理解地图</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><a class="button button--quiet" href="index.html">返回日课总览</a><span data-formal-entry-status aria-live="polite"></span></div></section>
+      </div>
+    </div></section>
+  </main>
+
+  <noscript><div class="shell"><p class="source-note">W02-D03 的页面草稿需要 JavaScript 保存；当前正式位置仍以 <a href="../../02_复盘总结/学习状态/study-project.json">study-project.json</a> 为准。</p></div></noscript>
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>W02-D03 · Data and Material Structure</span><span><a href="index.html">返回十二周长期线</a></span></div></footer>
+
+  <script type="application/json" data-later-config>
+{
+  "week_id": "week-02",
+  "day_label": "W02-D03",
+  "storage_key": "ai-pm-w02d03-course:v1",
+  "legacy_session_keys": [],
+  "knowledge_anchor": "数据与材料结构 → Agent 材料清单 v1",
+  "page_anchor": "w02-d03-data-material-structure.html#inventory",
+  "module_order": [
+    "inventory",
+    "failure",
+    "slice",
+    "handoff",
+    "deliverable"
+  ],
+  "module_labels": {
+    "inventory": "材料清单怎么列",
+    "failure": "材料结构不能补什么",
+    "slice": "切片与字段边界",
+    "handoff": "数据 / Prompt / RAG / 人工分界",
+    "deliverable": "材料清单"
+  },
+  "guided_definitions": {
+    "inventory": {
+      "correct": "inventory_first",
+      "passTitle": "你已经把材料清单放在设计前面。",
+      "failTitle": "材料还没列清，后面没法做结构。",
+      "known": "面试与答辩类 Agent 常用材料包括 JD、简历、项目经历、Rubric、答辩记录和作品集。",
+      "error": "先想接口或切片，再回头补材料来源。",
+      "why": "没有材料清单，就无法判断哪些字段必须保留、哪些可切、哪些要追问。",
+      "chain": "场景 → 材料来源 → 权限边界 → 更新频率 → 清单结构。",
+      "invariant": "先列材料清单，再谈检索或评分。"
+    },
+    "failure": {
+      "correct": "structure_before_prompt",
+      "passTitle": "你已经识别出很多问题不是 Prompt 能补的。",
+      "failTitle": "材料结构不足时，不能继续让 Prompt 硬扛。",
+      "known": "缺材料、缺版本、缺字段、缺权限，都会让下游判断失真。",
+      "error": "把所有问题都归因于“提示词不够好”。",
+      "why": "结构不清时，模型只能在不完整输入上做推测。",
+      "chain": "失败现象 → 结构问题 / 缺字段 / 缺版本 / 缺权限 → 转交方案。",
+      "invariant": "结构先于提示词优化。"
+    },
+    "slice": {
+      "correct": "field_and_chunk",
+      "passTitle": "你已经把字段和切片分别处理。",
+      "failTitle": "切片方式还不对。",
+      "known": "材料需要按项目、按答案段落、按评分维度或按版本拆成可检索片段。",
+      "error": "不区分字段和切片，把整份文件直接丢给检索。",
+      "why": "字段决定结构化引用，切片决定可检索片段，两个问题不同。",
+      "chain": "字段定义 → 切片规则 → 引用键 → 更新版本。",
+      "invariant": "字段和切片必须分开设计。"
+    },
+    "handoff": {
+      "correct": "split_responsibility",
+      "passTitle": "你已经能把材料结构和其他机制分开。",
+      "failTitle": "职责边界还没有拆清。",
+      "known": "数据结构负责可见字段、版本和状态；Prompt 负责表达；RAG 负责引用；人工负责最终确认。",
+      "error": "把材料结构、检索逻辑和正式结论都放进一个层里。",
+      "why": "职责混在一起时，后面无法做评测和治理。",
+      "chain": "材料结构 → Prompt 表达 → RAG 引用 → 人工确认。",
+      "invariant": "数据先搭好，再让模型工作。"
+    },
+    "deliverable": {
+      "correct": "material_list",
+      "passTitle": "材料清单已经可以指导后续 W2。",
+      "failTitle": "材料清单还不够可用。",
+      "known": "W2D3 的输出要直接给 W2D4 的 Agent 工具调用和 W2D5 的职责分工使用。",
+      "error": "只写“要整理数据”，没有字段、版本和边界。",
+      "why": "没有清单，就无法知道后续该补哪些结构化字段。",
+      "chain": "场景 → 材料清单 → 字段/版本/权限 → 后续使用方式。",
+      "invariant": "清单必须能服务后续工程和选型。"
+    }
+  }
+}
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script><script src="../../assets/study-state.js"></script><script src="assets/long-term-day-nav.js?v=20260827-w02d03"></script>
+  <script src="assets/w02-d03-course.js?v=20260827-w02d03"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="W02-D02：判断 AI 面试与项目答辩教练 Agent 何时需要 RAG，形成资料可引用边界表。">
+  <title>W02-D02｜RAG 基础与资料可引用边界｜AI 产品经理转型</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="../../assets/day-pages.css">
+  <link rel="stylesheet" href="../../assets/concept-mechanism.css">
+  <link rel="stylesheet" href="../A_两周突击线/assets/day07-course.css?v=20260827-w02d02">
+  <link rel="stylesheet" href="../../assets/day-course-nav.css?v=20260826-long-term-nav">
+</head>
+<body class="day-later-course w02d02-course">
+  <a class="skip-link" href="#chapter-content">跳到章节正文</a>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">主链路</a><a href="../A_两周突击线/index.html">两周突击</a><a href="index.html" aria-current="page">十二周长期</a><a href="../../02_复盘总结/index.html">复盘总结</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="later-hero">
+      <div class="shell later-hero__grid">
+        <div>
+          <p class="eyebrow">W02-D02 · 每日课程</p>
+          <h1>先判断 RAG 是否必要，再决定检索哪些材料。</h1>
+          <p class="later-hero__lead">今天不把 RAG 当成万能知识增强，而是把它放回产品链路里：哪些问题需要引用外部资料、哪些问题应由 Prompt / 规则 / 人工解决、哪些问题根本不该上检索。</p>
+          <div class="hero-actions"><a class="button" href="#orientation">先看 RAG 基础</a><a class="button button--quiet" href="#deliverable">直接做判断表</a></div>
+        </div>
+        <dl class="later-contract" aria-label="W02-D02 课程契约">
+          <div><dt>核心问题</dt><dd>RAG 能把外部资料接入模型判断，但不能替代清晰的问题定义和资料边界。</dd></div>
+          <div><dt>学习方式</dt><dd>概念边界 · 场景判断 · 资料组织 · 判断表</dd></div>
+          <div><dt>正式状态</dt><dd data-later-page-status>读取正式状态…</dd></div>
+          <div><dt>真实边界</dt><dd>本页只保存当前标签页草稿，不写入长期线正式状态</dd></div>
+        </dl>
+      </div>
+      <div class="shell later-session-strip" aria-label="正式状态与草稿边界"><span>正式位置 <strong data-later-formal-summary>正在读取…</strong></span><span data-save-status>本页练习仅保存在当前标签页</span><button type="button" data-clear-session-draft>清除当前标签页练习</button></div>
+<nav class="shell day-switcher" data-course-day-nav data-current-day="w02-d02" aria-label="W2 每日课程导航"></nav>
+    </section>
+
+    <section class="later-cockpit-wrap" aria-labelledby="later-cockpit-title">
+      <div class="shell later-cockpit">
+        <header class="later-cockpit__head"><div><h2 id="later-cockpit-title" data-later-cockpit-title>正在核对 W02-D02 边界。</h2><p data-later-cockpit-summary>页面只读取唯一正式状态源。</p></div><div class="later-cockpit__stamp"><span>W02-D02 页面权限</span><strong data-later-cockpit-mode>读取中…</strong><small>状态更新于 <time data-later-cockpit-updated>—</time></small></div></header>
+        <details class="formal-state-disclosure"><summary>展开正式状态、日课进度与网页 / Codex 接力说明</summary><ol class="later-progress-map" aria-label="W02-D02 学习进度"><li data-later-progress-stage="foundation"><span>前置参考</span><strong>W02-D01 · Prompt 边界</strong><small data-later-stage-status="foundation">已创建 · 可回看</small></li><li data-later-progress-stage="current"><span>当前日课</span><strong>W02-D02 · RAG 基础</strong><small data-later-stage-status="current">核对中…</small></li><li data-later-progress-stage="next"><span>下一日课</span><strong>W02-D03 · 数据与材料</strong><small data-later-stage-status="next">待本页确认</small></li><li data-later-progress-stage="formal"><span>正式状态源</span><strong>study-project.json</strong><small data-later-stage-status="formal">本页只读</small></li></ol><div class="later-cockpit__decision"><section><h3>当前学习定位</h3><dl><div><dt>已确认</dt><dd data-later-passed-scope>正在读取…</dd></div><div><dt>今日重点</dt><dd data-later-current-gap>正在读取…</dd></div><div><dt>正式任务</dt><dd><code data-later-formal-task>正在读取…</code></dd></div></dl></section><section><h3>网页 / Codex 接力</h3><div class="later-route-box"><div><span>当前工作台</span><strong data-later-current-surface>正在判断…</strong></div><div><span>切换条件</span><strong data-later-switch-condition>正在读取…</strong></div></div><div class="later-cockpit__actions"><a class="button" href="#orientation">开始日课</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制 W02-D02 接力</button><span data-formal-entry-status aria-live="polite"></span></div></section></div></details>
+      </div>
+    </section>
+
+    <div class="later-sentinel" aria-label="当前工作台与切换条件"><div class="shell later-sentinel__inner"><span>当前工作台</span><strong data-later-sticky-surface>读取中…</strong><span>切换条件</span><strong data-later-sticky-condition>读取中…</strong><a href="#formal-handoff">查看接力</a></div></div>
+    <div class="chapter-progress" aria-hidden="true"><span data-ability-progress></span></div>
+
+    <section class="later-chapter"><div class="shell later-layout">
+      <aside class="later-rail" aria-label="日课能力与目录">
+        <div class="later-rail__status"><span>日课学习进度</span><strong data-ability-progress-text>0 / 4</strong></div>
+        <ol class="ability-evidence" aria-label="四项网页学习进度"><li data-ability-evidence="explain"><span>概念已探索</span><strong data-ability-status="explain">未开始</strong></li><li data-ability-evidence="judge"><span>关键误区辨清</span><strong data-ability-status="judge">未完成</strong></li><li data-ability-evidence="apply"><span>边界表做过</span><strong data-ability-status="apply">未完成</strong></li><li data-ability-evidence="transfer"><span>综合工作坊</span><strong data-ability-status="transfer">未完成</strong></li></ol>
+        <nav aria-label="课程目录"><a href="#orientation" data-section-link="orientation">先看 RAG 需求</a><a href="#rag" data-section-link="rag">RAG 什么时候值得上</a><a href="#failure" data-section-link="failure">RAG 不能补什么</a><a href="#material" data-section-link="material">资料与切片边界</a><a href="#handoff" data-section-link="handoff">Prompt / RAG / 数据 / 人工分界</a><a href="#deliverable" data-section-link="deliverable">今日判断表</a><a href="#transfer" data-section-link="transfer">综合工作坊</a><a href="#summary" data-section-link="summary">我的理解地图</a><a href="#formal-handoff" data-section-link="formal-handoff">正式接力</a></nav>
+        <p>这里记录的是页面学习活动，不等于正式评分或正式掌握。遇到不懂的地方可以回看解释和示例。</p>
+      </aside>
+
+      <div class="later-content" id="chapter-content"><div class="lesson-live" data-live-message aria-live="polite"></div>
+                <section class="later-section learning-orientation" id="orientation" data-chapter-section>
+          <h2>把 RAG 放回产品系统：它是给模型补充可引用外部资料的检索层。</h2>
+          <p class="later-section__lead">RAG 的价值不是“让回答更聪明”，而是让 AI 面试与项目答辩教练 Agent 在需要事实、证据和来源时有地方可查。今天先判断哪些场景需要检索，哪些场景只要 Prompt、规则或人工就够了。</p>
+          <div class="learning-contract"><article><strong>先讲判断</strong><p>先判断问题是否依赖外部资料，再决定要不要上 RAG。</p></article><article><strong>再看来源</strong><p>如果要上 RAG，就必须知道检索什么、谁能用、多久更新。</p></article><article><strong>最后落到 Agent</strong><p>今天的结果是《Agent RAG 需求判断表 v1》，作为 W2 后续数据与方案选型的输入。</p></article></div>
+          <div class="system-journey" aria-label="RAG 需求判断链路"><article><strong>问题类型</strong><span>是否依赖事实</span><p>判断答案是否必须引用 JD、简历、项目材料或评分标准。</p></article><i aria-hidden="true">→</i><article><strong>资料来源</strong><span>是否有可查证据</span><p>确认文档、记录、历史反馈和作品集材料是否可检索。</p></article><i aria-hidden="true">→</i><article><strong>检索边界</strong><span>是否能引用</span><p>确认权限、时效、切片和引用字段是否足够。</p></article><i aria-hidden="true">→</i><article><strong>转交策略</strong><span>失败时交给谁</span><p>补资料、改 Prompt、调 RAG、走规则或人工复核。</p></article></div>
+          <div class="learning-loop" aria-label="本页学习循环"><span>理解 RAG 作用</span><span>辨认失败类别</span><span>拆 Agent 场景</span><span>填写需求表</span><span>留下 W2 输入</span></div>
+        </section>
+
+                <section class="later-section later-section--soft learning-module" id="rag" data-chapter-section data-learning-module="rag">
+          <header class="learning-module__head"><div><h2>RAG 什么时候值得上？</h2><p class="later-section__lead">RAG 适合让模型基于外部资料回答，尤其是当问题依赖 JD、简历、项目材料或评分依据时。</p></div><strong data-module-status="rag">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="RAG 可支持的内容"><article><h3>事实来源</h3><strong>答案要引用什么</strong><p>JD、简历、项目经历、评分 Rubric、历史反馈和作品集。</p><small>不等于：让模型自己记住所有事实</small></article><article><h3>来源可查</h3><strong>答案能回到哪份材料</strong><p>每个结论都要能指向原始来源或切片。</p><small>不等于：只给一段看起来很顺的话</small></article><article><h3>新鲜度</h3><strong>哪些信息会变</strong><p>项目进展、岗位要求、材料版本和答辩状态。</p><small>不等于：静态模型记忆可以一直正确</small></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>RAG 像给模型加一个可引用的资料柜：先找材料，再让模型组织答案。</p></div><div><strong>它不等于什么</strong><p>它不是自动补全事实的机器，也不是把所有知识问题都一把梭。</p></div></div>
+          <div class="mistake-compare"><article><strong>错误写法</strong><code>只要把所有文档都丢进向量库，问题就会自动解决</code><p>没有判断问题是否依赖外部来源，也没有区分哪些问题其实该由 Prompt 或规则处理。</p></article><article><strong>产品化写法</strong><code>当答案必须引用项目材料或岗位依据时，再把检索层接上</code><p>先判断是否需要 grounding，再决定检索什么、怎么引用和何时转交。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：面试教练为什么要上 RAG</strong><span>先判断是否需要引用证据</span></div><p><b>场景：</b>用户问“我这个项目在这个岗位里算不算匹配？”</p><ol class="decision-chain"><li><strong>已知事实</strong><span>答案依赖岗位 JD、用户简历和项目材料。</span></li><li><strong>RAG 可做</strong><span>从 JD 与材料中找出可引用证据和缺口。</span></li><li><strong>RAG 不可做</strong><span>不能替用户补经历，也不能替岗位打最终录用结论。</span></li><li><strong>产品动作</strong><span>输出“证据引用 + 缺口诊断 + 追问建议”，而不是直接给匹配分。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="rag"><fieldset><legend>理解检查：RAG 首先应该被当成什么</legend><p>面试教练 Agent 要稳定引用项目材料时，RAG 最适合承担哪项职责？</p><label>选择职责<select name="decision" required><option value="">请选择</option><option value="rag_needed">当答案必须引用外部资料时，负责 grounding 和来源引用</option><option value="prompt_only">只要 Prompt 够长，就能替代资料检索</option><option value="style_only">只负责让输出语气更自然</option></select></label><label>我为什么这样判断（可选）<textarea name="rag_reason" rows="3" data-persist placeholder="例如：RAG 适合解决来源和引用问题，不是拿来补所有能力……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="rag" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着项目做一次：RAG 需求判断表的一行</h3><p>为 AI 面试与项目答辩教练 Agent 选一个场景，写出是否需要 RAG、为什么、应引用什么来源以及不该上 RAG 的情况。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先问问题是否依赖外部资料；如果只是改写语气或固定格式，通常不需要 RAG。</p></details><form data-transfer-practice="rag"><label>我的RAG 需求判断<textarea name="rag_transfer" rows="6" data-persist placeholder="场景：……；是否需要 RAG：……；引用来源：……；不该上 RAG 的情况：……；下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="rag" hidden><p>RAG 判断已记录。打开示例后，检查你是否写出了来源边界。</p><button type="button" data-reveal-reference="rag" aria-expanded="false">打开示例判断</button><div class="reference-panel" data-reference-panel="rag" hidden><p>示例：场景是“判断项目是否匹配岗位”。需要 RAG，因为要引用 JD、简历和项目材料；不该上 RAG 的场景是“输出一段更顺的自我介绍”，那更像 Prompt 问题。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="rag"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="rag_teachback" rows="3" data-persist placeholder="例如：我会先判断问题是否依赖外部来源……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="rag" aria-live="polite"></span></form>
+        </section>
+
+                <section class="later-section learning-module" id="failure" data-chapter-section data-learning-module="failure">
+          <header class="learning-module__head"><div><h2>RAG 不能补什么：先做失败归因，再决定是否继续检索</h2><p class="later-section__lead">RAG 不是把错误都藏进检索层。资料缺失、权限不足、切片过粗、引用字段缺失和时效过期，根因不同。</p></div><strong data-module-status="failure">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="RAG 常见失败来源"><article><h3>资料缺失</h3><strong>没有材料可查</strong><p>JD、简历、项目经历或评分标准根本没提供。</p></article><article><h3>权限不足</h3><strong>能看见的材料太少</strong><p>有些文档不允许检索或展示给当前用户。</p></article><article><h3>引用不完整</h3><strong>找到了却说不出来</strong><p>没有引用字段、来源编号或可读片段。</p></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>RAG 的失败不是“没开检索”，而是它只对有来源、有权限、有结构的资料有效。</p></div><div><strong>它不等于什么</strong><p>它不等于无限扩容的知识库，也不等于把所有问题都变成检索问题。</p></div></div>
+          <div class="mistake-compare"><article><strong>错误归因</strong><code>回答不稳，就多切几层文档</code><p>如果根因是没有资料或没有权限，切得再碎也不会变好。</p></article><article><strong>正确归因</strong><code>先判断是材料、权限、切片、引用还是评测问题</code><p>不同失败信号对应不同处理层，不能只补检索。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：为什么模型引用不到项目材料</strong><span>先判根因，再补机制</span></div><ol class="decision-chain"><li><strong>现象</strong><span>Agent 总说“缺少项目证据”，但拿不出具体引用。</span></li><li><strong>可能原因</strong><span>材料没录入、权限被拒、切片规则不对或引用字段没设计。</span></li><li><strong>RAG 可修</strong><span>增加可检索来源、引用格式和材料索引。</span></li><li><strong>RAG 不可修</strong><span>如果用户根本没提供项目材料，就应该追问，不该硬检索。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="failure"><fieldset><legend>理解检查：什么时候不能继续靠 RAG</legend><p>如果 Agent 一直找不到项目证据，最先要判断什么？</p><label>选择判断<select name="decision" required><option value="">请选择</option><option value="needs_source_boundary">先判定是不是资料、权限或引用边界问题</option><option value="more_chunks">继续把切片切得更碎</option><option value="ignore">只要表达像样，就可以忽略来源</option></select></label><label>我为什么这样判断（可选）<textarea name="failure_reason" rows="3" data-persist placeholder="例如：资料问题和检索问题不是一回事……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="failure" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着项目做一次：给三个失败信号做归因</h3><p>分别判断“找不到材料”“引用信息不完整”“结果看起来很完整但其实没来源”更该先处理哪一层。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>先区分是资料问题、权限问题、引用问题还是评测问题。</p></details><form data-transfer-practice="failure"><label>我的失败归因<textarea name="failure_transfer" rows="6" data-persist placeholder="找不到材料：……；引用不完整：……；结果完整但没来源：……；下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="failure" hidden><p>失败归因已记录。可以对照示例检查你是否先分了根因。</p><button type="button" data-reveal-reference="failure" aria-expanded="false">打开示例归因</button><div class="reference-panel" data-reference-panel="failure" hidden><p>示例：找不到材料先补资料清单；引用不完整先加引用字段；结果完整但没来源先补检索和权限，再决定要不要继续上 RAG。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="failure"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="failure_teachback" rows="3" data-persist placeholder="例如：我以后会先判断根因，再决定是否继续上检索……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="failure" aria-live="polite"></span></form>
+        </section>
+
+                <section class="later-section later-section--soft learning-module" id="material" data-chapter-section data-learning-module="material">
+          <header class="learning-module__head"><div><h2>资料与切片边界：先整理来源，再谈检索</h2><p class="later-section__lead">RAG 需要先知道有哪些材料、谁能用、多久更新一次，以及哪些字段要切给模型。</p></div><strong data-module-status="material">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="RAG 资料清单"><article><h3>来源清单</h3><strong>有哪些文档</strong><p>JD、简历、项目经历、Rubric、历史反馈、作品集和答辩记录。</p></article><article><h3>权限边界</h3><strong>谁能看什么</strong><p>哪些材料允许被检索、展示和引用。</p></article><article><h3>切片规则</h3><strong>怎么拆最有用</strong><p>按项目、按答案段落、按评分维度或按更新时间拆分。</p></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>资料边界就是把可检索的内容变成清楚的清单，而不是把整个文件夹一股脑丢给模型。</p></div><div><strong>它不等于什么</strong><p>它不等于盲目堆文档，也不等于所有资料都默认可见。</p></div></div>
+          <div class="mistake-compare"><article><strong>危险写法</strong><code>把所有文档都喂给模型，反正越多越好</code><p>没有来源清单、权限和更新频率，RAG 会把脏资料一起放大。</p></article><article><strong>更稳的写法</strong><code>先列来源、权限、切片和更新频率，再接检索</code><p>只有来源结构清楚，RAG 才能成为可维护的产品能力。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：把项目材料做成可检索资产</strong><span>先有来源，再有检索</span></div><ol class="decision-chain"><li><strong>来源</strong><span>从 JD、简历、项目原文和评分标准开始。</span></li><li><strong>切片</strong><span>把项目经历、结果和证据分段，便于引用。</span></li><li><strong>权限</strong><span>决定哪些内容可被当前用户检索到。</span></li><li><strong>更新</strong><span>记录版本号和更新时间，避免检索到旧材料。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="material"><fieldset><legend>理解检查：资料边界先写什么</legend><p>如果你要给面试教练 Agent 接资料，先补哪一项最重要？</p><label>选择资料<select name="decision" required><option value="">请选择</option><option value="source_inventory">先列来源清单、权限和更新频率</option><option value="all_docs">先把所有文档都塞进去</option><option value="ui">先做漂亮一点的检索界面</option></select></label><label>我为什么这样判断（可选）<textarea name="material_reason" rows="3" data-persist placeholder="例如：没有来源清单，就无法判断是否真的需要 RAG……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="material" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一份来源清单</h3><p>为 AI 面试与项目答辩教练 Agent 列出可检索来源、权限边界、切片规则和更新时间。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>把“可用资料”和“可展示资料”分开写。</p></details><form data-transfer-practice="material"><label>我的来源清单<textarea name="material_transfer" rows="6" data-persist placeholder="来源：……；权限：……；切片规则：……；更新时间：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="material" hidden><p>来源清单已记录。打开示例后，检查你是否写了权限和更新。</p><button type="button" data-reveal-reference="material" aria-expanded="false">打开示例清单</button><div class="reference-panel" data-reference-panel="material" hidden><p>示例：来源包括 JD、简历、项目经历和 Rubric；只有已上传材料可检索；按项目和评分维度切片；每次上传新版本后更新索引。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="material"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="material_teachback" rows="3" data-persist placeholder="例如：我会先把来源清单写清，再考虑检索实现……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="material" aria-live="polite"></span></form>
+        </section>
+
+                <section class="later-section learning-module" id="handoff" data-chapter-section data-learning-module="handoff">
+          <header class="learning-module__head"><div><h2>Prompt / RAG / 数据 / 人工分界：把职责拆开，Agent 才好治理</h2><p class="later-section__lead">W2 选型的关键不是“要不要上 RAG”，而是把表达、引用、状态和高风险结论分到不同机制。</p></div><strong data-module-status="handoff">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="职责分界"><article><h3>Prompt</h3><strong>负责表达和任务约束</strong><p>控制格式、语气、步骤和追问策略。</p></article><article><h3>RAG</h3><strong>负责来源引用</strong><p>把外部资料送进模型判断。</p></article><article><h3>数据</h3><strong>负责状态和字段</strong><p>保存结构化信息、版本和结果。</p></article><article><h3>人工</h3><strong>负责高风险确认</strong><p>正式评分、发布和不可逆动作需要人确认。</p></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>RAG 只是系统中的一层，它不能把检索、状态和正式结论全部包掉。</p></div><div><strong>它不等于什么</strong><p>它不等于完整产品，也不等于替代数据结构和人工审核。</p></div></div>
+          <div class="mistake-compare"><article><strong>危险分工</strong><code>检索、评分、保存状态和正式结论全让 RAG 兜住</code><p>这样一旦失败，很难知道该修哪一层。</p></article><article><strong>可治理分工</strong><code>Prompt 负责表达，RAG 负责引用，数据负责状态，人工负责确认</code><p>职责清楚后，后续评测、日志和风险控制才站得住。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：答辩材料从哪一层来</strong><span>先分层，再实现</span></div><ol class="decision-chain"><li><strong>Prompt</strong><span>要求模型输出缺口诊断和追问建议。</span></li><li><strong>RAG</strong><span>从项目材料里找可引用证据。</span></li><li><strong>数据</strong><span>记录答辩状态、版本和历史反馈。</span></li><li><strong>人工</strong><span>确认是否把建议写入正式作品集或简历。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="handoff"><fieldset><legend>理解检查：职责边界应该怎样拆</legend><p>Agent 要输出“是否该上 RAG”的判断，下面哪种分工更稳？</p><label>选择分工<select name="decision" required><option value="">请选择</option><option value="split_responsibility">Prompt 先判断表达，RAG 管来源，数据管状态，人工管确认</option><option value="rag_all">所有职责都写到 RAG 里</option><option value="no_split">先不拆，等上线后再说</option></select></label><label>我为什么这样判断（可选）<textarea name="handoff_reason" rows="3" data-persist placeholder="例如：职责拆分后，RAG 才不会吞掉其他层……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="handoff" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着项目做一次：拆一个场景的职责</h3><p>选择一个场景，把 Prompt、RAG、数据和人工分别写出来。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>越接近正式结论，越要把人工确认留出来。</p></details><form data-transfer-practice="handoff"><label>我的职责拆分<textarea name="handoff_transfer" rows="6" data-persist placeholder="场景：……；Prompt：……；RAG：……；数据：……；人工：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="handoff" hidden><p>职责拆分已记录。打开示例后，检查你是否把正式确认分出来。</p><button type="button" data-reveal-reference="handoff" aria-expanded="false">打开示例拆分</button><div class="reference-panel" data-reference-panel="handoff" hidden><p>示例：Prompt 负责生成追问，RAG 负责引用项目证据，数据负责保存评分状态，人工负责确认是否进入作品集。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="handoff"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="handoff_teachback" rows="3" data-persist placeholder="例如：我会把职责拆开，因为……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="handoff" aria-live="polite"></span></form>
+        </section>
+
+                <section class="later-section later-section--soft learning-module" id="deliverable" data-chapter-section data-learning-module="deliverable">
+          <header class="learning-module__head"><div><h2>今日产出：RAG 需求判断表 v1</h2><p class="later-section__lead">这张表要直接告诉后续 W2：哪些问题先用 Prompt，哪些问题需要 RAG，哪些问题只需要数据或人工。</p></div><strong data-module-status="deliverable">0 / 2 步</strong></header>
+          <div class="term-atlas" aria-label="需求判断字段"><article><h3>场景</h3><strong>在哪一步用</strong><p>答辩追问、证据引用、材料核对、复盘报告或岗位匹配。</p></article><article><h3>是否需要 RAG</h3><strong>为什么要上</strong><p>问题是否依赖外部资料、是否需要引用和来源可查。</p></article><article><h3>不该上 RAG</h3><strong>什么时候不用</strong><p>只是改写语气、固定格式、或者纯流程控制时。</p></article><article><h3>转交方案</h3><strong>失败后给谁</strong><p>补资料、改 Prompt、走数据、调规则或人工确认。</p></article></div>
+          <div class="plain-language-pair"><div><strong>白话解释</strong><p>RAG 需求判断表要先于实现存在，先把判断讲清楚，才知道要不要建检索。</p></div><div><strong>它不等于什么</strong><p>它不等于“我们也许会用向量库”的空话。</p></div></div>
+          <div class="mistake-compare"><article><strong>错误写法</strong><code>RAG 用来增强知识</code><p>这句话太泛，不能指导后续设计和评测。</p></article><article><strong>产品化写法</strong><code>场景、是否需要 RAG、来源清单、失败信号和转交方案都写清楚</code><p>这样后续才能真的决定要不要上检索。</p></article></div>
+          <div class="worked-example"><div class="worked-example__head"><strong>完整示范：写一行 RAG 需求判断</strong><span>一行也要能指导选型</span></div><ol class="decision-chain"><li><strong>场景</strong><span>项目答辩追问。</span></li><li><strong>是否需要 RAG</strong><span>需要，因为必须引用项目材料和评分标准。</span></li><li><strong>不该上 RAG</strong><span>只做语气润色或固定格式时不需要。</span></li><li><strong>转交方案</strong><span>先补资料清单，再决定检索和引用方式。</span></li></ol></div>
+          <form class="guided-practice" data-guided-practice="deliverable"><fieldset><legend>理解检查：合格判断表应该长什么样</legend><p>下面哪种写法最适合作为 W2D2 的产出？</p><label>选择写法<select name="decision" required><option value="">请选择</option><option value="rag_judgment_table">场景、是否需要 RAG、来源、失败信号和转交方案都写清楚</option><option value="vague">RAG 用来增强知识表达</option><option value="tech_stack">先决定模型厂商和向量库</option></select></label><label>我为什么这样判断（可选）<textarea name="deliverable_reason" rows="3" data-persist placeholder="例如：判断表要能指导后续数据准备和选型……"></textarea></label><button class="button" type="submit">查看判断解析</button></fieldset><div class="learning-feedback" data-guided-feedback="deliverable" hidden aria-live="polite"></div></form>
+          <div class="closed-book-practice guided-lab"><h3>带着项目做一次：写一行需求判断</h3><p>选一个 Agent 场景，写出是否需要 RAG、为什么、应引用什么来源以及不该上 RAG 的情况。</p><details class="learning-hint"><summary>需要提示时展开</summary><p>从“是否必须引用外部资料”开始判断。</p></details><form data-transfer-practice="deliverable"><label>我的需求判断<textarea name="deliverable_transfer" rows="6" data-persist placeholder="场景：……；是否需要 RAG：……；引用来源：……；不该上 RAG：……；下一步：……" required></textarea></label><button class="button button--quiet" type="submit">保存并对照示例</button></form><div class="transfer-feedback" data-transfer-feedback="deliverable" hidden><p>需求判断已记录。可以对照示例检查你是否写了来源边界。</p><button type="button" data-reveal-reference="deliverable" aria-expanded="false">打开示例判断</button><div class="reference-panel" data-reference-panel="deliverable" hidden><p>示例：项目答辩追问需要 RAG，因为要引用 JD、简历和项目材料；只做一段更顺的自我介绍则不需要 RAG。</p></div></div></div>
+          <form class="teach-back learning-note" data-teachback-form="deliverable"><h3>留下一个理解或疑问</h3><label>我的学习笔记<textarea name="deliverable_teachback" rows="3" data-persist placeholder="例如：我会先判断是否依赖外部资料……"></textarea></label><button class="button button--quiet" type="submit">保存学习笔记</button><span data-teachback-status="deliverable" aria-live="polite"></span></form>
+        </section>
+
+        <section class="later-section final-challenge" id="transfer" data-chapter-section><h2>综合工作坊：完成《Agent RAG 需求判断表 v1》。</h2><p class="later-section__lead">请把今天的判断压成可评审的表。它要直接告诉团队：哪些场景要接 RAG，哪些场景不该上检索，失败时怎么转交。</p><div class="challenge-brief"><p>团队原始写法：先把所有项目资料都塞进向量库，用户问什么都让模型自己查。</p><strong>请从第一个错误节点开始，重写 RAG 需求判断、来源清单、失败信号和转交方案。</strong></div><details class="workshop-guide" open><summary>不知道从哪里开始时，按这五步走</summary><ol><li><strong>场景</strong><span>选一个 Agent 场景，不要一次覆盖所有检索问题。</span></li><li><strong>是否需要 RAG</strong><span>判断问题是否必须引用外部资料。</span></li><li><strong>来源清单</strong><span>写清楚要查什么、谁能用、多久更新。</span></li><li><strong>失败信号</strong><span>什么时候不能继续只靠检索。</span></li><li><strong>转交方案</strong><span>交给 Prompt、数据、规则、追问或人工哪一层。</span></li></ol></details><form data-final-challenge><label>我的 W02-D02 RAG 需求判断表<textarea name="final_diagnosis" rows="14" data-persist placeholder="按五步写：场景 → 是否需要 RAG → 来源清单 → 失败信号 → 转交方案" required></textarea></label><fieldset class="self-check"><legend>保存前核对：我的判断表是否覆盖</legend><label><input type="checkbox" name="final_check" value="scenario"> 具体场景</label><label><input type="checkbox" name="final_check" value="need"> 是否需要 RAG</label><label><input type="checkbox" name="final_check" value="source"> 来源清单</label><label><input type="checkbox" name="final_check" value="failure"> 失败信号</label><label><input type="checkbox" name="final_check" value="handoff"> 转交方案</label></fieldset><button class="button" type="submit">保存判断表</button><span class="builder-error" data-final-error role="alert"></span></form><div class="final-feedback" data-final-feedback hidden aria-live="polite"><h3>《Agent RAG 需求判断表 v1》已保存。</h3><p>网页只检查是否覆盖五个字段，不代替正式语义评分。下一步可以把判断表带到 W02-D03，梳理数据与材料结构。</p><button type="button" data-reveal-reference="final" aria-expanded="false">查看示例判断表</button><div class="reference-panel" data-reference-panel="final" hidden><ol><li>场景：项目答辩追问。</li><li>是否需要 RAG：需要，因为要引用 JD、简历和项目材料。</li><li>来源清单：项目原文、评分 Rubric、历史反馈。</li><li>失败信号：材料缺失、权限不足、引用为空。</li><li>转交方案：先补资料，再决定检索和引用方式。</li></ol></div></div></section>
+<section class="later-section answer-card-section" id="summary" data-chapter-section><h2>我的 W02-D02 理解地图：把 RAG 需求判断留给 W2 后续选型。</h2><p class="later-section__lead">这里汇总你的学习笔记和判断表。它是当前标签页的学习草稿，不是正式评分或掌握结论。</p><div class="answer-card-actions"><button class="button" type="button" data-build-answer-card>生成我的理解地图</button><button class="button button--quiet" type="button" data-toggle-answer-card disabled>收起理解地图</button><button class="button button--quiet" type="button" data-copy-answer-card disabled>复制理解地图</button></div><div class="answer-card" data-answer-card hidden><pre data-answer-card-output></pre></div><div class="takeaway-list answer-checklist" aria-label="理解地图检查维度"><div><strong>需求是否明确</strong><span>我是否说明了哪些场景需要 RAG，哪些不需要？</span></div><div><strong>来源是否清楚</strong><span>我是否列出了可引用的材料和权限边界？</span></div><div><strong>失败是否分类</strong><span>我是否区分了资料、权限、切片和引用问题？</span></div><div><strong>职责是否分层</strong><span>我是否把 Prompt、RAG、数据和人工分开？</span></div><div><strong>输入是否可用</strong><span>这张表是否能作为 W2D3 数据与材料结构的输入？</span></div></div></section>
+
+        <section class="later-section later-section--formal" id="formal-handoff" data-chapter-section><h2 data-formal-handoff-title>W02-D02 页面学习完成后，仍需另行确认长期线状态。</h2><p class="later-section__lead" data-formal-handoff-summary>本页的概念、练习、判断表和理解地图都属于网页学习。它们不会创建正式 session、评分、复测关系或正式掌握证据。</p><div class="handoff-grid"><div><span>网页</span><strong>RAG 需求判断与资料可引用边界</strong><small>只保存当前标签页草稿；不改变两周突击线状态。</small></div><div><span>Codex</span><strong>长期线是否正式开启与证据回写</strong><small>需要另行读取状态源和明确确认，不能由页面按钮代替。</small></div></div><div class="later-cockpit__actions"><a class="button" href="#summary" data-formal-handoff-primary>核对我的理解地图</a><button class="button button--quiet" type="button" data-copy-formal-entry>复制当前学习接力</button><a class="button button--quiet" href="index.html">返回日课总览</a><span data-formal-entry-status aria-live="polite"></span></div></section>
+  </main>
+
+  <noscript><div class="shell"><p class="source-note">W02-D02 的页面草稿需要 JavaScript 保存；当前正式位置仍以 <a href="../../02_复盘总结/学习状态/study-project.json">study-project.json</a> 为准。</p></div></noscript>
+  <footer class="site-footer"><div class="shell site-footer__inner"><span>W02-D02 · RAG Basics</span><span><a href="index.html">返回十二周长期线</a></span></div></footer>
+
+  <script type="application/json" data-later-config>
+{
+  "week_id": "week-02",
+  "day_label": "W02-D02",
+  "storage_key": "ai-pm-w02d02-course:v1",
+  "legacy_session_keys": [],
+  "knowledge_anchor": "RAG 需求判断 → Agent RAG 需求判断表 v1",
+  "page_anchor": "w02-d02-rag-basics.html#rag",
+  "module_order": [
+    "rag",
+    "failure",
+    "material",
+    "handoff",
+    "deliverable"
+  ],
+  "module_labels": {
+    "rag": "RAG 什么时候值得上",
+    "failure": "RAG 不能补什么",
+    "material": "资料与切片边界",
+    "handoff": "Prompt / RAG / 数据 / 人工分界",
+    "deliverable": "需求判断表"
+  },
+  "guided_definitions": {
+    "rag": {
+      "correct": "rag_needed",
+      "passTitle": "你已经把 RAG 看成事实与来源的约束层。",
+      "failTitle": "你仍在把 RAG 当成万能知识库。",
+      "known": "RAG 适合让模型基于外部资料回答，尤其是当问题依赖 JD、简历、项目材料或评分依据时。",
+      "error": "把“让回答更完整”直接等同于“需要上 RAG”。",
+      "why": "RAG 解决的是可引用资料和 grounding 问题，不是所有语义问题。",
+      "chain": "问题依赖外部来源 → 需要可引用材料 → 判断是否上 RAG → 设计检索输入。",
+      "invariant": "RAG 先服务事实和来源，不先服务花哨回答。"
+    },
+    "failure": {
+      "correct": "needs_source_boundary",
+      "passTitle": "你已经能识别什么时候不能继续上 RAG。",
+      "failTitle": "失败不是加更多切片就能解决。",
+      "known": "如果事实、证据或权限边界不清，RAG 也会放大问题。",
+      "error": "把任何答不上来的情况都解释成检索不够。",
+      "why": "资料缺失、权限不足、切片过粗、引用字段缺失和时效过期，根因不同。",
+      "chain": "失败现象 → 根因分类 → 资料 / 权限 / 切片 / 引用 / 评测 → 转交方案。",
+      "invariant": "先判定失败类别，再决定是否继续上 RAG。"
+    },
+    "material": {
+      "correct": "source_inventory",
+      "passTitle": "你已经把资料组织成可检索资产。",
+      "failTitle": "资料结构还不够清楚。",
+      "known": "面试与答辩类 Agent 常见来源包括 JD、简历、项目经历、评分 Rubric、历史反馈和作品集材料。",
+      "error": "只说“把所有文档丢进去”，却没有资料清单、权限和更新频率。",
+      "why": "没有资料清单和切片规则，就无法判断是否真的该上 RAG。",
+      "chain": "来源清单 → 权限边界 → 切片规则 → 更新频率 → 可检索字段。",
+      "invariant": "资料组织先于检索实现。"
+    },
+    "handoff": {
+      "correct": "split_responsibility",
+      "passTitle": "你已经能把 RAG 和其他机制分开。",
+      "failTitle": "职责边界还没有拆清。",
+      "known": "Prompt 负责表达和任务约束，RAG 负责引用外部资料，结构化数据负责状态和字段，人工负责高风险确认。",
+      "error": "把检索、状态保存、正式评分和人工确认都写进同一层逻辑。",
+      "why": "RAG 不是系统的全部，也不能替代规则、数据结构或人工复核。",
+      "chain": "表达引导给 Prompt → 来源引用给 RAG → 状态和字段给数据 → 高风险结论给人工。",
+      "invariant": "职责分开后，Agent 才能被评测和治理。"
+    },
+    "deliverable": {
+      "correct": "rag_judgment_table",
+      "passTitle": "RAG 需求判断表已经可评审。",
+      "failTitle": "需求判断表还不够具体。",
+      "known": "W2D2 的产出要直接喂给后续数据结构和选型决策。",
+      "error": "只写“RAG 用来增强知识”，没有列出适用条件、失败信号和转交对象。",
+      "why": "没有判断表，后续很容易把所有知识问题都硬塞进检索层。",
+      "chain": "场景 → 是否需要 RAG → 来源清单 → 失败信号 → 转交方案。",
+      "invariant": "判断表必须能指导后续选型和数据准备。"
+    }
+  }
+}
+  </script>
+  <script src="../../assets/study-state.snapshot.js"></script><script src="../../assets/study-state.js"></script><script src="assets/long-term-day-nav.js?v=20260827-w02d02"></script>
+  <script src="assets/w02-d02-course.js?v=20260827-w02d02"></script>
+</body>
+</html>

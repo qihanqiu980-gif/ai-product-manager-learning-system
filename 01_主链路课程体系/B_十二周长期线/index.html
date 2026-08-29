@@ -1,121 +1,824 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AI 产品经理转型十二周长期线：从基础选型到独立 Demo、质量治理、商业化与求职答辩。">
-  <title>十二周长期线｜AI 产品经理转型</title>
-  <link rel="stylesheet" href="../../assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>产品经理转型路线 v1</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --card: #ffffff;
+      --text: #1a2430;
+      --muted: #6b7280;
+      --line: #e5e0d6;
+      --green: #4f7a6a;
+      --dark: #17263a;
+      --shadow: 0 14px 40px rgba(25, 33, 45, 0.08);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 56px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 245, 239, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1f2a37;
+      color: #f8fafc;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
+      flex: 0 0 auto;
+    }
+
+    .brand-name {
+      font-size: 21px;
+      font-weight: 750;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      font-size: 18px;
+      font-weight: 650;
+      color: #475569;
+      white-space: nowrap;
+    }
+
+    .site-nav a {
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .site-nav a.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+      gap: 68px;
+      align-items: center;
+      padding: 132px 56px 56px;
+    }
+
+    .hero-copy {
+      padding-top: 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 999px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 980px;
+      color: #121b28;
+      font-family: "Songti SC", "STSong", "SimSun", serif;
+      font-size: 88px;
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: 34px 0 0;
+      color: #5b6270;
+      font-size: 23px;
+      line-height: 1.58;
+      letter-spacing: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .btn.primary {
+      background: #162635;
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(22, 38, 53, 0.15);
+    }
+
+    .btn.secondary {
+      border-color: #d5d1c8;
+      background: #fff;
+      color: #232c3a;
+    }
+
+    .hero-visual {
+      padding-top: 24px;
+    }
+
+    .visual-card {
+      border-radius: 26px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(230, 224, 214, 0.9);
+    }
+
+    .visual-stage {
+      overflow: hidden;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #f8f8f8 0%, #f1f0ed 100%);
+      min-height: 560px;
+      position: relative;
+    }
+
+    .visual-stage svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .visual-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 14px 6px;
+      color: #7c7c7c;
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 0 56px 76px;
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+      padding: 22px 24px;
+    }
+
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 18px 0 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .week-card {
+      overflow: hidden;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .week-header {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 24px 26px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 252, 252, 0.9);
+    }
+
+    .week-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 44px;
+      border-radius: 8px;
+      background: #e7f3ec;
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .week-copy h3 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .week-copy p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .deliverable {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff2d6;
+      color: #8a5b12;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .day-card {
+      min-width: 0;
+      min-height: 238px;
+      padding: 22px 20px 24px;
+      border-right: 1px solid var(--line);
+    }
+
+    .day-card:last-child {
+      border-right: 0;
+    }
+
+    .day-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .day-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: 7px;
+      background: #eef3ff;
+      color: #2f58d6;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .day-title h4 {
+      margin: 0;
+      min-width: 0;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .day-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .day-card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 15px;
+    }
+
+    .day-card li + li {
+      margin-top: 6px;
+    }
+
+    .floating-toc {
+      margin-top: 18px;
+      color: #7a7d82;
+      font-size: 15px;
+    }
+
+    @media (max-width: 1280px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero h1 {
+        font-size: 74px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .site-header,
+      .section,
+      .hero {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 16px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero p {
+        font-size: 21px;
+      }
+
+      .note-grid,
+      .days-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .day-card {
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .day-card:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .day-card:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .visual-stage {
+        min-height: 330px;
+      }
+
+      .visual-caption {
+        font-size: 14px;
+      }
+
+      .note-grid,
+      .days-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .week-header {
+        grid-template-columns: 1fr;
+      }
+
+      .deliverable {
+        justify-self: start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="site-header">
-    <div class="shell site-header__inner">
-      <a class="brand" href="../../index.html"><span class="brand__mark" aria-hidden="true">AI</span><span>产品经理转型路线 v1</span></a>
-      <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html">主链路</a>
+  <div class="shell">
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">AI</span>
+        <span class="brand-name">产品经理转型路线 v1</span>
+      </div>
+      <nav class="site-nav" aria-label="顶部导航">
+        <a href="../../index.html">主链路</a>
         <a href="../A_两周突击线/index.html">两周突击</a>
-        <a href="index.html" aria-current="page">十二周长期</a>
-        <a href="../../02_复盘总结/index.html">复盘总结</a>
+        <a class="active" href="./index.html">十二周长期</a>
+        <a href="#consistency">复盘总结</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main id="main">
-    <section class="page-hero">
-      <div class="shell">
-        <p class="eyebrow">Track B · 12-week depth</p>
-        <h1>十二周长期线：把首版成果变成系统能力。</h1>
-        <p class="hero__lead">保留原有长期课程，承接两周突击线的全部产出。已经完成并验证的内容不重做，只补原理、稳定性、质量证据、风险治理和跨场景迁移。</p>
-        <div class="page-hero__meta"><span>当前保留执行</span><span>成果直接并入</span><span>只补深度与未通过项</span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="track-summary" data-reveal>
-          <p class="track-summary__big">十二周的价值不在于主题更多，而在于每个判断都能解释机制、边界、风险、兜底和评测。</p>
-          <div><h3>L2 · 方案可判</h3><p class="muted">能够判断 Prompt、RAG、微调、Agent、规则系统和非 AI 方案的边界，并讨论效果、延迟、成本与商业结果的取舍。</p></div>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">EVIDENCE BEFORE CONFIDENCE · 2026.08</div>
+          <h1>从项目经验出发，建立 AI 方案判断力。</h1>
+          <p>以两周突击线完成最小闭环，以五周项目线补齐深度与证据。课程材料、实际掌握和项目交付分开记录。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#current-line">查看当前项目线</a>
+            <a class="btn secondary" href="#consistency">复盘关键共识</a>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section section--soft" id="weeks">
-      <div class="shell">
-        <header class="section-heading" data-reveal>
-          <div class="section-heading__index">12 周路线</div>
-          <div><h2>四段能力阶梯，沿同一主项目逐步加深。</h2><p>第 1 周先复核旧知识并补齐第 20 课；第 2 周起将突击线成果纳入对应主题做深度迭代。</p></div>
-        </header>
-
-        <p class="phase-marker">阶段一 · 基础判断与知识系统</p>
-        <ol class="week-list">
-          <li class="week-item" data-reveal><div class="week-label">Week 01</div><div><h3><a href="week-01-course-start.html">旧知识核验、继续第 20 课、跑通平台 Agent</a></h3><p>复核第 1-19 课，补齐 Early Termination Confirmation、结束规则和最终报告闭环。</p></div><div class="output"><strong>承接</strong>突击线 Day 1、4<br><a href="week-01-course-start.html">打开 W1 课程制定页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 02</div><div><h3><a href="week-02-mechanism-selection.html">Transformer、Embedding 与方案选型</a></h3><p>系统理解 Prompt、RAG、微调、规则、Agent 和 API 的机制、边界与组合方式。</p></div><div class="output"><strong>深化</strong>Day 2-3<br><a href="week-02-mechanism-selection.html">打开 W2 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 03</div><div><h3><a href="week-03-rag-knowledge-system.html">RAG、切片、向量化、检索、重排与知识更新</a></h3><p>补充来源引用、知识时效、召回与准确性的产品权衡。</p></div><div class="output"><strong>深化</strong>Day 8<br><a href="week-03-rag-knowledge-system.html">打开 W3 课程页 →</a></div></li>
-        </ol>
-
-        <p class="phase-marker">阶段二 · 自适应对话、评分与评测</p>
-        <ol class="week-list" start="4">
-          <li class="week-item" data-reveal><div class="week-label">Week 04</div><div><h3><a href="week-04-adaptive-interview-state.html">自适应面试、能力覆盖、状态机与停止规则</a></h3><p>控制上下文、题目与追问关系、覆盖缺口和提前结束边界。</p></div><div class="output"><strong>深化</strong>Day 4<br><a href="week-04-adaptive-interview-state.html">打开 W4 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 05</div><div><h3><a href="week-05-evidence-rubric-scoring.html">证据驱动评分、Rubric、信息不足与置信度</a></h3><p>强化结构化输出、校验重试以及从证据到结论的可追溯链。</p></div><div class="output"><strong>深化</strong>Day 5、7<br><a href="week-05-evidence-rubric-scoring.html">打开 W5 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 06</div><div><h3><a href="week-06-eval-set-judge.html">Eval Set、Golden Set、人工评测与 LLM-as-a-Judge</a></h3><p>建立评测设计、基线、评分一致性和评测报告。</p></div><div class="output"><strong>深化</strong>Day 9<br><a href="week-06-eval-set-judge.html">打开 W6 课程页 →</a></div></li>
-        </ol>
-
-        <p class="phase-marker">阶段三 · 质量治理与商业闭环</p>
-        <ol class="week-list" start="7">
-          <li class="week-item" data-reveal><div class="week-label">Week 07</div><div><h3><a href="week-07-badcase-regression.html">Badcase 收集、归因、修复和回归</a></h3><p>建立可重复的质量迭代流程，区分模型、数据、工程和产品原因。</p></div><div class="output"><strong>深化</strong>Day 10、13<br><a href="week-07-badcase-regression.html">打开 W7 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 08</div><div><h3><a href="week-08-ai-risk-guardrails.html">幻觉、长上下文、过期信息、Injection、隐私与合规</a></h3><p>完成拒答、降级、人工介入和风险监控机制。</p></div><div class="output"><strong>深化</strong>Day 10<br><a href="week-08-ai-risk-guardrails.html">打开 W8 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 09</div><div><h3><a href="week-09-ai-business-economics.html">激活、留存、付费、Token 成本、模型路由与商业实验</a></h3><p>将模型成本、产品指标和商业化策略放在同一单位经济模型中。</p></div><div class="output"><strong>深化</strong>Day 11<br><a href="week-09-ai-business-economics.html">打开 W9 课程页 →</a></div></li>
-        </ol>
-
-        <p class="phase-marker">阶段四 · 工程化、作品集与岗位适配</p>
-        <ol class="week-list" start="10">
-          <li class="week-item" data-reveal><div class="week-label">Week 10</div><div><h3><a href="week-10-web-demo-rag-integration.html">独立 Web Demo、前后端、API、安全代理与 RAG 接入</a></h3><p>深化状态管理、结构校验、错误恢复和工程边界。</p></div><div class="output"><strong>深化</strong>Day 6-8<br><a href="week-10-web-demo-rag-integration.html">打开 W10 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 11</div><div><h3><a href="week-11-demo-hardening-deployment.html">功能、边界、响应时间、成本、移动端、无障碍与部署</a></h3><p>把可运行首版升级为可稳定演示、可评测和可回归的版本。</p></div><div class="output"><strong>深化</strong>Day 12-13<br><a href="week-11-demo-hardening-deployment.html">打开 W11 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 12</div><div><h3><a href="week-12-portfolio-interview-defense.html">PRD、架构、评测、风险、商业、作品集与项目答辩</a></h3><p>针对字节、腾讯、阿里等目标岗位做 JD 能力映射与表达调整。</p></div><div class="output"><strong>深化</strong>Day 14<br><a href="week-12-portfolio-interview-defense.html">打开 W12 课程页 →</a></div></li>
-        </ol>
-
-        <p class="phase-marker">延展周 · 投递反馈与能力维护</p>
-        <ol class="week-list" start="13">
-          <li class="week-item" data-reveal><div class="week-label">Week 13</div><div><h3><a href="week-13-feedback-iteration-maintenance.html">投递反馈、作品集迭代、能力补证与长期节奏</a></h3><p>十二周主线后的延展维护周，把真实反馈、模拟反馈和网页草稿分层记录，持续更新岗位证据。</p></div><div class="output"><strong>延展</strong>W12 后维护<br><a href="week-13-feedback-iteration-maintenance.html">打开 W13 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 14</div><div><h3><a href="week-14-onboarding-30-60-90-plan.html">入职 30-60-90 天落地计划</a></h3><p>十二周主线后的入职落地延展周，把作品集证据翻译成业务上下文、干系人、quick win、指标证据、AI 风险和 90 天复盘。</p></div><div class="output"><strong>延展</strong>入职早期落地<br><a href="week-14-onboarding-30-60-90-plan.html">打开 W14 课程页 →</a></div></li>
-          <li class="week-item" data-reveal><div class="week-label">Week 15</div><div><h3><a href="week-15-ai-product-operating-system.html">AI 产品团队运营、增长与治理复盘</a></h3><p>十二周主线后的团队运营延展周，把早期 AI 项目升级为运营节奏、增长实验、质量监控、成本容量、治理评审和路线图复盘。</p></div><div class="output"><strong>延展</strong>团队级运营机制<br><a href="week-15-ai-product-operating-system.html">打开 W15 课程页 →</a></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <header class="section-heading" data-reveal>
-          <div class="section-heading__index">深化规则</div>
-          <div><h2>长期线只做三类工作。</h2><p>避免在熟悉内容上重复投入，把时间集中到尚未形成能力证据的地方。</p></div>
-        </header>
-        <div class="milestone-strip" data-reveal>
-          <article class="milestone"><span class="milestone__number">01</span><h3>补深度</h3><p>从“知道是什么”升级到解释机制、边界与选型依据。</p></article>
-          <article class="milestone"><span class="milestone__number">02</span><h3>补稳定性</h3><p>增加测试、回归、异常处理、成本记录和长期质量证据。</p></article>
-          <article class="milestone"><span class="milestone__number">03</span><h3>补未通过</h3><p>闭卷或新场景未通过的概念才进入针对性补课与复测。</p></article>
-          <article class="milestone"><span class="milestone__number">04</span><h3>补迁移</h3><p>用新的 ToC AI 场景和目标 JD 验证判断能力能否跨项目复用。</p></article>
+        <div class="hero-visual" aria-label="视觉说明">
+          <div class="visual-card">
+            <div class="visual-stage">
+              <svg viewBox="0 0 900 620" role="img" aria-label="课程路线视觉">
+                <defs>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#91a0b3" flood-opacity="0.35"/>
+                  </filter>
+                </defs>
+                <rect x="0" y="0" width="900" height="620" fill="#f7f7f6"/>
+                <path d="M110 250 C200 230, 260 296, 340 282 C420 268, 458 198, 548 210 C636 222, 684 296, 790 302" fill="none" stroke="#2b7a77" stroke-width="16" stroke-linecap="round" opacity="0.9"/>
+                <path d="M110 354 C182 335, 240 390, 330 378 C420 366, 468 304, 556 318 C645 332, 694 399, 790 405" fill="none" stroke="#1f5fd0" stroke-width="16" stroke-linecap="round" opacity="0.92"/>
+                <path d="M118 254 C196 244, 254 291, 338 280" fill="none" stroke="#d2e5e0" stroke-width="2.5" stroke-dasharray="6 12"/>
+                <g filter="url(#shadow)">
+                  <g transform="translate(120 206)">
+                    <rect x="0" y="26" width="68" height="42" rx="9" fill="#dae4f3"/>
+                    <path d="M0 26 L72 18 L51 52 Z" fill="#264fb0"/>
+                    <path d="M22 38 L68 18" stroke="#8fb0ff" stroke-width="5" stroke-linecap="round"/>
+                  </g>
+                  <rect x="270" y="244" width="60" height="38" rx="9" fill="#88a8e6"/>
+                  <rect x="336" y="240" width="62" height="42" rx="9" fill="#6f95df"/>
+                  <rect x="407" y="236" width="62" height="46" rx="10" fill="#4d77d7"/>
+                  <rect x="486" y="223" width="84" height="70" rx="13" fill="#eff5ff"/>
+                  <rect x="583" y="228" width="66" height="62" rx="12" fill="#d7ecf0"/>
+                  <rect x="658" y="234" width="66" height="56" rx="12" fill="#d9dee4"/>
+                </g>
+                <rect x="456" y="316" width="210" height="88" rx="26" fill="#17345c" filter="url(#shadow)"/>
+                <circle cx="528" cy="360" r="26" fill="#f2f4f8" opacity="0.22"/>
+                <circle cx="528" cy="360" r="15" fill="#f2f4f8"/>
+                <circle cx="528" cy="360" r="7" fill="#17345c"/>
+                <g opacity="0.9">
+                  <rect x="676" y="302" width="108" height="70" rx="14" fill="#8b8f97"/>
+                  <rect x="784" y="298" width="58" height="78" rx="12" fill="#7d8087"/>
+                  <rect x="760" y="360" width="92" height="18" rx="9" fill="#54575e"/>
+                </g>
+                <g fill="#ffffff" opacity="0.8">
+                  <rect x="290" y="444" width="52" height="52" rx="12"/>
+                  <rect x="360" y="460" width="52" height="52" rx="12"/>
+                  <rect x="430" y="446" width="52" height="52" rx="12"/>
+                  <rect x="500" y="458" width="52" height="52" rx="12"/>
+                </g>
+                <path d="M548 362 C611 350, 656 324, 702 320" fill="none" stroke="#8ea2c9" stroke-width="2.5" stroke-dasharray="7 12"/>
+                <path d="M614 362 C652 362, 696 358, 744 344" fill="none" stroke="#8ea2c9" stroke-width="2.5" stroke-dasharray="7 12"/>
+              </svg>
+            </div>
+            <div class="visual-caption">
+              <span>短线交付最小闭环</span>
+              <span>长线补深度与证据</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section--ink">
-      <div class="shell">
-        <div class="next-step" data-reveal aria-live="polite">
-          <div class="next-step__label">与当前冲刺的关系</div>
-          <div><h3>当前先执行 A 轨 <span data-study-active-day>正在读取…</span> · <span data-study-active-day-title>正在读取当前课程…</span>。</h3><p><span data-study-next-action>正在读取当前正式下一步…</span> B 轨第 1 周随后承接第 20 课未闭环部分。</p></div>
+      <section class="section" id="consistency">
+        <div class="note-grid">
+          <div class="note">
+            <h3>当前主线</h3>
+            <p>原十二周长期线压缩为 W1-W5。W6-W12 不作为当前主线展示，后续如需要再单独设计为扩展模块。</p>
+          </div>
+          <div class="note">
+            <h3>与已有课程的关系</h3>
+            <p>1-19 课和两周课程只作为素材库。本线不重复照搬，而是把知识转化为一个可演示、可解释、可迭代的 Web Agent 产品。</p>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <noscript><div class="shell"><p class="source-note">当前冲刺位置需要 JavaScript 读取只读状态快照。请启用 JavaScript，或直接查看 <a href="../../02_复盘总结/学习状态/study-project.json">正式学习状态 JSON</a>。</p></div></noscript>
+      <section class="section" id="current-line">
+        <div class="section-title">
+          <h2>每日课程拆解</h2>
+          <p>每周 5 天，每天都有明确学习点、项目任务和可交付物。</p>
+        </div>
 
-  <footer class="site-footer"><div class="shell site-footer__inner"><span>B 轨 · 十二周长期线</span><span><a href="../index.html">返回主链路</a></span></div></footer>
-  <script src="../../assets/study-state.snapshot.js"></script>
-  <script src="../../assets/study-state.js"></script>
-  <script src="../../assets/vendor/gsap.min.js"></script>
-  <script src="../../assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="../../assets/app.js"></script>
+        <article class="week-card">
+          <header class="week-header">
+            <span class="week-no">W1</span>
+            <div class="week-copy">
+              <h3>项目定义与边界</h3>
+              <p>先把“为什么做、给谁用、解决什么问题、哪些不做”讲清楚，再进入方案与工程。</p>
+            </div>
+            <span class="deliverable">产出：MVP 定义文档</span>
+          </header>
+          <div class="days-grid">
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W1D1</span><h4>项目问题定义</h4></div>
+              <p>明确 AI 面试与项目答辩教练 Agent 要解决的核心痛点。</p>
+              <ul><li>学习 AI Agent、AI 产品、面试教练的基础定义。</li><li>拆解目标用户在面试准备中的真实任务。</li><li>写出问题陈述和成功标准。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W1D2</span><h4>用户与场景边界</h4></div>
+              <p>从泛面试训练收敛到具体使用场景。</p>
+              <ul><li>定义候选人、岗位、项目材料、答辩场景。</li><li>区分高频、低频和暂不支持场景。</li><li>沉淀用户画像与任务清单。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W1D3</span><h4>Agent 基础模型</h4></div>
+              <p>理解项目里的 Agent 是输入、推理、追问、反馈的任务系统。</p>
+              <ul><li>学习模型、Prompt、上下文、工具调用的关系。</li><li>画出教练 Agent 的最小工作链路。</li><li>判断哪些能力需要 LLM，哪些只需规则或页面逻辑。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W1D4</span><h4>能力边界与风险</h4></div>
+              <p>明确产品不能承诺什么，以及错误输出如何被识别和控制。</p>
+              <ul><li>学习幻觉、过度建议、隐私、错误评分等风险。</li><li>定义产品边界、免责声明和人工复核点。</li><li>形成风险清单与限制策略。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W1D5</span><h4>MVP 范围确认</h4></div>
+              <p>把第一周内容收束成一个可以继续做下去的 MVP。</p>
+              <ul><li>确定首版核心能力。</li><li>写出功能清单、非功能清单和验收口径。</li><li>产出项目定义文档 v1。</li></ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="week-card">
+          <header class="week-header">
+            <span class="week-no">W2</span>
+            <div class="week-copy">
+              <h3>产品方案拆解</h3>
+              <p>把抽象 Agent 变成可描述、可实现、可评审的产品方案。</p>
+            </div>
+            <span class="deliverable">产出：产品方案 v1</span>
+          </header>
+          <div class="days-grid">
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W2D1</span><h4>核心用例拆解</h4></div>
+              <p>把面试教练拆成输入材料、生成问题、模拟追问、反馈改写等核心用例。</p>
+              <ul><li>学习 Use Case、用户故事和验收条件。</li><li>为每个用例写清输入、动作、输出。</li><li>标记首版必须做和暂不做的范围。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W2D2</span><h4>Prompt 任务设计</h4></div>
+              <p>将“教练感”拆成系统角色、任务指令、约束和输出格式。</p>
+              <ul><li>学习 Prompt 的角色、目标、上下文和格式约束。</li><li>设计模拟面试、追问、评分、建议四类 Prompt。</li><li>形成 Prompt 模板 v1。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W2D3</span><h4>知识输入结构</h4></div>
+              <p>确定用户材料如何进入系统，避免把 RAG 当成空泛概念。</p>
+              <ul><li>学习知识库、检索、上下文注入的基本概念。</li><li>设计简历、项目说明、岗位 JD 的字段结构。</li><li>判断首版是否需要 RAG，或用结构化输入替代。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W2D4</span><h4>反馈策略设计</h4></div>
+              <p>定义 Agent 如何指出问题，而不是只给泛泛建议。</p>
+              <ul><li>学习诊断式反馈、示例反馈、改写反馈的差异。</li><li>设计评分维度、证据引用和改进建议。</li><li>形成反馈结构样例。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W2D5</span><h4>方案规格沉淀</h4></div>
+              <p>把第二周内容收束成一份能直接交给设计、工程和后续评审使用的产品规格。</p>
+              <ul>
+                <li>回看 W2D1-W2D4 的用例、Prompt、输入结构和反馈策略。</li>
+                <li>统一术语：角色、输入、输出、约束、边界、异常场景。</li>
+                <li>整理成一页式产品规格，写清首版做什么、不做什么。</li>
+                <li>补齐验收口径：什么样的输出算可用，什么情况需要重写或人工处理。</li>
+              </ul>
+              <p><strong>今日节奏：</strong> 上午整理前四天内容，下午补齐规格和边界，收尾完成自检和版本命名。</p>
+              <p><strong>当日交付：</strong> 1 页产品规格草案 + 1 份验收口径清单 + 1 版可继续推进的方案 v1。</p>
+              <p><strong>完成标准：</strong> 能明确讲清这个 AI 面试与项目答辩教练 Agent 的核心流程、字段、输出样式、风险边界，以及产品方案 v1 的下一步要怎么进入流程与评测。</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="week-card">
+          <header class="week-header">
+            <span class="week-no">W3</span>
+            <div class="week-copy">
+              <h3>流程与评测体系</h3>
+              <p>补齐交互、状态、质量标准和测试样本，避免只做一个聊天壳。</p>
+            </div>
+            <span class="deliverable">产出：流程与评测包</span>
+          </header>
+          <div class="days-grid">
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W3D1</span><h4>用户流程设计</h4></div>
+              <p>设计从上传材料到完成一次模拟答辩的完整路径。</p>
+              <ul><li>学习用户流程、任务路径和关键节点。</li><li>画出首版用户流程图。</li><li>明确每一步页面需要承载的信息。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W3D2</span><h4>状态机与异常</h4></div>
+              <p>定义加载、生成、失败、重试、追问、完成等状态。</p>
+              <ul><li>学习状态机、异常流和兜底文案。</li><li>列出关键状态与转移条件。</li><li>补齐错误提示和重试策略。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W3D3</span><h4>Rubric 评分</h4></div>
+              <p>建立 Agent 反馈的评分标准，减少主观和空泛。</p>
+              <ul><li>学习 Rubric、评分维度和等级描述。</li><li>设计项目答辩回答的评分表。</li><li>写出优秀、一般、风险回答样例。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W3D4</span><h4>Eval Set 构建</h4></div>
+              <p>准备一组能反复验证 Agent 质量的测试样本。</p>
+              <ul><li>学习 Eval Set、测试样本和预期输出。</li><li>构造不同岗位、项目、回答质量的样本。</li><li>定义通过、警告、不通过标准。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W3D5</span><h4>产品评测闭环</h4></div>
+              <p>形成从样本到评分到修正 Prompt 的闭环。</p>
+              <ul><li>跑一轮手工评测。</li><li>记录 Badcase、原因和修正方案。</li><li>产出流程与评测包 v1。</li></ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="week-card">
+          <header class="week-header">
+            <span class="week-no">W4</span>
+            <div class="week-copy">
+              <h3>Web 原型与工程落地</h3>
+              <p>把方案变成用户能打开、能输入、能得到反馈的 Web 产品原型。</p>
+            </div>
+            <span class="deliverable">产出：可演示 Web MVP</span>
+          </header>
+          <div class="days-grid">
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W4D1</span><h4>Web 信息架构</h4></div>
+              <p>定义页面、模块、输入区、对话区、反馈区和记录区。</p>
+              <ul><li>学习 Web 产品的信息架构和页面层级。</li><li>画出首版页面结构。</li><li>确认用户从进入到完成训练的路径。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W4D2</span><h4>核心页面原型</h4></div>
+              <p>完成材料输入、模拟问答、评分反馈三个核心页面或区域。</p>
+              <ul><li>学习表单、对话、反馈面板的基本交互。</li><li>搭出低保真或静态 HTML 原型。</li><li>检查信息是否完整、清晰、可操作。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W4D3</span><h4>API 与数据流</h4></div>
+              <p>理解页面、后端接口、模型调用和返回结果之间如何连接。</p>
+              <ul><li>学习 API、请求体、响应体、错误码基础。</li><li>设计 Agent 调用的数据流。</li><li>明确哪些字段必须被记录和展示。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W4D4</span><h4>日志与记录</h4></div>
+              <p>让每一次训练结果可追踪，方便后续优化。</p>
+              <ul><li>学习日志、事件、会话记录的基本概念。</li><li>设计训练记录、评分记录、Badcase 记录。</li><li>形成最小数据记录方案。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W4D5</span><h4>可演示版本</h4></div>
+              <p>把本周内容串成一次完整演示。</p>
+              <ul><li>跑通一次从输入到反馈的主流程。</li><li>记录演示脚本和已知问题。</li><li>产出可演示 Web MVP v1。</li></ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="week-card">
+          <header class="week-header">
+            <span class="week-no">W5</span>
+            <div class="week-copy">
+              <h3>打磨与稳定</h3>
+              <p>围绕真实使用质量做修正，不转向泛商业化或求职包装。</p>
+            </div>
+            <span class="deliverable">产出：最终项目包</span>
+          </header>
+          <div class="days-grid">
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W5D1</span><h4>Badcase 分析</h4></div>
+              <p>集中审查 Agent 输出错误、空泛、跑偏和不可用的情况。</p>
+              <ul><li>收集至少一组典型 Badcase。</li><li>区分 Prompt、输入、流程和评测问题。</li><li>形成修正优先级。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W5D2</span><h4>质量与护栏</h4></div>
+              <p>补齐产品必须具备的质量底线。</p>
+              <ul><li>学习安全边界、拒答、降级和人工提示。</li><li>为隐私、误导建议、过度承诺建立护栏。</li><li>更新 Prompt、页面提示和评测规则。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W5D3</span><h4>成本与体验优化</h4></div>
+              <p>让产品更像可长期使用的工具，而不是一次性 Demo。</p>
+              <ul><li>学习 token 成本、响应时长和缓存的基本判断。</li><li>优化输入长度、输出结构和等待体验。</li><li>形成成本与体验优化清单。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W5D4</span><h4>项目说明材料</h4></div>
+              <p>写清这个 Agent 是怎么被定义、设计、实现和评测的。</p>
+              <ul><li>整理项目背景、功能范围、技术链路和质量方案。</li><li>补充关键截图、流程图和评测结果。</li><li>形成项目说明文档。</li></ul>
+            </section>
+            <section class="day-card">
+              <div class="day-title"><span class="day-no">W5D5</span><h4>最终演示复盘</h4></div>
+              <p>完成最终演示，并明确后续迭代方向。</p>
+              <ul><li>按真实用户路径演示完整流程。</li><li>复盘产品价值、Agent 能力和工程限制。</li><li>产出最终项目包和下一版迭代清单。</li></ul>
+            </section>
+          </div>
+        </article>
+
+        <div class="floating-toc">当前页面保留五周项目线。若要回到两周课程，请使用顶部导航。</div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
